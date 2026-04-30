@@ -221,14 +221,14 @@ following list illustrates the changes in the directory structure after the migr
     │   │   ├── header.css
     │   │   ├── header-nav.js
     │   │   └── tag.png
-    │   ├── _templates              # removed, files are part of the extension
-    │   │   ├── sidebar
-    │   │   │   └── search.html
-    │   │   ├── 404.html
-    │   │   ├── base.html
-    │   │   ├── footer.html
-    │   │   ├── header.html
-    │   │   └── page.html
+│   ├── _templates                  # moved to `docs/_templates`
+│   │   ├── sidebar                 # removed
+│   │   │   └── search.html
+│   │   ├── 404.html                # removed
+│   │   ├── base.html               # removed
+│   │   ├── footer.html
+│   │   ├── header.html
+│   │   └── page.html               # removed
     │   ├── build_requirements.py   # removed
     │   ├── get_vale_conf.py
     │   ├── latex_elements_template.txt     # removed, now part of the extension
@@ -247,11 +247,11 @@ following list illustrates the changes in the directory structure after the migr
     ├── .wokeignore                 # removed, check replaced by Vale
     ├── conf.py                     # removed, now part of the extension
     ├── custom_conf.py              # renamed and moved to `docs/conf.py`
-    ├── doc-cheat-sheet-myst.md     # moved to `docs/doc-cheat-sheet-myst.md`
-    ├── doc-cheat-sheet.rst         # moved to `docs/doc-cheat-sheet.rst`
+    ├── doc-cheat-sheet-myst.md     # removed
+    ├── doc-cheat-sheet.rst         # removed
     ├── index.rst                   # moved to `docs/index.rst`
     ├── init.sh                     # removed
     ├── make.bat                    # removed
     ├── Makefile                    # moved to `docs/Makefile`
     ├── Makefile.sp                 # removed
-    └── readme.rst                  # renamed to `README.rst`
+    └── readme.rst                  # renamed to `README.md`
