@@ -4,8 +4,9 @@ Sphinx Stack documentation
 The Sphinx Stack helps you to quickly set up, build, and publish documentation with
 Sphinx.
 
-It contains common styling and configuration through the `Canonical Sphinx`_ extension,
-supports both |RST| and Markdown, and includes automatic documentation checks.
+It contains common styling and configuration through the `Canonical Sphinx
+<https://github.com/canonical/canonical-sphinx>`__ extension, supports both |RST| and
+Markdown, and includes automatic documentation checks.
 
 
 In this documentation
@@ -43,8 +44,8 @@ In this documentation
 Project and community
 ----------------------
 
-The Canonical Sphinx Stack is an open source project that warmly welcomes community
-contributions, suggestions, fixes and constructive feedback.
+The Sphinx Stack is an open source project that warmly welcomes community contributions,
+suggestions, fixes and constructive feedback.
 
 
 .. toctree::

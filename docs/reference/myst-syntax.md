@@ -2,7 +2,7 @@
 relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
   html_meta:
-    description: MyST Markdown syntax for use in Sphinx Stack projects, including headings, links, code blocks, directives, and reusable content patterns.
+    description: Reference for the MyST syntax conventions used by Canonical.
   substitutions:
     advanced_reuse_key: "This is a substitution that includes a code block:
                        ```
@@ -740,46 +740,55 @@ To reuse sentences or paragraphs that have little markup and special formatting,
 
 Substitutions can be defined in the following locations:
 
-- Globally, in a file named `reuse/substitutions.yaml` that is loaded into the
-  [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2)
-  variable in `conf.py`:
+**Globally**, in a file named {file}`reuse/substitutions.yaml` that is loaded into the
+[`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2)
+variable in `conf.py`. Or if you have a limited amount of substitutions, enter them
+directly into the `myst_substitutions` variable in `conf.py`:
 
-  ```{code-block} python
-     :caption: "{spellexception}`conf.py`"
+```{code-block} python
+:caption: "{spellexception}`conf.py`"
 
-  import os
-  import yaml
+import os
+import yaml
 
-  ...
-
-  if os.path.exists('./reuse/substitutions.yaml'):
+if os.path.exists('./reuse/substitutions.yaml'):
     with open('./reuse/substitutions.yaml', 'r') as fd:
         myst_substitutions = yaml.safe_load(fd.read())
-  ```
+else:
+    myst_substitutions = {
+        "version_number": "0.1.0",
+        "formatted_text": "*Multi-line* text\n that uses basic **markup**.",
+        "site_link": "[Website link](https://example.com)"
+  }
+```
 
-  ```{code-block} yaml
-     :caption: "{spellexception}`reuse/substitutions.yaml`"
+```{code-block} yaml
+:caption: "{spellexception}`reuse/substitutions.yaml`"
 
-  # Key/value substitutions to use within the Sphinx doc.
-  {version_number: "0.1.0",
-   formatted_text: "*Multi-line* text\n that uses basic **markup**.",
-   site_link: "[Website link](https://example.com)"}
-- Locally, putting the definitions at the top of a single file in the following format:
+# Key/value substitutions to use within the Sphinx doc.
+{version_number: "0.1.0",
+  formatted_text: "*Multi-line* text\n that uses basic **markup**.",
+  site_link: "[Website link](https://example.com)"}
 
-  ````
-  ---
-  myst:
-    substitutions:
-      version_number: "0.1.0"
-      formatted_text: "*Multi-line* text
-                       that uses basic **markup**."
-      advanced_reuse_key: "This is a substitution that includes a code block:
-                         ```
-                         code block
-                         ```"
+```
 
-  ---
-  ````
+**Locally**, putting the definitions at the top of a single file in the following
+format:
+
+
+````
+---
+myst:
+  substitutions:
+    version_number: "0.1.0"
+    formatted_text: "*Multi-line* text
+                      that uses basic **markup**."
+    advanced_reuse_key: "This is a substitution that includes a code block:
+                        ```
+                        code block
+                        ```"
+---
+````
 
 You can combine both options by defining a default substitution in
 `reuse/substitutions.py` and overriding it at the top of a file.

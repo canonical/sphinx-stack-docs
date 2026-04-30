@@ -35,7 +35,7 @@ To update a new Sphinx Stack project to the latest version, see:
 .. note::
 
     New Sphinx Stack releases use a semantic versioning scheme for minor and patch
-    versions, which can be found in your project's ``.sphinx/version`` file. 
+    versions, which can be found in your project's ``_dev/version`` file. 
 
 
 Legacy Sphinx Stack

@@ -81,7 +81,7 @@ under ``docs/``.
 The navigation menu structure is set by ``.. toctree::`` directives. These directives
 define the hierarchy of included content throughout the documentation. The
 ``index.rst`` page's ``toctree`` block contains the top level navigation, which by
-default is the `Diátaxis`_ documentation structure.
+default is the `Diátaxis <https://diataxis.fr/>`__ documentation structure.
 
 To add a new page to the documentation:    
 
@@ -138,9 +138,9 @@ Use `pre-commit <https://pre-commit.com/>`_ hooks with the Sphinx Stack to autom
 checks like spelling and inclusive language.
 
 The Sphinx Stack includes a ready-to-use ``.pre-commit-config.yaml`` file under
-``docs/.sphinx/``:
+``docs/_dev/``:
 
-.. literalinclude:: /.sphinx/.pre-commit-config.yaml
+.. literalinclude:: /_dev/.pre-commit-config.yaml
    :language: yaml
 
 For a new project, copy this file to your project's root directory. For an existing
@@ -150,7 +150,7 @@ To apply the configuration, install the Sphinx Stack hooks, for instance:
 
 .. code-block:: bash
 
-    pre-commit install --config docs/.sphinx/.pre-commit-config.yaml
+    pre-commit install --config docs/_dev/.pre-commit-config.yaml
 
 
 After that, you should see the checks running with every commit:

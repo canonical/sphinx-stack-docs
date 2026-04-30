@@ -16,11 +16,13 @@ documentation reflects your project accurately.
     made to the Sphinx Stack.
 
     Changes to the look and feel, as well as common functionality, will be automatically
-    available through updates to the `Canonical Sphinx`_ extension.
+    available through updates to the `Canonical Sphinx
+    <https://github.com/canonical/canonical-sphinx>`__ extension.
 
     Changes to files that are part of the Sphinx Stack, for example changes made during
     steps in :ref:`run-documentation-checks`, might require you to manually update your
-    repository with the required files. See the Sphinx Stack's `change log`_ for the
+    repository with the required files. See the Sphinx Stack `changelog
+    <https://github.com/canonical/sphinx-stack/blob/main/CHANGELOG.md>`__ for the
     most relevant (and of course all breaking) changes.
 
 Configuration for a Sphinx Stack based documentation is set in the ``docs/conf.py``
@@ -161,8 +163,10 @@ pages by setting the ``sequential_nav`` variable in the ``docs/conf.py`` file.
 You can then override this default setting for a specific page (for example, to turn off
 the Previous/Next buttons by default, but display them in a multi-page tutorial).
 
-To do so, add `file-wide metadata`_ at the top of a page.
-See the following examples for how to enable Previous/Next buttons for one page:
+To do so, add `file-wide metadata
+<https://www.sphinx-doc.org/en/master/usage/restructuredtext/field-lists.html>`__ at the
+top of a page. See the following examples for how to enable Previous/Next buttons for
+one page:
 
 |RST|:
 
@@ -187,7 +191,7 @@ Possible values for the ``sequential_nav`` field are ``none``, ``prev``, ``next`
 
 Another example for page-specific configuration is the ``hide-toc`` field (provided by
 `Furo <Furo documentation_>`_), which can be used to hide the page-internal table of
-content. See `Hiding Contents sidebar`_.
+content. See `Hiding Contents sidebar <https://pradyunsg.me/furo/customisation/toc/>`__.
 
 
 Add your own configuration
@@ -199,9 +203,9 @@ common ``conf.py`` file.
 
 The following links can help you with additional configuration:
 
-- `Sphinx configuration`_
-- `Sphinx extensions`_
-- `Furo documentation`_ (Furo is the Sphinx theme we use as our base)
+- `Sphinx configuration <https://www.sphinx-doc.org/en/master/usage/configuration.html>`__
+- `Sphinx extensions <https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`__
+- `Furo documentation <https://pradyunsg.me/furo/quickstart/>`__
 
 If you need additional Python packages for any custom processing you do in your
 documentation, add them to the ``docs/requirements.txt`` file.

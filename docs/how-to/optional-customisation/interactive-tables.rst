@@ -34,7 +34,7 @@ Make a table interactive by adding a special CSS class to the directive:
 
           .. csv-table::
               :class: sphinx-datatable
-              :file: /reuse/animals.csv
+              :file: /how-to/assets/animals.csv
               :header-rows: 1
 
    .. tab-item:: MyST
@@ -43,6 +43,6 @@ Make a table interactive by adding a special CSS class to the directive:
 
           ```{csv-table}
           :class: sphinx-datatable
-          :file: /reuse/animals.csv
+          :file: /how-to/assets/animals.csv
           :header-rows: 1
           ```

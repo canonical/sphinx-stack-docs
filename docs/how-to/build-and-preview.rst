@@ -48,7 +48,7 @@ documentation directory:
 
     make install
 
-This command creates a virtual environment (``.sphinx/venv/``) and installs dependency
+This command creates a virtual environment (``.venv/``) and installs dependency
 software within it.
 
 If you want to remove the installed Python packages (for example, to enforce a

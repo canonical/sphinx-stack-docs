@@ -167,7 +167,7 @@ requires overriding the default template.
 #. Download the default template file `latex_elements_template.txt
    <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/PDF/latex_elements_template.txt>`_
    from the ``canonical/canonical-sphinx`` GitHub repository, and save it to your
-   project directory. For example, at ``.sphinx/latex_elements_custom.txt``.
+   project directory. For example, at ``_dev/latex_elements_custom.txt``.
 #. In the Python dictionary, add or modify the LaTeX elements you want to change.
    Details of changing the dictionary are covered in the sub-sections below.
 #. In your project's ``conf.py`` file, add or update the ``latex_elements`` dictionary
@@ -177,7 +177,7 @@ requires overriding the default template.
 .. code-block:: python
 
     # Replace with the path to your local override file
-    latex_elements_file = ".sphinx/latex_elements_custom.txt"  
+    latex_elements_file = "_dev/latex_elements_custom.txt"  
     
     with open(latex_elements_file, "rt") as file:
         latex_config = file.read()

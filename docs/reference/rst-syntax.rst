@@ -1,5 +1,5 @@
 .. meta::
-  :description: reStructuredText syntax for use in Sphinx Stack projects, including headings, links, code blocks, and tables.
+    :description: Reference for the reStructuredText syntax conventions used by Canonical.
 
 :relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 
@@ -8,7 +8,8 @@
 reStructuredText syntax
 =======================
 
-The Sphinx Stack supports `reStructuredText`_ (reST).
+The Sphinx Stack supports `reStructuredText
+<https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`__ (reST).
 
 See the following sections for syntax help and conventions.
 
@@ -18,7 +19,9 @@ See the following sections for syntax help and conventions.
     <https://github.com/canonical/sphinx-stack>`__. Some of the mentioned syntax
     requires Sphinx extensions (which are enabled in the Sphinx Stack).
 
-For general style conventions, see the `Canonical Documentation Style Guide`_.
+For general style conventions, see the `Canonical Documentation Style Guide
+<https://docs.ubuntu.com/styleguide/en>`__.
+
 
 Headings
 --------
@@ -89,19 +92,25 @@ Inline formatting
 
 Adhere to the following conventions:
 
-- Use italics sparingly. Common uses for italics are titles and names (for example, when referring to a section title that you cannot link to, or when introducing the name for a concept).
-- Use bold sparingly. Avoid using bold for emphasis and rather rewrite the sentence to get your point across.
+- Use italics sparingly. Common uses for italics are titles and names (for example, when
+  referring to a section title that you cannot link to, or when introducing the name for
+  a concept).
+- Use bold sparingly. Avoid using bold for emphasis and rather rewrite the sentence to
+  get your point across.
 
 
 Code blocks
 -----------
 
-To start a code block, either end the introductory paragraph with two colons (``::``) and indent the following code block, or explicitly start a code block with ``.. code::``.
-In both cases, the code block must be surrounded by empty lines.
+To start a code block, either end the introductory paragraph with two colons (``::``)
+and indent the following code block, or explicitly start a code block with ``..
+code::``. In both cases, the code block must be surrounded by empty lines.
 
-When explicitly starting a code block, you can specify the code language to enforce a specific lexer, but in many cases, the default lexer works just fine.
+When explicitly starting a code block, you can specify the code language to enforce a
+specific lexer, but in many cases, the default lexer works just fine.
 
-For a list of supported languages and their respective lexers, see the official `Pygments documentation`_.
+For a list of supported languages and their respective lexers, see the official
+`Pygments documentation <https://pygments.org/languages/>`__.
 
 .. list-table::
    :header-rows: 1
@@ -318,7 +327,8 @@ Define the links in a shared file:
   To keep the text readable and links maintainable,
   put all link definitions in a file named :file:`reuse/links.txt`
   to include it in a custom ``rst_epilog`` directive
-  (see the `Sphinx documentation <rst_epilog_>`_).
+  (see the `rst_epilog documentation
+  <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`__).
 
   .. code-block:: python
      :caption: :spellexception:`conf.py`
@@ -468,10 +478,16 @@ If a documentation page does not have a target, you can still reference it by us
 
 Adhere to the following conventions:
 
-- Only use the ``:doc:`` role when you cannot use the ``:ref:`` role, thus only if there is no target at the top of the file and you cannot add it. When using the ``:doc:`` role, your reference will break when a file is renamed or moved.
-- Override the link text only when it is necessary. If you can use the document title as link text, do so, because the text will then update automatically if the title changes.
-- Never "override" the link text with the same text that would be generated automatically.
-- When using an external target, ``project_key`` must be a key in the ``intersphinx_mapping`` dictionary in ``conf.py``.
+- Only use the ``:doc:`` role when you cannot use the ``:ref:`` role, thus only if there
+  is no target at the top of the file and you cannot add it. When using the ``:doc:``
+  role, your reference will break when a file is renamed or moved.
+- Override the link text only when it is necessary. If you can use the document title as
+  link text, do so, because the text will then update automatically if the title
+  changes.
+- Never "override" the link text with the same text that would be generated
+  automatically.
+- When using an external target, ``project_key`` must be a key in the
+  ``intersphinx_mapping`` dictionary in ``conf.py``.
 
 
 Navigation
@@ -479,7 +495,9 @@ Navigation
 
 Every documentation page must be included as a sub-page to another page in the navigation.
 
-This is achieved with the `toctree`_ directive in the parent page::
+This is achieved with the `toctree
+<https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`__
+directive in the parent page::
 
   .. toctree::
      :hidden:
@@ -487,8 +505,9 @@ This is achieved with the `toctree`_ directive in the parent page::
      sub-page1
      sub-page2
 
-If a page should not be included in the navigation, you can suppress the resulting build warning by putting ``:orphan:`` at the top of the file.
-Use orphan pages sparingly and only if there is a clear reason for it.
+If a page should not be included in the navigation, you can suppress the resulting build
+warning by putting ``:orphan:`` at the top of the file. Use orphan pages sparingly and
+only if there is a clear reason for it.
 
 .. tip::
 
@@ -612,8 +631,9 @@ Definition lists
 Tables
 ------
 
-reST supports different markup for tables. Grid tables are most similar to tables in Markdown, but list tables are usually much easier to use.
-See the `Sphinx documentation <tables_>`_ for all table syntax alternatives.
+reST supports different markup for tables. Grid tables are most similar to tables in
+Markdown, but list tables are usually much easier to use. See the `Sphinx documentation
+<tables_>`_ for all table syntax alternatives.
 
 Both markups result in the following output:
 
@@ -633,7 +653,9 @@ Both markups result in the following output:
 Grid tables
 ~~~~~~~~~~~
 
-See `grid tables`_ for reference.
+See `grid tables
+<https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#grid-tables>`__ for
+reference.
 
 .. code-block::
 
@@ -651,7 +673,9 @@ See `grid tables`_ for reference.
 List tables
 ~~~~~~~~~~~
 
-See `list tables`_ for reference.
+See `list tables
+<https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table>`__ for
+reference.
 
 .. code::
 
@@ -694,7 +718,7 @@ For example:
 .. code-block:: rst
 
     .. csv-table::
-        :file: /reuse/animals.csv
+        :file: /assets/animals.csv
         :header-rows: 1
 
 Both markups result in the following output:
@@ -772,8 +796,9 @@ Adhere to the following conventions:
 - Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
 - If producing multiple output formats, use ``*`` as the file extension to have
   Sphinx select the best image format for the output
-- See `Five golden rules for compliant alt text`_ for information about how to word the
-  alt text.
+- See `Five golden rules for compliant alt text
+  <https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text>`__
+  for information about how to word the alt text.
 
 
 Reuse
@@ -787,10 +812,13 @@ Substitution
 ~~~~~~~~~~~~
 
 To reuse sentences and entire paragraphs that have little markup or special formatting,
-define `substitutions`_ for them in two possible ways.
+define `substitutions
+<https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions>`__
+for them in two possible ways.
 
 **Globally**, in a file named ``reuse/substitutions.txt`` that is included in a
-custom ``rst_epilog`` directive (see the `Sphinx documentation <rst_epilog_>`_):
+custom ``rst_epilog`` directive (see the `rst_epilog documentation
+<https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`_):
 
 .. code-block:: python
     :caption: :spellexception:`conf.py`
@@ -903,8 +931,8 @@ Adhere to the following conventions:
 Tabs
 ----
 
-The recommended way of creating tabs is to use the tabs that the `Sphinx design`_
-extension provides.
+The recommended way of creating tabs is to use the tabs that the `Sphinx design
+<https://sphinx-design.readthedocs.io/en/latest/>`__ extension provides.
 
 .. list-table::
     :header-rows: 1
@@ -935,36 +963,6 @@ extension provides.
               :sync: key2
 
               Content Tab 2
-
-Alternatively, you can use the `Sphinx tabs`_ extension, which is also enabled by
-default. This was previously recommended due to limitations in Sphinx Design that are
-now fixed.
-
-.. list-table::
-    :header-rows: 1
-
-    * - Input
-      - Output
-    * - .. code::
-
-            .. tabs::
-
-              .. group-tab:: Tab 1
-
-                  Content Tab 1
-
-              .. group-tab:: Tab 2
-
-                  Content Tab 2
-      - .. tabs::
-
-            .. group-tab:: Tab 1
-
-                Content Tab 1
-
-            .. group-tab:: Tab 2
-
-                Content Tab 2
 
 
 Glossary
@@ -1031,8 +1029,3 @@ More useful markup
     * - ``:spellexception:`PurposelyWrong```
       - :spellexception:`PurposelyWrong`
       - Explicitly exempt a term from the spelling check.
-
-.. LINKS
-
-.. _substitutions: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions
-.. _rst_epilog: https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog

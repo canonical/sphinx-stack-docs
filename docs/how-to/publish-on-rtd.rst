@@ -19,12 +19,14 @@ publish documentation on Read the Docs
 In general, after enabling the Sphinx Stack for your documentation, follow these steps
 to build and publish your documentation on Read the Docs:
 
-#. Make sure your documentation :ref:`builds without errors or warnings <build-clean>`.
+1. Make sure your documentation :ref:`builds without errors or warnings <build-clean>`.
 #. Log into Read the Docs.
 #. In your account settings, navigate to :guilabel:`Connected services` and check that
    your GitHub account is listed. If it's not listed, add a connection to GitHub. See
-   `How to connect your Read the Docs account to your Git provider`_.
-#. Use the `manual import`_ to create a project.
+   `How to connect your Read the Docs account to your Git provider
+   <https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html>`__.
+#. Use the `manual import <https://readthedocs.com/dashboard/import/manual/>`__ to
+   create a project.
 #. Specify the path to the ``.readthedocs.yaml`` file for your build. To do this,
    navigate to :guilabel:`Admin` > :guilabel:`Settings` and specify the path under "Path
    for ``.readthedocs.yaml``".
@@ -61,7 +63,9 @@ does. The person with administrator privileges must have connected their Read th
 account to GitHub. See `How to connect your Read the Docs account to your Git
 provider`_.
 
-See `How to manually configure a Git repository integration`_ if you want to set up the
+See `How to manually configure a Git repository integration
+<https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html>`__ if
+you want to set up the
 webhook manually.
 
 

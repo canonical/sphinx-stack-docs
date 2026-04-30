@@ -1,3 +1,6 @@
+.. meta::
+    :description: How to verify your documentation's spelling, links, and language with built-in checks.
+
 .. _run-documentation-checks :
 
 Run documentation checks
@@ -19,9 +22,10 @@ your documentation before committing and pushing changes:
 Accessibility check
 -------------------
 
-The Sphinx Stack checks the accessibility of the documentation with `Pa11y`_. It's
+The Sphinx Stack checks the accessibility of the documentation with `Pa11y
+<https://pa11y.org/>`__. It's
 configured to check for Level AA conformity to the `Web Content Accessibility Guidelines
-(WCAG) 2.2`_.
+(WCAG) 2.2 <https://www.w3.org/TR/WCAG22/>`__.
 
 This check is only available locally; it is not part of the :ref:`github-workflows` in
 the Sphinx Stack.
@@ -47,8 +51,8 @@ To check the accessibility of the documentation, run the following command in yo
 Configure
 ~~~~~~~~~
 
-The ``pa11y.json`` file in the ``.sphinx`` directory provides basic defaults expected to
-be used for all teams; refrain from removing any unless absolutely necessary. Additional
+The ``pa11y.json`` file in the ``_dev`` directory provides basic defaults expected to be
+used for all teams; refrain from removing any unless absolutely necessary. Additional
 settings and options are detailed in the ``Pa11y`` `README
 <https://github.com/pa11y/pa11y#command-line-configuration>`__ on GitHub.
 
@@ -58,8 +62,8 @@ settings and options are detailed in the ``Pa11y`` `README
 Inclusive language check
 ------------------------
 
-The Sphinx Stack checks for inclusive language with a custom set of `Vale`_ rules. To
-check for inclusive language violations, run:
+The Sphinx Stack checks for inclusive language with a custom set of `Vale
+<https://vale.sh>`__ rules. To check for inclusive language violations, run:
 
 .. code-block:: bash
 
@@ -109,7 +113,7 @@ lint check. To check your Markdown files, run:
 Configure
 ~~~~~~~~~
 
-You can update the linting rules in the ``.sphinx/.pymarkdown.json`` file. Refer to `the
+You can update the linting rules in the ``_dev/.pymarkdown.json`` file. Refer to `the
 pymarkdown rules documentation <https://pymarkdown.readthedocs.io/en/latest/rules/>`_
 for all the available rules.
 

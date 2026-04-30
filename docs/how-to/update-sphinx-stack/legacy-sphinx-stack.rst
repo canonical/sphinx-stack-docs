@@ -168,7 +168,7 @@ For example, if you added customised styling in the original
    <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/static/custom.css>`_.
    This comparison helps you identify the changes that need to be migrated to the new
    project.
-#. Create a new CSS file under ``docs/.sphinx/_static``. You can choose any other file
+#. Create a new CSS file under ``docs/_dev/_static``. You can choose any other file
    location in the project directory, but it's recommended to keep the file structure
    similar to the original project.
 #. Copy the additions and changes to the new empty file.
@@ -195,7 +195,7 @@ following list illustrates the changes in the directory structure after the migr
     │   └── workflows
     │       ├── automatic-doc-checks.yml
     │       └── markdown-style-checks.yml
-    ├── .sphinx                     # moved to `docs/.sphinx`
+    ├── .sphinx                     # renamed to `docs/_dev`
     │   ├── fonts                   # removed, files are part of the extension
     │   │   ├── Ubuntu-B.ttf
     │   │   ├── ubuntu-font-licence-1.0.txt
@@ -238,12 +238,12 @@ following list illustrates the changes in the directory structure after the migr
     │   └── scripts                 
     │       ├── build_metrics.sh   
     │       └── source_metrics.sh   
-    ├── reuse                       # moved to `docs/reuse`
+    ├── reuse                       # removed
     │   └── links.txt
     ├── .custom_wordlist.txt        # moved to `docs/.custom_wordlist.txt`
     ├── .gitignore
     ├── .readthedocs.yaml
-    ├── .wordlist.txt               # moved to `docs/.sphinx/.wordlist.txt`
+    ├── .wordlist.txt               # removed
     ├── .wokeignore                 # removed, check replaced by Vale
     ├── conf.py                     # removed, now part of the extension
     ├── custom_conf.py              # renamed and moved to `docs/conf.py`
