@@ -1,5 +1,5 @@
 .. meta::
-    :description: Explore topics about the concepts and ideas in Canonical's Starter Pack.
+    :description: Explore topics about the concepts and ideas in the Sphinx Stack.
 
 
 .. _explanation:
@@ -7,9 +7,9 @@
 Explanation
 ===========
 
-Explore topics about the concepts and ideas in Canonical's Starter Pack.
+Explore topics about the concepts and ideas in the Sphinx Stack.
 
-The Starter Pack is built using standard Python tools, and is both deep and flexible.
+The Sphinx Stack is built using standard Python tools, and is both deep and flexible.
 
 .. toctree::
     :maxdepth: 1

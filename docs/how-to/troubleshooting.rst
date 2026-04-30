@@ -1,12 +1,12 @@
 .. meta::
-   :description: How to troubleshoot common issues with the Sphinx Starter Pack and Read the Docs.
+   :description: How to troubleshoot common issues with the Sphinx Stack and Read the Docs.
 
 .. _troubleshooting:
 
 Troubleshooting
 ===================
 
-This page provides guidance to resolve issues with the Starter Pack and Read the Docs
+This page provides guidance to resolve issues with the Sphinx Stack and Read the Docs
 that are difficult to identify or that we don't expect to be solved.
 
 
@@ -44,6 +44,7 @@ over the status indicator. In the hover box, open the **stable** link. If the re
 GitHub page is a 404, then your project has a zombie version.
 
 .. image:: ../how-to/assets/troubleshoot-stable-zombie-version.png
+
 
 Resolution
 ~~~~~~~~~~

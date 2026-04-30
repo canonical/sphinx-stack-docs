@@ -23,7 +23,7 @@ documentation_architecture:
               end
               Sphinx -->|builds| HTML[HTML]
           end
-    rendered_image: "../explanation/assets/python-starter-pack.png"
+    rendered_image: "../explanation/assets/python-sphinx-stack.png"
 
   - diagram_name: "Extensions"
     description: "How built-in and third-party extensions are integrated and activated via requirements and conf.py."

@@ -23,27 +23,27 @@ page interaction.
 The footer template provides a link for users to change their data collection
 preferences.
 
-The process for sourcing these files depends on your Starter Pack version. Check which
+The process for sourcing these files depends on your Sphinx Stack version. Check which
 version is listed in your project's ``docs/.sphinx/version`` file.
 
 
-On Starter Pack 1.6 or higher
+On Sphinx Stack 1.6 or higher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Starting in version 1.6 of the Starter Pack, these templates are available by default.
+Starting in version 1.6 of the Sphinx Stack, these templates are available by default.
 If you're on one of these versions, skip ahead to :ref:`update-your-configuration-file`. 
 
 
-On Starter Pack 1.5 or lower
+On Sphinx Stack 1.5 or lower
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In version 1.5 of the Starter Pack and lower, the templates were sourced from a separate
+In version 1.5 of the Sphinx Stack and lower, the templates were sourced from a separate
 repository.
 
 Download the latest version of the templates:
 
-- :literalref:`header.html <https://github.com/canonical/sphinx-docs-starter-pack/blob/main/docs/_templates/header.html>`
-- :literalref:`footer.html <https://github.com/canonical/sphinx-docs-starter-pack/blob/main/docs/_templates/footer.html>`
+- :literalref:`header.html <https://github.com/canonical/sphinx-stack/blob/main/docs/_templates/header.html>`
+- :literalref:`footer.html <https://github.com/canonical/sphinx-stack/blob/main/docs/_templates/footer.html>`
 
 Next, create a ``docs/_templates`` directory and move the templates into it.
 
@@ -89,7 +89,7 @@ Update your configuration file
 Now that the templates are in place, you need to make Sphinx aware of them in your
 project's configuration file.
 
-If you're on version 1.6 of the Starter Pack or higher, these lines already exist
+If you're on version 1.6 of the Sphinx Stack or higher, these lines already exist
 in your configuration file. You only need to uncomment them in the following steps. In
 lower versions, you need to add them yourself.
 

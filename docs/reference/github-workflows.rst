@@ -3,10 +3,12 @@
 GitHub workflows
 ================
 
-The primary documentation workflow checks spelling, links, and inclusive language in a documentation project; 
-these are the same checks as described in :ref:`run-documentation-checks`.
+The primary documentation workflow checks spelling, links, and inclusive language in a
+documentation project; these are the same checks as described in
+:ref:`run-documentation-checks`.
 
-The ``documentation-checks.yaml`` workflow covers these three checks and can be added to a new or existing workflow's jobs with:
+The ``documentation-checks.yaml`` workflow covers these three checks and can be added to
+a new or existing workflow's jobs with:
 
 .. code:: yaml
 
@@ -18,8 +20,8 @@ The ``documentation-checks.yaml`` workflow covers these three checks and can be 
         working-directory: 'docs'
 
 
-Workflows are also available for each individual check so that projects may run a subset of
-those defined in ``documentation-checks.yaml``:
+Workflows are also available for each individual check so that projects may run a subset
+of those defined in ``documentation-checks.yaml``:
 
 .. code:: yaml
   
@@ -41,8 +43,9 @@ those defined in ``documentation-checks.yaml``:
 Input
 -----
 
-The table below lists the inputs for the ``documentation-checks.yaml`` workflow. If your project consumes the 
-Starter Pack in a non-traditional way, declare any of the following inputs to customize the workflow as needed:
+The table below lists the inputs for the ``documentation-checks.yaml`` workflow. If your
+project consumes the Sphinx Stack in a non-traditional way, declare any of the following
+inputs to customize the workflow as needed:
 
 .. list-table::
    :header-rows: 1
@@ -84,12 +87,12 @@ Check for removed URLs
 
 .. versionadded:: 1.2.0
 
-The Starter Pack includes a GitHub action to identify when pages have been removed. 
-This includes moving pages to another path, or removing them completely.
+The Sphinx Stack includes a GitHub action to identify when pages have been removed. This
+includes moving pages to another path, or removing them completely.
 
-This does not cover higher-level changes to URL paths, such as changes to the project name or URL slug pattern on RTD.
+This does not cover higher-level changes to URL paths, such as changes to the project
+name or URL slug pattern on RTD.
 
-This check ensures that redirects are implemented when pages are moved, or
-appropriate information is provided when anything is removed. It only runs
-on pull request builds.
+This check ensures that redirects are implemented when pages are moved, or appropriate
+information is provided when anything is removed. It only runs on pull request builds.
 

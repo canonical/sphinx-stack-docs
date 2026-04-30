@@ -1,5 +1,5 @@
 .. meta::
-  :description: reStructuredText syntax for use in Starter Pack projects, including headings, links, code blocks, and tables.
+  :description: reStructuredText syntax for use in Sphinx Stack projects, including headings, links, code blocks, and tables.
 
 :relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 
@@ -8,13 +8,15 @@
 reStructuredText syntax
 =======================
 
-The Starter Pack supports `reStructuredText`_ (reST).
+The Sphinx Stack supports `reStructuredText`_ (reST).
 
 See the following sections for syntax help and conventions.
 
 .. note::
-   This guide assumes that you are using the `Sphinx documentation starter pack`_.
-   Some of the mentioned syntax requires Sphinx extensions (which are enabled in the Starter Pack).
+
+    This guide assumes that you are using the `Sphinx Stack
+    <https://github.com/canonical/sphinx-stack>`__. Some of the mentioned syntax
+    requires Sphinx extensions (which are enabled in the Sphinx Stack).
 
 For general style conventions, see the `Canonical Documentation Style Guide`_.
 
@@ -61,6 +63,7 @@ Adhere to the following conventions:
   Use the ones specified above.
 - Use sentence style for headings (capitalise only the first word).
 
+
 Inline formatting
 -----------------
 
@@ -88,6 +91,7 @@ Adhere to the following conventions:
 
 - Use italics sparingly. Common uses for italics are titles and names (for example, when referring to a section title that you cannot link to, or when introducing the name for a concept).
 - Use bold sparingly. Avoid using bold for emphasis and rather rewrite the sentence to get your point across.
+
 
 Code blocks
 -----------
@@ -138,6 +142,7 @@ For a list of supported languages and their respective lexers, see the official 
           # Demonstrate a code block
           code:
           - example: true
+
 
 Terminal output
 ~~~~~~~~~~~~~~~
@@ -237,6 +242,7 @@ To make the terminal scroll horizontally instead of wrapping long lines, include
 
 For more details, refer to the `sphinx-terminal README <https://github.com/canonical/sphinx-terminal/blob/main/README.md>`_.
 
+
 Links
 -----
 
@@ -330,6 +336,7 @@ Define the links in a shared file:
      * - ```Canonical website`_``
        - `Canonical website`_
 
+
 Related links
 ^^^^^^^^^^^^^
 
@@ -345,6 +352,7 @@ To add a link to a Discourse topic, configure the Discourse instance in the :fil
 Then add the following field at the top of the page (where ``12345`` is the ID of the Discourse topic)::
 
   :discourse: 12345
+
 
 Manual-page links
 ^^^^^^^^^^^^^^^^^
@@ -391,10 +399,12 @@ To add a link to a YouTube video, use the following directive:
 The video title is extracted automatically and displayed when hovering over the link.
 To override the title, add the ``:title:`` option.
 
+
 Internal references
 ~~~~~~~~~~~~~~~~~~~
 
 You can reference pages and targets in this documentation set, and also in other documentation sets using Intersphinx.
+
 
 .. _a_section_target:
 
@@ -435,6 +445,7 @@ Adhere to the following conventions:
 - Override the link text only when it is necessary. If you can use the referenced title as link text, do so, because the text will then update automatically if the title changes.
 - Never "override" the link text with the same text that would be generated automatically.
 
+
 Referencing a page
 ^^^^^^^^^^^^^^^^^^
 
@@ -462,6 +473,7 @@ Adhere to the following conventions:
 - Never "override" the link text with the same text that would be generated automatically.
 - When using an external target, ``project_key`` must be a key in the ``intersphinx_mapping`` dictionary in ``conf.py``.
 
+
 Navigation
 ----------
 
@@ -479,72 +491,77 @@ If a page should not be included in the navigation, you can suppress the resulti
 Use orphan pages sparingly and only if there is a clear reason for it.
 
 .. tip::
-   Instead of hiding pages that you do not want to include in the documentation from the navigation, you can exclude them from being built.
-   This method will also prevent them from being found through the search.
 
-   To exclude pages from the build, add them to the ``custom_excludes`` variable in the :file:`conf.py` file.
+    Instead of hiding pages that you do not want to include in the documentation from
+    the navigation, you can exclude them from being built. This method will also prevent
+    them from being found through the search.
+
+    To exclude pages from the build, add them to the ``custom_excludes`` variable in the
+    ``conf.py`` file.
+
 
 Lists
 -----
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Input
-     - Output
-   * - .. code::
+    * - Input
+      - Output
+    * - .. code::
 
-          - Item 1
-          - Item 2
-          - Item 3
-     - - Item 1
-       - Item 2
-       - Item 3
-   * - .. code::
+            - Item 1
+            - Item 2
+            - Item 3
+      - - Item 1
+        - Item 2
+        - Item 3
+    * - .. code::
 
-          1. Step 1
-          #. Step 2
-          #. Step 3
-     - 1. Step 1
-       #. Step 2
-       #. Step 3
-   * - .. code::
+            1. Step 1
+            #. Step 2
+            #. Step 3
+      - 1. Step 1
+        #. Step 2
+        #. Step 3
+    * - .. code::
 
-          a. Step 1
-          #. Step 2
-          #. Step 3
-     - a. Step 1
-       #. Step 2
-       #. Step 3
+            a. Step 1
+            #. Step 2
+            #. Step 3
+      - a. Step 1
+        #. Step 2
+        #. Step 3
 
 You can also nest lists:
 
 .. tab-set::
 
-   .. tab-item:: Input
+    .. tab-item:: Input
 
-      .. code::
+        .. code::
 
-         1. Step 1
+            1. Step 1
 
-            - Item 1
+              - Item 1
 
-              * Sub-item
-            - Item 2
+                * Sub-item
+              - Item 2
 
-              i. Sub-step 1
+                i. Sub-step 1
+                #. Sub-step 2
+
+            #. Step 2
+
+              a. Sub-step 1
+
+                - Item
+
               #. Sub-step 2
-         #. Step 2
 
-            a. Sub-step 1
+    .. tab-item:: Output
 
-               - Item
-            #. Sub-step 2
-   .. tab-item:: Output
-
-
-
-       1. Step 1
+        1. Step 1
 
           - Item 1
 
@@ -553,38 +570,42 @@ You can also nest lists:
 
             i. Sub-step 1
             #. Sub-step 2
-       #. Step 2
+
+        #. Step 2
 
           a. Sub-step 1
 
-             - Item
+            - Item
+
           #. Sub-step 2
-
-
 
 Adhere to the following conventions:
 
-- In numbered lists, number the first item and use ``#.`` for all subsequent items to generate the step numbers automatically.
-- Use ``-`` for unordered lists. When using nested lists, you can use ``*`` for the nested level.
+- In numbered lists, number the first item and use ``#.`` for all subsequent items to
+  generate the step numbers automatically.
+- Use ``-`` for unordered lists. When using nested lists, you can use ``*`` for the
+  nested level.
+
 
 Definition lists
 ~~~~~~~~~~~~~~~~
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Input
-     - Output
-   * - .. code::
+    * - Input
+      - Output
+    * - .. code::
 
-          Term 1:
-            Definition
-          Term 2:
-            Definition
-     - Term 1:
-         Definition
-       Term 2:
-         Definition
+            Term 1:
+              Definition
+            Term 2:
+              Definition
+      - Term 1:
+          Definition
+        Term 2:
+          Definition
+
 
 .. _style-guide-tables:
 
@@ -597,33 +618,35 @@ See the `Sphinx documentation <tables_>`_ for all table syntax alternatives.
 Both markups result in the following output:
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Header 1
-     - Header 2
-   * - Cell 1
+    * - Header 1
+      - Header 2
+    * - Cell 1
 
-       Second paragraph cell 1
-     - Cell 2
-   * - Cell 3
-     - Cell 4
+        Second paragraph cell 1
+      - Cell 2
+    * - Cell 3
+      - Cell 4
+
 
 Grid tables
 ~~~~~~~~~~~
 
 See `grid tables`_ for reference.
 
-.. code::
+.. code-block::
 
-   +----------------------+------------+
-   | Header 1             | Header 2   |
-   +======================+============+
-   | Cell 1               | Cell 2     |
-   |                      |            |
-   | 2nd paragraph cell 1 |            |
-   +----------------------+------------+
-   | Cell 3               | Cell 4     |
-   +----------------------+------------+
+    +----------------------+------------+
+    | Header 1             | Header 2   |
+    +======================+============+
+    | Cell 1               | Cell 2     |
+    |                      |            |
+    | 2nd paragraph cell 1 |            |
+    +----------------------+------------+
+    | Cell 3               | Cell 4     |
+    +----------------------+------------+
+
 
 List tables
 ~~~~~~~~~~~
@@ -632,17 +655,18 @@ See `list tables`_ for reference.
 
 .. code::
 
-   .. list-table::
-      :header-rows: 1
+    .. list-table::
+        :header-rows: 1
 
-      * - Header 1
-        - Header 2
-      * - Cell 1
+        * - Header 1
+          - Header 2
+        * - Cell 1
 
-          2nd paragraph cell 1
-        - Cell 2
-      * - Cell 3
-        - Cell 4
+            2nd paragraph cell 1
+          - Cell 2
+        * - Cell 3
+          - Cell 4
+
 
 Data tables
 ~~~~~~~~~~~
@@ -654,24 +678,24 @@ For example:
 .. code-block:: rst
 
     .. csv-table::
-      :header: "Animal", "Number of legs", "Size"
+        :header: "Animal", "Number of legs", "Size"
 
-      "Worm", 0, "Small"
-      "Penguin", 2, "Medium"
-      "Horse", 4, "Large"
-      "Ant", 6, "Small"
-      "Octopus", 8, "Medium"
+        "Worm", 0, "Small"
+        "Penguin", 2, "Medium"
+        "Horse", 4, "Large"
+        "Ant", 6, "Small"
+        "Octopus", 8, "Medium"
 
-If you have a large amount of CSV data, or the data is generated by an automated process, 
-you can include the data from a file. 
+If you have a large amount of CSV data, or the data is generated by an automated
+process, you can include the data from a file. 
 
 For example:
 
 .. code-block:: rst
 
     .. csv-table::
-      :file: /reuse/animals.csv
-      :header-rows: 1
+        :file: /reuse/animals.csv
+        :header-rows: 1
 
 Both markups result in the following output:
 
@@ -684,31 +708,33 @@ Both markups result in the following output:
     "Ant", 6, "Small"
     "Octopus", 8, "Medium"
 
-Customize the column widths, character encoding, and so on, as described in the 
-`csv-table reference <https://docutils.sourceforge.io/docs/ref/rst/directives.html#csv-table>`_.
+Customize the column widths, character encoding, and so on, as described in the
+`csv-table reference
+<https://docutils.sourceforge.io/docs/ref/rst/directives.html#csv-table>`_.
 
-The Starter Pack can also render interactive tables. See: :ref:`interactive-tables`.
+The Sphinx Stack can also render interactive tables. See: :ref:`interactive-tables`.
+
 
 Notes
 -----
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Input
-     - Output
-   * - .. code::
+    * - Input
+      - Output
+    * - .. code::
 
-          .. note::
-             A note.
-     - .. note::
-          A note.
-   * - .. code::
+            .. note::
+              A note.
+      - .. note::
+            A note.
+    * - .. code::
 
-          .. warning::
-             This might damage your hardware!
-     - .. warning::
-          This might damage your hardware!
+            .. warning::
+              This might damage your hardware!
+      - .. warning::
+            This might damage your hardware!
 
 Adhere to the following conventions:
 
@@ -716,92 +742,95 @@ Adhere to the following conventions:
 - Only use the following note types: ``note``, ``warning``
 - Only use a warning if there is a clear hazard of hardware damage or data loss.
 
+
 Images
 ------
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Input
-     - Output
-   * - ``.. image:: https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png``
-     - .. image:: https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
-   * - .. code::
+    * - Input
+      - Output
+    * - ``.. image:: https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png``
+      - .. image:: https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
+    * - .. code::
 
-          .. figure:: https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
-             :width: 100px
-             :alt: Alt text
+            .. figure:: https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
+              :width: 100px
+              :alt: Alt text
 
-             Figure caption
-     - .. figure:: https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
-          :width: 100px
-          :alt: Alt text
+              Figure caption
+      - .. figure:: https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png
+            :width: 100px
+            :alt: Alt text
 
-          Figure caption
+            Figure caption
 
 Adhere to the following conventions:
 
-- For local pictures, start the path with :file:`/` (for example, :file:`/images/image.png`).
+- For local pictures, start the path with ``/`` (for example, ``/images/image.png``).
 - Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
 - If producing multiple output formats, use ``*`` as the file extension to have
   Sphinx select the best image format for the output
-- See `Five golden rules for compliant alt text`_ for information about how to word the alt text.
+- See `Five golden rules for compliant alt text`_ for information about how to word the
+  alt text.
+
 
 Reuse
 -----
 
-A big advantage of reST in comparison to plain Markdown is that it allows to reuse content.
+A big advantage of reST in comparison to plain Markdown is that it allows to reuse
+content.
+
 
 Substitution
 ~~~~~~~~~~~~
 
-To reuse sentences and entire paragraphs
-that have little markup or special formatting,
+To reuse sentences and entire paragraphs that have little markup or special formatting,
 define `substitutions`_ for them in two possible ways.
 
-**Globally**, in a file named :file:`reuse/substitutions.txt`
-that is included in a custom ``rst_epilog`` directive
-(see the `Sphinx documentation <rst_epilog_>`_):
+**Globally**, in a file named ``reuse/substitutions.txt`` that is included in a
+custom ``rst_epilog`` directive (see the `Sphinx documentation <rst_epilog_>`_):
 
 .. code-block:: python
-   :caption: :spellexception:`conf.py`
+    :caption: :spellexception:`conf.py`
 
-   rst_epilog = """
-       .. include:: reuse/substitutions.txt
-       """
+    rst_epilog = """
+        .. include:: reuse/substitutions.txt
+        """
 
 
 .. code-block:: rest
-   :caption: :spellexception:`reuse/substitutions.txt`
+    :caption: :spellexception:`reuse/substitutions.txt`
 
-   .. |version_number| replace:: 0.1.0
+    .. |version_number| replace:: 0.1.0
 
-   .. |rest_text| replace:: *Multi-line* text
-                            that uses basic **markup**.
+    .. |rest_text| replace:: *Multi-line* text
+                              that uses basic **markup**.
 
-   .. |site_link| replace:: Website link
-   .. _site_link: https://example.com
+    .. |site_link| replace:: Website link
+    .. _site_link: https://example.com
 
 
 **Locally**, putting the same directives in any reST file:
 
 .. code-block:: rest
-   :caption: :spellexception:`index.rst`
+    :caption: :spellexception:`index.rst`
 
-   .. |version_number| replace:: 0.1.0
+    .. |version_number| replace:: 0.1.0
 
-   .. |rest_text| replace:: *Multi-line* text
-                            that uses basic **markup**.
+    .. |rest_text| replace:: *Multi-line* text
+                              that uses basic **markup**.
 
-   .. And so on
+    .. And so on
 
 
 .. note::
 
-   Mind that substitutions can't be redefined;
-   for instance, accidentally including a definition twice causes an error:
+    Mind that substitutions can't be redefined; for instance, accidentally including a
+    definition twice causes an error:
 
-   .. code-block:: none
+    .. code-block:: none
 
       ERROR: Duplicate substitution definition name: "rest_text".
 
@@ -809,37 +838,44 @@ that is included in a custom ``rst_epilog`` directive
 The definitions from the above examples are rendered as follows:
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Input
-     - Output
+    * - Input
+      - Output
 
-   * - ``|version_number|``
-     - |version_number|
+    * - ``|version_number|``
+      - |version_number|
 
-   * - ``|rest_text|``
-     - |rest_text|
+    * - ``|rest_text|``
+      - |rest_text|
 
-   * - ``|site_link|_``
-     - |site_link|_
+    * - ``|site_link|_``
+      - |site_link|_
 
 
 .. tip::
 
-   Use substitution names that hint at the included content
-   (for example, ``note_not_supported`` instead of ``note_substitution``).
+    Use substitution names that hint at the included content (for example,
+    ``note_not_supported`` instead of ``note_substitution``).
 
 
 File inclusion
 ~~~~~~~~~~~~~~
 
-To reuse longer sections or text with more advanced markup, you can put the content in a separate file and include the file or parts of the file in several locations.
+To reuse longer sections or text with more advanced markup, you can put the content in a
+separate file and include the file or parts of the file in several locations.
 
-To select parts of the text in a file, use ``:start-after:`` and ``:end-before:`` if possible. You can combine those with ``:start-line:`` and ``:end-line:`` if required (if the same text occurs more than once). Using only ``:start-line:`` and ``:end-line:`` is error-prone though.
+To select parts of the text in a file, use ``:start-after:`` and ``:end-before:`` if
+possible. You can combine those with ``:start-line:`` and ``:end-line:`` if required (if
+the same text occurs more than once). Using only ``:start-line:`` and ``:end-line:`` is
+error-prone though.
 
-You cannot put any targets into the content that is being reused (because references to this target would be ambiguous then). You can, however, put a target right before including the file.
+You cannot put any targets into the content that is being reused (because references to
+this target would be ambiguous then). You can, however, put a target right before
+including the file.
 
-By combining file inclusion and substitutions defined directly in a file, you can even replace parts of the included text.
+By combining file inclusion and substitutions defined directly in a file, you can even
+replace parts of the included text.
 
 .. list-table::
    :header-rows: 1
@@ -857,94 +893,104 @@ By combining file inclusion and substitutions defined directly in a file, you ca
 
 Adhere to the following conventions:
 
-- Files that only contain text that is reused somewhere else should be placed in the :file:`reuse` folder and end with the extension ``.txt`` to distinguish them from normal content files.
-- To make sure inclusions don't break, consider adding comments (``.. some comment``) to the source file as markers for starting and ending.
+- Files that only contain text that is reused somewhere else should be placed in the
+  ``reuse`` directory and end with the extension ``.txt`` to distinguish them from
+  normal content files.
+- To make sure inclusions don't break, consider adding comments (``.. some comment``) to
+  the source file as markers for starting and ending.
+
 
 Tabs
 ----
 
-The recommended way of creating tabs is to use the tabs that the `Sphinx design`_ extension provides.
+The recommended way of creating tabs is to use the tabs that the `Sphinx design`_
+extension provides.
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Input
-     - Output
-   * - .. code::
+    * - Input
+      - Output
+    * - .. code::
 
-          .. tab-set::
+            .. tab-set::
 
-             .. tab-item:: Tab 1
-                :sync: key1
+              .. tab-item:: Tab 1
+                  :sync: key1
+
+                  Content Tab 1
+
+              .. tab-item:: Tab 2
+                  :sync: key2
+
+                  Content Tab 2
+      - .. tab-set::
+
+          .. tab-item:: Tab 1
+              :sync: key1
+
+              Content Tab 1
+
+          .. tab-item:: Tab 2
+              :sync: key2
+
+              Content Tab 2
+
+Alternatively, you can use the `Sphinx tabs`_ extension, which is also enabled by
+default. This was previously recommended due to limitations in Sphinx Design that are
+now fixed.
+
+.. list-table::
+    :header-rows: 1
+
+    * - Input
+      - Output
+    * - .. code::
+
+            .. tabs::
+
+              .. group-tab:: Tab 1
+
+                  Content Tab 1
+
+              .. group-tab:: Tab 2
+
+                  Content Tab 2
+      - .. tabs::
+
+            .. group-tab:: Tab 1
 
                 Content Tab 1
 
-             .. tab-item:: Tab 2
-                :sync: key2
+            .. group-tab:: Tab 2
 
                 Content Tab 2
-     - .. tab-set::
 
-         .. tab-item:: Tab 1
-            :sync: key1
-
-            Content Tab 1
-
-         .. tab-item:: Tab 2
-            :sync: key2
-
-            Content Tab 2
-
-Alternatively, you can use the `Sphinx tabs`_ extension, which is also enabled by default. This was previously recommended due to limitations in Sphinx Design that are now fixed.
-
-.. list-table::
-   :header-rows: 1
-
-   * - Input
-     - Output
-   * - .. code::
-
-          .. tabs::
-
-             .. group-tab:: Tab 1
-
-                Content Tab 1
-
-             .. group-tab:: Tab 2
-
-                Content Tab 2
-     - .. tabs::
-
-          .. group-tab:: Tab 1
-
-             Content Tab 1
-
-          .. group-tab:: Tab 2
-
-             Content Tab 2
 
 Glossary
 --------
 
-You can define glossary terms in any file. Ideally, all terms should be collected in one glossary file though, and they can then be referenced from any file.
+You can define glossary terms in any file. Ideally, all terms should be collected in one
+glossary file though, and they can then be referenced from any file.
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Input
-     - Output
-   * - .. code::
+    * - Input
+      - Output
+    * - .. code::
 
-          .. glossary::
+            .. glossary::
 
-             an example term
-               Definition of an example term.
-     - .. glossary::
+              an example term
+                Definition of an example term.
+      - .. glossary::
 
-          an example term
-            Definition of an example term.
-   * - ``:term:`an example term```
-     - :term:`an example term`
+            an example term
+              Definition of an example term.
+    * - ``:term:`an example term```
+      - :term:`an example term`
+
 
 .. _section_more_useful_markup:
 
@@ -952,39 +998,39 @@ More useful markup
 ------------------
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Input
-     - Output
-     - Description
-   * - .. code::
+    * - Input
+      - Output
+      - Description
+    * - .. code::
 
-          .. versionadded:: X.Y
-     - .. versionadded:: X.Y
-     - Can be used to distinguish between different versions.
-   * - .. code::
+            .. versionadded:: X.Y
+      - .. versionadded:: X.Y
+      - Can be used to distinguish between different versions.
+    * - .. code::
 
-          | Line 1
-          | Line 2
-          | Line 3
-     - | Line 1
-       | Line 2
-       | Line 3
-     - Line breaks that are not paragraphs. Use this sparingly.
-   * - .. code::
+            | Line 1
+            | Line 2
+            | Line 3
+      - | Line 1
+        | Line 2
+        | Line 3
+      - Line breaks that are not paragraphs. Use this sparingly.
+    * - .. code::
 
-          ----
-     - A horizontal line
-     - Can be used to visually divide sections on a page.
-   * - ``.. This is a comment``
-     - .. This is a comment
-     - Not visible in the output.
-   * - ``:abbr:`API (Application Programming Interface)```
-     - :abbr:`API (Application Programming Interface)`
-     - Hover to display the full term.
-   * - ``:spellexception:`PurposelyWrong```
-     - :spellexception:`PurposelyWrong`
-     - Explicitly exempt a term from the spelling check.
+            ----
+      - A horizontal line
+      - Can be used to visually divide sections on a page.
+    * - ``.. This is a comment``
+      - .. This is a comment
+      - Not visible in the output.
+    * - ``:abbr:`API (Application Programming Interface)```
+      - :abbr:`API (Application Programming Interface)`
+      - Hover to display the full term.
+    * - ``:spellexception:`PurposelyWrong```
+      - :spellexception:`PurposelyWrong`
+      - Explicitly exempt a term from the spelling check.
 
 .. LINKS
 

@@ -1,5 +1,6 @@
 import datetime
 import os
+
 import yaml
 
 # Configuration for the Sphinx documentation builder.
@@ -11,7 +12,7 @@ import yaml
 # A complete list of built-in Sphinx configuration values:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 #
-# Our Starter Pack uses the custom Canonical Sphinx extension
+# The Sphinx Stack uses the custom Canonical Sphinx extension
 # to keep all documentation based on it consistent and on brand:
 # https://github.com/canonical/canonical-sphinx
 
@@ -24,12 +25,12 @@ import yaml
 #
 # TODO: Update with the official name of your project or product
 
-project = "Documentation Starter Pack"
+project = "Sphinx Stack"
 author = "Canonical Ltd."
 
 # The year in the copyright statement defaults to the current year, so
 # individual document versions show when they were built.
-# TODO: If the date must be a range, like in a software license, replace 
+# TODO: If the date must be a range, like in a software license, replace
 # 2026 with the starting year of development and use:
 #
 # copyright = f"2026-{datetime.date.today().year}"
@@ -52,7 +53,7 @@ html_title = project + " documentation"
 # NOTE: The Open Graph Protocol (OGP) enhances page display in a social graph
 #       and is used by social media platforms; see https://ogp.me/
 
-ogp_site_url = "https://canonical-starter-pack.readthedocs-hosted.com/"
+ogp_site_url = "https://canonical-sphinx-stack.readthedocs-hosted.com/"
 
 
 # Preview name of the documentation website
@@ -114,15 +115,13 @@ html_context = {
     #
     # NOTE: If set, links for viewing the documentation source files
     #       and creating GitHub issues are added at the bottom of each page.
-    "github_url": "https://github.com/canonical/sphinx-docs-starter-pack",
+    "github_url": "https://github.com/canonical/sphinx-stack",
     # Docs branch in the repo; used in links for viewing the source files
     #
     # TODO: To customise the branch, uncomment and update as needed.
-    'repo_default_branch': 'main',
+    "repo_default_branch": "main",
     # Docs location in the repo; used in links for viewing the source files
     #
-
-
     # TODO: To customise the directory, uncomment and update as needed.
     "repo_folder": "/docs/",
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
@@ -130,14 +129,11 @@ html_context = {
     # "sequential_nav": "both",
     # TODO: To enable listing contributors on individual pages, set to True
     "display_contributors": False,
-
-    # Required for feedback button    
-    'github_issues': 'enabled',
-
+    # Required for feedback button
+    "github_issues": "enabled",
     # Inherit the author value
     "author": author,
-
-    # The Starter Pack uses CC-BY-SA as the license
+    # The Sphinx Stack documentation is licensed under CC-BY-SA 3.0.
     #
     # TODO: If your docs need another license, specify it instead of 'CC-BY-SA'.
     # For the name, we recommend using the standard shorthand identifier from
@@ -148,10 +144,9 @@ html_context = {
     #
     # TODO: If your documentation is a part of the code repository of your project,
     #       it inherits the code license instead; specify it instead of 'CC-BY-SA'.
-
     "license": {
         "name": "CC-BY-SA-3.0",
-        "url": "https://github.com/canonical/sphinx-docs-starter-pack/blob/main/LICENSE",
+        "url": "https://github.com/canonical/sphinx-stack/blob/main/LICENSE",
     },
 }
 
@@ -170,7 +165,7 @@ if os.getenv("OPENAPI", ""):
 # - https://git.launchpad.net/example
 #
 # html_theme_options = {
-# 'source_edit_link': 'https://github.com/canonical/sphinx-docs-starter-pack',
+# 'source_edit_link': 'https://github.com/canonical/sphinx-stack-docs',
 # }
 
 # Project slug; see https://meta.discourse.org/t/what-is-category-slug/87897
@@ -190,7 +185,7 @@ html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
 # sphinx-sitemap uses html_baseurl to generate the full URL for each page:
 
-sitemap_url_scheme = '{link}'
+sitemap_url_scheme = "{link}"
 
 # Include `lastmod` dates in the sitemap:
 
@@ -199,9 +194,9 @@ sitemap_show_lastmod = True
 # Exclude generated pages from the sitemap:
 
 sitemap_excludes = [
-    '404/',
-    'genindex/',
-    'search/',
+    "404/",
+    "genindex/",
+    "search/",
 ]
 
 # TODO: Add more pages to sitemap_excludes if needed. Wildcards are supported.
@@ -246,7 +241,7 @@ linkcheck_ignore = [
     "https://example.com",
     # SourceForge domains often block linkcheck
     r"https://.*\.sourceforge\.(net|io)/.*",
-    ]
+]
 
 
 # A regex list of URLs where anchors are ignored by 'make linkcheck'
@@ -273,7 +268,7 @@ linkcheck_retries = 3
 # Custom Sphinx extensions; see
 # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 
-# NOTE: The canonical_sphinx extension is required for the Starter Pack.
+# NOTE: The canonical_sphinx extension is required for the Sphinx Stack.
 
 extensions = [
     "canonical_sphinx",
@@ -368,12 +363,15 @@ if "discourse_prefix" not in html_context and "discourse" in html_context:
 
 # Workaround for substitutions.yaml
 
-if os.path.exists('./reuse/substitutions.yaml'):
-    with open('./reuse/substitutions.yaml', 'r') as fd:
+if os.path.exists("./reuse/substitutions.yaml"):
+    with open("./reuse/substitutions.yaml", "r") as fd:
         myst_substitutions = yaml.safe_load(fd.read())
 
 # Add configuration for intersphinx mapping
 # Map only the Sphinx documentation sets that you need to link to from your docs set.
 intersphinx_mapping = {
-    'sphinxcontrib-mermaid': ('https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest', None)
+    "sphinxcontrib-mermaid": (
+        "https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest",
+        None,
+    )
 }

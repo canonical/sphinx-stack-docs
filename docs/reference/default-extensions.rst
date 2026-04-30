@@ -1,12 +1,12 @@
 .. meta::
-    :description: A list of extensions included in the Starter Pack by default.
+    :description: A list of extensions included in the Sphinx Stack by default.
 
 .. _reference-default-sphinx-extensions:
 
 Default Sphinx extensions
 =========================
 
-These extensions are enabled in the Starter Pack by default.
+These extensions are enabled in the Sphinx Stack by default.
 
 ``canonical_sphinx``
    Contains the default Canonical branded theme.
@@ -24,7 +24,7 @@ These extensions are enabled in the Starter Pack by default.
    Handles URL redirects for moved or deleted pages.
 
    Default Support for this extension will be dropped in an upcoming release of the 
-   Starter Pack. Update your documentation to use ``sphinxext-rediraffe`` instead.
+   Sphinx Stack. Update your documentation to use ``sphinx-rerediraffe`` instead.
 
    Needed by ``canonical_sphinx``.
 

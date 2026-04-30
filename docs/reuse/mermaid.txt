@@ -90,11 +90,11 @@ mermaid-diagram-sequence-start
 
 `````{tab-item} Custom CSS
 
-First, create a Mermaid stylesheet in the {file}`_static` directory and
-customize it as needed. For example, {file}`mermaid-sequence.css`.
+First, create a Mermaid stylesheet in the `_static` directory and customize it as
+needed. For example, `mermaid-sequence.css`.
 
-Then, enable custom stylesheets in {file}`conf.py`.
-Uncomment this line so Sphinx can use local stylesheets:
+Then, enable custom stylesheets in `conf.py`. Uncomment this line so Sphinx can use
+local stylesheets:
 
 ```{code-block} py
 :caption: conf\.py

@@ -3,9 +3,9 @@
 Release notes
 =============
 
-This page lists the notes for past releases of Canonical's Sphinx Starter Pack, which
+This page lists the notes for past releases of the Sphinx Stack, which
 summarize new features, bug fixes and breaking changes in each version. It also contains
-the release and support policies for the starter pack.
+the release and support policies for the Sphinx Stack.
 
 
 Latest release
@@ -24,7 +24,7 @@ Past releases
 Release versioning
 ------------------
 
-Starter pack version naming follows the Semantic Versioning 2.0.0 scheme with
+Sphinx Stack version naming follows the Semantic Versioning 2.0.0 scheme with
 modifications. It has numbers for major and minor version, but *not* patch versions.
 
 .. list-table::

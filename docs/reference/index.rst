@@ -2,11 +2,12 @@ Reference
 =========
 
 Syntax guides, list of enabled sphinx extensions, and reference information 
-for the Starter Pack's GitHub workflows.
+for the Sphinx Stack GitHub workflows.
 
 Also see the following information:
 
-- `Sphinx documentation Starter Pack repository`_
+- `Sphinx Stack repository <https://github.com/canonical/sphinx-stack>`__
+
 
 Contents
 --------

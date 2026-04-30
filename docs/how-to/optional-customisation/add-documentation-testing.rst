@@ -10,8 +10,9 @@ It's challenging to keep documentation in sync with products as they evolve. Thi
 process is aided by *Spread*, a test distributor that can work through your
 documentation and report failures in GitHub workflows.
 
-By using Spread tests, you can rely on the tests as the source of truth for commands
-in your documentation, enabling fully tested documentation at build time.
+By using Spread tests, you can rely on the tests as the source of truth for commands in
+your documentation, enabling fully tested documentation at build time.
+
 
 What you'll need
 ----------------
@@ -25,11 +26,12 @@ What you'll need
     `Go install method <https://github.com/canonical/spread?tab=readme-ov-file#install>`_
     recommended in the Spread README to install Spread.
 
+
 Create a test suite
 -------------------
 
-From the root of your project, create the file ``spread.yaml`` and insert the
-following contents:
+From the root of your project, create the file ``spread.yaml`` and insert the following
+contents:
 
 .. code-block:: yaml
     :caption: project_name/spread.yaml
@@ -38,12 +40,11 @@ following contents:
 
     path: /project_name  
 
-Match the ``project`` name to your main directory's name.
-The ``path`` designates the directory where the Spread
-materials exist.
+Match the ``project`` name to your main directory's name. The ``path`` designates the
+directory where the Spread materials exist.
 
-So that Spread knows about your tests, add the
-following section to the end of ``spread.yaml``:
+So that Spread knows about your tests, add the following section to the end of
+``spread.yaml``:
 
 .. code-block:: yaml
     :caption: project_name/spread.yaml
@@ -59,12 +60,12 @@ following section to the end of ``spread.yaml``:
         systems:
           - ubuntu-24.04-64
 
-The ``suites`` section is how you tell Spread about the various Spread tests in
-your project along with the systems you want Spread to use.
-In this example, Spread looks for tests in the ``project_name/tests/spread`` directory and
-runs them on Ubuntu 24.04.
-If you create a new ``task.yaml`` file in a different directory,
-remember to add a corresponding suite for it in ``spread.yaml``.
+The ``suites`` section is how you tell Spread about the various Spread tests in your
+project along with the systems you want Spread to use. In this example, Spread looks for
+tests in the ``project_name/tests/spread`` directory and runs them on Ubuntu 24.04. If
+you create a new ``task.yaml`` file in a different directory, remember to add a
+corresponding suite for it in ``spread.yaml``.
+
 
 Set up the Multipass backend
 ----------------------------
@@ -131,28 +132,27 @@ Copy the following ``backends`` section of ``spread.yaml`` between the ``path`` 
 
 The ``backends`` section contains the following pieces:
 
-* The backend is designated as ``type: adhoc`` as you must explicitly
-  script the procedure to allocate and discard the Multipass VM. 
-* The ``allocate`` section defines the image and name of the VM, launches the
-  VM, and sets up the proper SSH permissions Spread then logs in to the VM with
-  root permissions and inserts the Spread test. The last two lines tell Spread the
-  IP address of the Multipass VM and set the environment variable ``ADDRESS``.
-* The ``discard`` section deletes the Multipass VM once the Spread test
-  has finished running.
-* The ``systems`` key notes which systems the backend uses. Note that this key
-  must match the ``systems`` used by at least one test under ``suites``.
+* The backend is designated as ``type: adhoc`` as you must explicitly script the
+  procedure to allocate and discard the Multipass VM. 
+* The ``allocate`` section defines the image and name of the VM, launches the VM, and
+  sets up the proper SSH permissions Spread then logs in to the VM with root permissions
+  and inserts the Spread test. The last two lines tell Spread the IP address of the
+  Multipass VM and set the environment variable ``ADDRESS``.
+* The ``discard`` section deletes the Multipass VM once the Spread test has finished
+  running.
+* The ``systems`` key notes which systems the backend uses. Note that this key must
+  match the ``systems`` used by at least one test under ``suites``.
+
 
 Create a Spread task
 --------------------
 
-Put your Spread files alongside your project's existing tests.
-The rest of this guide assumes they're in a top-level
-``tests/spread`` directory.
+Put your Spread files alongside your project's existing tests. The rest of this guide
+assumes they're in a top-level ``tests/spread`` directory.
 
-Each Spread test requires a dedicated ``task.yaml`` file that contains
-all the commands you want to test. A single ``task.yaml``  can help you
-validate an entire assumed workflow, for instance,
-an end-to-end tutorial.
+Each Spread test requires a dedicated ``task.yaml`` file that contains all the commands
+you want to test. A single ``task.yaml``  can help you validate an entire assumed
+workflow, for instance, an end-to-end tutorial.
 
 An example ``task.yaml`` file is shown below:
 
@@ -171,39 +171,40 @@ An example ``task.yaml`` file is shown below:
 
       echo "This is the second command that Spread will run"
 
-The ``summary`` section contains a brief description of the documentation you're testing,
-the ``prepare`` section contains any initial setup your test needs,
-and the ``execute`` section contains your documentation's commands.
-The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
-included if you expect your test to complete in that time frame.
+The ``summary`` section contains a brief description of the documentation you're
+testing, the ``prepare`` section contains any initial setup your test needs, and the
+``execute`` section contains your documentation's commands. The ``kill-timeout`` option
+has a default of 10 minutes and doesn't need to be included if you expect your test to
+complete in that time frame.
 
 .. note::
 
-  For a real-world example, see ``task.yaml`` for
-  `the Rockcraft Go tutorial. <https://github.com/canonical/rockcraft/blob/main/docs/tutorial/code/go/task.yaml>`_
+    For a real-world example, see ``task.yaml`` for
+    `the Rockcraft Go tutorial. <https://github.com/canonical/rockcraft/blob/main/docs/tutorial/code/go/task.yaml>`_
+
 
 Include the tested commands in documentation
 --------------------------------------------
 
-By using the ``literalinclude`` directive in Sphinx, you can insert the
-exact commands from ``task.yaml`` in your documentation file.
+By using the ``literalinclude`` directive in Sphinx, you can insert the exact commands
+from ``task.yaml`` in your documentation file.
 
 For example, consider the following ``task.yaml`` file:
 
 .. code-block:: yaml
     :caption: task.yaml
 
-    summary: Clone and build the Starter Pack
+    summary: Clone and build the Sphinx STack
 
     kill-timeout: 5m
 
     execute: |
-      # [docs:clone-starter-pack]
-      git clone https://github.com/canonical/sphinx-docs-starter-pack.git
-      # [docs:clone-starter-pack-end]
+      # [docs:clone-sphinx-stack]
+      git clone https://github.com/canonical/sphinx-stack.git
+      # [docs:clone-sphinx-stack-end]
 
       # [docs:build-documentation]
-      cd sphinx-docs-starter-pack/docs
+      cd sphinx-stack/docs
       make run
       # [docs:build-documentation-end]
 
@@ -217,15 +218,15 @@ Include the commands from ``task.yaml`` in your documentation with:
       .. code-block:: rst
         :caption: Example ``literalinclude`` blocks
 
-        Clone the Starter Pack:
+        Clone the Sphinx Stack:
 
         .. literalinclude:: relative-path-to/task.yaml
             :language: bash
-            :start-after: [docs:clone-starter-pack]
-            :end-before: [docs:clone-starter-pack-end]
+            :start-after: [docs:clone-sphinx-stack]
+            :end-before: [docs:clone-sphinx-stack-end]
             :dedent: 2
 
-        Enter the ``docs`` folder and build the project:
+        Enter the ``docs`` directory and build the project:
 
         .. literalinclude:: relative-path-to/task.yaml
             :language: bash
@@ -239,16 +240,16 @@ Include the commands from ``task.yaml`` in your documentation with:
       .. code-block:: md
         :caption: Example ``literalinclude`` blocks
 
-        Clone the Starter Pack:
+        Clone the Sphinx Stack:
 
         ```{literalinclude} relative-path-to/task.yaml
         :language: bash
-        :start-after: [docs:clone-starter-pack]
-        :end-before: [docs:clone-starter-pack-end]
+        :start-after: [docs:clone-sphinx-stack]
+        :end-before: [docs:clone-sphinx-stack-end]
         :dedent: 2
         ```
 
-        Enter the `docs` folder and build the project:
+        Enter the `docs` directory and build the project:
 
         ```{literalinclude} relative-path-to/task.yaml
         :language: bash
@@ -258,8 +259,9 @@ Include the commands from ``task.yaml`` in your documentation with:
         ```
 
 By using the options ``:start-after:`` and ``:end-before:``, the documentation file
-sources and includes all commands appearing in ``task.yaml`` between the
-specified lines.
+sources and includes all commands appearing in ``task.yaml`` between the specified
+lines.
+
 
 Run tests locally
 -----------------
@@ -270,8 +272,7 @@ List all available Spread tests in the code repository:
 
     spread --list
 
-The terminal should respond with all the tests defined in ``spread.yaml``.
-For example:
+The terminal should respond with all the tests defined in ``spread.yaml``. For example:
 
 .. terminal::
     :dir: project_name
@@ -280,8 +281,8 @@ For example:
 
     multipass:ubuntu-24.04-64:tests/spread/example_documentation_test
 
-Run all Spread tests locally with ``spread``. You can also run a single
-Spread test by specifying:
+Run all Spread tests locally with ``spread``. You can also run a single Spread test by
+specifying:
 
 .. code-block:: bash
 
@@ -289,6 +290,7 @@ Spread test by specifying:
 
 Depending on the complexity of your test, Spread can take several minutes to complete.
 The ``-vv -debug`` flags provide useful debugging information as the test runs.
+
 
 Check the results
 -----------------
@@ -304,9 +306,8 @@ If the test is successful, the terminal will output something similar to the fol
     2025-02-04 16:17:10 Aborted tasks: 0
 
 Another sign of a successful test is whether the Multipass VM was deleted as expected.
-Check by running :code:`multipass list`, and if the Spread test was successful
-(and you have no other Multipass VMs created at the time), the terminal should
-respond with:
+Check by running ``multipass list``, and if the Spread test was successful (and you have
+no other Multipass VMs created at the time), the terminal should respond with:
 
 .. terminal::
     :dir: project_name
@@ -315,9 +316,9 @@ respond with:
 
     No instances found.
 
-If the Spread test failed, then the ``-debug`` flag will open a shell into the
-Multipass VM so that additional debugging can happen. In that case, the terminal
-will output something similar to the following:
+If the Spread test failed, then the ``-debug`` flag will open a shell into the Multipass
+VM so that additional debugging can happen. In that case, the terminal will output
+something similar to the following:
 
 .. terminal::
     :output-only:
