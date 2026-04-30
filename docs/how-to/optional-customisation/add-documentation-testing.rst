@@ -62,8 +62,8 @@ So that Spread knows about your tests, add the following section to the end of
 
 The ``suites`` section is how you tell Spread about the various Spread tests in your
 project along with the systems you want Spread to use. In this example, Spread looks for
-tests in the ``project_name/tests/spread`` directory and runs them on Ubuntu 24.04. If
-you create a new ``task.yaml`` file in a different directory, remember to add a
+tests in the ``project_name/tests/spread`` directory and runs them on Ubuntu 24.04 LTS.
+If you create a new ``task.yaml`` file in a different directory, remember to add a
 corresponding suite for it in ``spread.yaml``.
 
 
