@@ -60,8 +60,8 @@ when the repository changes) is created automatically.
 
 If you don't have administrator privileges, the webhook must be set up by someone who
 does. The person with administrator privileges must have connected their Read the Docs
-account to GitHub. See `How to connect your Read the Docs account to your Git
-provider`_.
+account to GitHub. See `How to connect your Read the Docs account to your Git provider
+<https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html>`__.
 
 See `How to manually configure a Git repository integration
 <https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html>`__ if

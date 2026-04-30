@@ -123,9 +123,9 @@ for all the available rules.
 Spelling check
 --------------
 
-The Sphinx Stack uses `Vale`_ to check the spelling in your documentation. It ignores
-inline code, code blocks, and URLs, but it does check the link text. To ensure there are
-no spelling errors in your documentation, run:
+The Sphinx Stack uses `Vale <https://vale.sh>`__ to check the spelling in your
+documentation. It ignores inline code, code blocks, and URLs, but it does check the link
+text. To ensure there are no spelling errors in your documentation, run:
 
 .. code-block:: bash
 
@@ -144,9 +144,10 @@ If you need to exempt single words or sections, follow the process in
 Style guide linting
 -------------------
 
-The Sphinx Stack runs the `Vale`_ documentation linter configured with the rules of
-`style guide <https://github.com/canonical/documentation-style-guide>`__ To check your
-documentation with Vale, run:
+The Sphinx Stack runs the `Vale <https://vale.sh>`__ documentation linter configured
+with the rules of `style guide
+<https://github.com/canonical/documentation-style-guide>`__ To check your documentation
+with Vale, run:
 
 .. code-block:: bash
 
@@ -184,9 +185,9 @@ Vale exemptions
 ---------------
 
 The :ref:`inclusive_lang_check`, :ref:`spelling_check`, and :ref:`style_guide_linting`
-all use `Vale`_. These checks share a common syntax for exemptions and pull from the
-same ``.custom_wordlist.txt`` file. The style guide repository `includes a common list
-of words
+all use `Vale <https://vale.sh>`__. These checks share a common syntax for exemptions
+and pull from the same ``.custom_wordlist.txt`` file. The style guide repository
+`includes a common list of words
 <https://github.com/canonical/documentation-style-guide/blob/main/styles/config/vocabularies/Canonical/accept.txt>`__
 that will be excluded from the checks. 
 

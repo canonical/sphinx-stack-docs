@@ -7,9 +7,10 @@ Add interactive data tables
 ===========================
 
 Data-heavy documentation often benefits from tables that users can explore
-interactively. The `Sphinx DataTables`_ extension provides interactive tables where
-users can sort columns and filter rows, making large datasets more navigable and useful.
-For examples, see the extension's documentation.
+interactively. The `Sphinx DataTables <https://sharm294.github.io/sphinx-datatables/>`__
+extension provides interactive tables where users can sort columns and filter rows,
+making large datasets more navigable and useful. For examples, see the extension's
+documentation.
 
 The extension isn't available by default in the Sphinx Stack. To read more about table
 functionality that is available out of the box, see :ref:`Tables (MyST)

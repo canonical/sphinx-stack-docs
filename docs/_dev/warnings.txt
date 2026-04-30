@@ -1,2 +1,0 @@
-/home/ecoldi/Projects/DOCPR/sphinx-stack-docs/docs/how-to/optional-customisation/mermaid-diagrams.md:102: CRITICAL: Directive "include": file not found: '/home/ecoldi/Projects/DOCPR/sphinx-stack-docs/docs/how-to/mermaid.txt'
-/home/ecoldi/Projects/DOCPR/sphinx-stack-docs/docs/how-to/optional-customisation/mermaid-diagrams.md: WARNING: Dependency file PosixPath('/home/ecoldi/Projects/DOCPR/sphinx-stack-docs/docs/how-to/mermaid.txt'), doesn't exist, skipping

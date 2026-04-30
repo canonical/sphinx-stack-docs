@@ -190,8 +190,9 @@ Possible values for the ``sequential_nav`` field are ``none``, ``prev``, ``next`
 ``both``. See the ``docs/conf.py`` file for more information.
 
 Another example for page-specific configuration is the ``hide-toc`` field (provided by
-`Furo <Furo documentation_>`_), which can be used to hide the page-internal table of
-content. See `Hiding Contents sidebar <https://pradyunsg.me/furo/customisation/toc/>`__.
+`Furo <https://pradyunsg.me/furo/quickstart/>`__), which can be used to hide the
+page-internal table of content. See `Hiding Contents sidebar
+<https://pradyunsg.me/furo/customisation/toc/>`__.
 
 
 Add your own configuration
