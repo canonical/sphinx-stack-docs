@@ -1,33 +1,11 @@
 # Sphinx Stack documentation
 
-*A pre-configured repository to build and publish documentation with Sphinx.*
+User documentation for the [Sphinx
+Stack](https://github.com/canonical/sphinx-docs-starter-pack) — a set of tools for
+building and publishing Sphinx documentation.
 
-## Description
-
-The Sphinx Stack includes:
-
-* A bundled [Sphinx] theme, configuration, and extensions
-* Support for both reStructuredText (reST) and MyST Markdown
-* Build checks for links, spelling, and inclusive language
-* Customisation support layered over a core configuration
-
-See the full documentation: https://canonical-sphinx-stack.readthedocs-hosted.com/
-
-## Structure
-
-This section outlines the structure of this repository, and some key files.
-
-### `docs/`
-
-This directory contains the documentation for the Sphinx Stack itself.
-
-To view it in your browser, navigate to this directory and type `make run`.
-
-### `.github/workflows/`
-
-This directory contains files used for documentation build checks via GitHub's CI.
-
-The file `test-sphinx-stack.yml` tests the functionality of the Sphinx Stack project.
+The template itself can be found at
+[canonical/sphinx-stack](https://github.com/canonical/sphinx-stack).
 
 ## Contributing
 
