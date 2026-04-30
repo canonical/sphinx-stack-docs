@@ -1,4 +1,4 @@
-# Sphinx Stack
+# Sphinx Stack documentation
 
 *A pre-configured repository to build and publish documentation with Sphinx.*
 
@@ -31,9 +31,12 @@ The file `test-sphinx-stack.yml` tests the functionality of the Sphinx Stack pro
 
 ## Contributing
 
-We welcome contributions to this project! If you have suggestions, bug fixes, or improvements, please open an issue or submit a pull request.
+We welcome contributions to this project! If you have suggestions, bug fixes, or
+improvements, please open an issue or submit a pull request.
 
-Please read and sign our [Contributor Licence Agreement (CLA)] before submitting any changes. The agreement grants Canonical permission to use your contributions. The author of a change remains the copyright owner of their code (no copyright assignment occurs).
+Please read and sign our [Contributor Licence Agreement (CLA)] before submitting any
+changes. The agreement grants Canonical permission to use your contributions. The author
+of a change remains the copyright owner of their code (no copyright assignment occurs).
 
 <!--Links-->
 
