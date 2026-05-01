@@ -8,21 +8,26 @@ myst:
 
 # Use custom HTML templates
 
-If the default template in the Starter Pack doesn't fully meet your needs -- whether you want a unique layout, a custom header or footer, or a specialized sidebar for certain pages -- you can create and use a custom template for your project.
+If the default template in the Sphinx Stack doesn't fully meet your needs -- whether you
+want a unique layout, a custom header or footer, or a specialized sidebar for certain
+pages -- you can create and use a custom template for your project.
 
-This guide shows you how to extend or override the default templates in the Starter Pack to tailor the look and structure of your documentation.
+This guide shows you how to extend or override the default templates in the Sphinx Stack
+to tailor the look and structure of your documentation.
 
 ```{note}
-Base template customizations can be made to your documentation.
-However, they are not officially supported by the team maintaining the Starter Pack.
-Use them at your own discretion.
+Base template customizations can be made to your documentation. However, they are not
+officially supported by the team maintaining the Spinx Stack. Use them at your own
+discretion.
 ```
 
 ## Setup
 
-First, create the {file}`docs/_templates` directory; all your custom templates will need to be stored in this folder.
+First, create the `docs/_templates` directory; all your custom templates will need to be
+stored in this directory.
 
-Then uncomment this line in {file}`docs/conf.py` so your project will use local templates (where available):
+Then uncomment this line in `docs/conf.py` so your project will use local templates
+(where available):
 
 ```{code-block} py
 :caption: conf\.py
@@ -30,24 +35,29 @@ Then uncomment this line in {file}`docs/conf.py` so your project will use local 
 templates_path = ["_templates"]
 ```
 
-In most cases, you will need to copy the default templates from the [canonical-sphinx theme] as a starting point and edit as needed.
+In most cases, you will need to copy the default templates from the [canonical-sphinx
+theme] as a starting point and edit as needed.
 
 
 ```{seealso}
-Sphinx uses the Jinja templating engine for its HTML templates; see the [Jinja template syntax reference] for more details.
+Sphinx uses the Jinja templating engine for its HTML templates; see the
+[Jinja template syntax reference] for more details.
 ```
 
 ## Use custom template for all pages
 
-Sphinx looks for a template called {file}`page.html` as the entry point and main page template for documentation pages.
-To customize your project's look and structure, check this file and determine which parts -- such as the header, footer, or sidebars -- need to be edited or overridden.
+Sphinx looks for a template called `page.html` as the entry point and main page template
+for documentation pages. To customize your project's look and structure, check this file
+and determine which parts -- such as the header, footer, or sidebars -- need to be
+edited or overridden.
 
 Here are some examples.
 
 ### Remove on-page TOC
 
-To remove the on-page TOC in the right sidebar, make a copy of [page.html] in the {file}`docs/_templates` folder, and remove the applicable lines.
-This will apply to all pages. 
+To remove the on-page TOC in the right sidebar, make a copy of [page.html] in the
+`docs/_templates` directory, and remove the applicable lines. This will apply to all
+pages. 
 
 ```{code-block} html
 :caption: page.html
@@ -75,7 +85,8 @@ This will apply to all pages.
 
 ### Add icon for GitHub link in header
 
-To customize the default header by adding an icon for the GitHub link, first make a copy of [header.html] in the {file}`docs/_templates` folder.
+To customize the default header by adding an icon for the GitHub link, first make a copy
+of [header.html] in the `docs/_templates` directory.
 
 Then modify the conditional statement related to the GitHub URL with your code.
 
@@ -105,16 +116,21 @@ Then modify the conditional statement related to the GitHub URL with your code.
 
 ## Use custom template for specific pages
 
-If you want to use a custom template for specific pages in your project, you can do so by using conditional logic in {file}`page.html`.
+If you want to use a custom template for specific pages in your project, you can do so
+by using conditional logic in `page.html`.
 
-First, create the base template with your modifications (e.g. {file}`special-header.html`, {file}`special-page.html`) and place it in the {file}`docs/_templates` folder.
+First, create the base template with your modifications (e.g. `special-header.html`,
+`special-page.html`) and place it in the `docs/_templates` directory.
 
 Next, make a copy of [page.html].
 
 ### Partial template changes
 
-To make partial changes (e.g. custom header) to specific pages, modify only the relevant parts of {file}`page.html` where you want the custom layout or behavior to apply.
-For example, wrap the body block in a conditional statement so the custom header (e.g. {file}`special-header.html`) applies only to the "how-to/custom-templates" and "how-to/build" page.
+To make partial changes (e.g. custom header) to specific pages, modify only the relevant
+parts of `page.html` where you want the custom layout or behavior to apply. For example,
+wrap the body block in a conditional statement so the custom header (e.g.
+`special-header.html`) applies only to the "how-to/custom-templates" and "how-to/build"
+page.
 
 ```{code-block} html
 :emphasize-lines: 2-6
@@ -132,8 +148,10 @@ For example, wrap the body block in a conditional statement so the custom header
 
 ### Whole template changes
 
-To make changes to the whole template (e.g. a custom layout for a landing page or marketing page), modify the `extends` statement in {file}`page.html` to specify the pages that will use different templates.
-For example, the {file}`special-page.html` template applies only to the "how-to/customise" and "how-to/diagrams-as-code" page.
+To make changes to the whole template (e.g. a custom layout for a landing page or
+marketing page), modify the `extends` statement in `page.html` to specify the pages that
+will use different templates. For example, the `special-page.html` template applies only
+to the "how-to/customise" and "how-to/diagrams-as-code" page.
 
 ```{code-block} html
 :caption: _templates/page.html
@@ -146,7 +164,7 @@ For example, the {file}`special-page.html` template applies only to the "how-to/
 ```
 
 ```{note}
-The pages "how-to/customise" and "how-to/diagrams-as-code" will use {file}`special-page.html` as the base template, but all other blocks (e.g. footer, body, etc) will follow the default {file}`page.html`.
+The pages "how-to/customise" and "how-to/diagrams-as-code" will use `special-page.html` as the base template, but all other blocks (e.g. footer, body, etc) will follow the default `page.html`.
 ```
 
 % LINKS

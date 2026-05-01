@@ -6,10 +6,10 @@
 
 # Development reviewers
 # Adjust this once we establish a Sphinx development team.
-* @akcano @dwilding @medubelko @minaelee @rkratky @SecondSkoll @tang-mm
+* @a-velasco @dwilding @jahn-junior @medubelko @rkratky @SecondSkoll
 
 # Changes to CODEOWNERS must be reviewed by admins
-/.github/CODEOWNERS @SecondSkoll
+/.github/CODEOWNERS @jahn-junior @medubelko
 
 # Doc reviewers
 # /docs/

@@ -2,7 +2,7 @@
 relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
   html_meta:
-    description: MyST Markdown syntax for use in Starter Pack projects, including headings, links, code blocks, directives, and reusable content patterns.
+    description: Reference for the MyST syntax conventions used by Canonical.
   substitutions:
     advanced_reuse_key: "This is a substitution that includes a code block:
                        ```
@@ -14,16 +14,19 @@ myst:
 
 # MyST syntax
 
-The Starter Pack supports [Markdown](https://commonmark.org/) and [MyST](https://myst-parser.readthedocs.io/).
+The Sphinx Stack supports [Markdown](https://commonmark.org/) and
+[MyST](https://myst-parser.readthedocs.io/).
 
 See the following sections for syntax help and conventions.
 
 ```{note}
-This guide assumes that you are using the [Sphinx documentation Starter Pack](https://github.com/canonical/sphinx-docs-starter-pack).
-Some of the mentioned syntax requires Sphinx extensions (which are enabled in the Starter Pack).
+This guide assumes that you are using the [Sphinx
+Stack](https://github.com/canonical/sphinx-stack). Some of the mentioned syntax requires
+Sphinx extensions (which are enabled in the Sphinx Stack).
 ```
 
-For general style conventions, see the [Canonical Documentation Style Guide](https://docs.ubuntu.com/styleguide/en).
+For general style conventions, see the [Canonical Documentation Style
+Guide](https://docs.ubuntu.com/styleguide/en).
 
 ## Headings
 
@@ -76,8 +79,11 @@ Adhere to the following conventions:
 
 Adhere to the following conventions:
 
-- Use italics sparingly. Common uses for italics are titles and names (for example, when referring to a section title that you cannot link to, or when introducing the name for a concept).
-- Use bold sparingly. Avoid using bold for emphasis and rather rewrite the sentence to get your point across.
+- Use italics sparingly. Common uses for italics are titles and names (for example, when
+  referring to a section title that you cannot link to, or when introducing the name for
+  a concept).
+- Use bold sparingly. Avoid using bold for emphasis and rather rewrite the sentence to
+  get your point across.
 
 ## Code blocks
 
@@ -85,7 +91,8 @@ Start and end a code block with three back ticks:
 
     ```
 
-You can specify the code language after the back ticks to enforce a specific lexer, but in many cases, the default lexer works just fine.
+You can specify the code language after the back ticks to enforce a specific lexer, but
+in many cases, the default lexer works just fine.
 
 `````{list-table}
    :header-rows: 1
@@ -252,18 +259,22 @@ To customize the prompt (`user@host:~$` by default), specify any of the followin
 The copy button for input commands is **opt-in**. You must include the `:copy:` flag
 in the directive's options for the button to be displayed.
 
-To make the terminal scroll horizontally instead of wrapping long lines, include the `:scroll:` option.
+To make the terminal scroll horizontally instead of wrapping long lines, include the
+`:scroll:` option.
 
-For more details, refer to the [`sphinx-terminal` README](https://github.com/canonical/sphinx-terminal/blob/main/README.md).
+For more details, refer to the [`sphinx-terminal`
+README](https://github.com/canonical/sphinx-terminal/blob/main/README.md).
 
 ## Links
 
-How to link depends on if you are linking to an external URL or to another page in the documentation.
+How to link depends on if you are linking to an external URL or to another page in the
+documentation.
 
 ### External links
 
-For external links, use Markdown syntax.
-You can also use just the URL, but this will usually cause issues with the spelling check, so you should specify the link text as code in this case.
+For external links, use Markdown syntax. You can also use just the URL, but this will
+usually cause issues with the spelling check, so you should specify the link text as
+code in this case.
 
 ```{list-table}
    :header-rows: 1
@@ -298,7 +309,9 @@ To add a link to a related website, add the following field at the top of the pa
 
     relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [RTFM](https://www.google.com)
 
-To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with `&#32;`, and include the value in quotes if Sphinx complains about the metadata value because it starts with `[`.
+To override the title, use Markdown syntax. Note that spaces are ignored; if you need
+spaces in the title, replace them with `&#32;`, and include the value in quotes if
+Sphinx complains about the metadata value because it starts with `[`.
 
 To add a link to a Discourse topic, configure the Discourse instance in the {file}`conf.py` file.
 Then add the following field at the top of the page (where `12345` is the ID of the Discourse topic):
@@ -333,15 +346,19 @@ To override the title, add the `:title:` option.
 
 ### Internal references
 
-For internal references, both Markdown and MyST syntax are supported. In most cases, you should use MyST syntax though, because it resolves the link text automatically and gives an indication of the link in GitHub rendering.
+For internal references, both Markdown and MyST syntax are supported. In most cases, you
+should use MyST syntax though, because it resolves the link text automatically and gives
+an indication of the link in GitHub rendering.
 
 (a_section_target_myst)=
 
 #### Referencing a section
 
-To reference a section within the documentation (either on the same page or on another page), add a target to that section and reference that target.
+To reference a section within the documentation (either on the same page or on another
+page), add a target to that section and reference that target.
 
-You can add targets at any place in the documentation. However, if there is no heading or title for the targeted element, you must specify a link text.
+You can add targets at any place in the documentation. However, if there is no heading
+or title for the targeted element, you must specify a link text.
 
 (a_random_target_myst)=
 
@@ -363,7 +380,9 @@ You can add targets at any place in the documentation. However, if there is no h
   - References a target and specifies a title.
 * - `` {ref}`project_key:an_external_target` ``
   - Default link text
-  - You can also reference targets in other Sphinx projects. `project-key` must be a key in the `intersphinx_mapping` dictionary in `conf.py`. The link text defaults to the target's title.
+  - You can also reference targets in other Sphinx projects. `project-key` must be a key
+    in the `intersphinx_mapping` dictionary in `conf.py`. The link text defaults to the
+    target's title.
 * - ``[`xyz`](a_random_target_myst)``
   - [`xyz`](a_random_target_myst)
   - Use Markdown syntax if you need markup on the link text.
@@ -371,14 +390,19 @@ You can add targets at any place in the documentation. However, if there is no h
 
 Adhere to the following conventions:
 
-- Never use external links to reference a section in the same doc set or a doc set that is linked with Intersphinx. It would likely cause a broken link in the future.
-- Override the link text only when it is necessary. If you can use the section title as link text, do so, because the text will then update automatically if the title changes.
-- Never "override" the link text with the same text that would be generated automatically.
+- Never use external links to reference a section in the same doc set or a doc set that
+  is linked with Intersphinx. It would likely cause a broken link in the future.
+- Override the link text only when it is necessary. If you can use the section title as
+  link text, do so, because the text will then update automatically if the title
+  changes.
+- Never "override" the link text with the same text that would be generated
+  automatically.
 
 #### Referencing a page
 
-If a documentation page does not have a target, you can still reference it by using the `{doc}` role with the file name and path.
-Use MyST syntax to automatically extract the link text. When overriding the link text, use Markdown syntax.
+If a documentation page does not have a target, you can still reference it by using the
+`{doc}` role with the file name and path. Use MyST syntax to automatically extract the
+link text. When overriding the link text, use Markdown syntax.
 
 ```{list-table}
    :header-rows: 1
@@ -402,15 +426,23 @@ Use MyST syntax to automatically extract the link text. When overriding the link
 
 Adhere to the following conventions:
 
-- Only use the `{doc}` role when you cannot use the `{ref}` role, thus only if there is no target at the top of the file and you cannot add it. When using the `{doc}` role, your reference will break when a file is renamed or moved.
-- Override the link text only when it is necessary. If you can use the document title as link text, do so, because the text will then update automatically if the title changes.
-- Never "override" the link text with the same text that would be generated automatically.
+- Only use the `{doc}` role when you cannot use the `{ref}` role, thus only if there is
+  no target at the top of the file and you cannot add it. When using the `{doc}` role,
+  your reference will break when a file is renamed or moved.
+- Override the link text only when it is necessary. If you can use the document title as
+  link text, do so, because the text will then update automatically if the title
+  changes.
+- Never "override" the link text with the same text that would be generated
+  automatically.
 
 ## Navigation
 
-Every documentation page must be included as a sub-page to another page in the navigation.
+Every documentation page must be included as a sub-page to another page in the
+navigation.
 
-This is achieved with the [`toctree`](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree) directive in the parent page:
+This is achieved with the
+[`toctree`](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree)
+directive in the parent page:
 
 ````
 ```{toctree}
@@ -421,7 +453,8 @@ sub-page2
 ```
 ````
 
-If a page should not be included in the navigation, you can suppress the resulting build warning by putting the following instruction at the top of the file:
+If a page should not be included in the navigation, you can suppress the resulting build
+warning by putting the following instruction at the top of the file:
 
 ```
 ---
@@ -432,10 +465,12 @@ orphan: true
 Use orphan pages sparingly and only if there is a clear reason for it.
 
 ```{tip}
-Instead of hiding pages that you do not want to include in the documentation from the navigation, you can exclude them from being built.
-This method will also prevent them from being found through the search.
+Instead of hiding pages that you do not want to include in the documentation from the
+navigation, you can exclude them from being built. This method will also prevent them
+from being found through the search.
 
-To exclude pages from the build, add them to the `custom_excludes` variable in the {file}`conf.py` file.
+To exclude pages from the build, add them to the `custom_excludes` variable in the
+`conf.py` file.
 ```
 
 ## Lists
@@ -510,8 +545,11 @@ Adhere to the following conventions:
 
 ## Tables
 
-You can use standard Markdown tables. However, using the reST [list table](https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table) syntax is usually much easier.
-See the [Sphinx documentation](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#table-directives) for all table syntax alternatives.
+You can use standard Markdown tables. However, using the reST [list
+table](https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table) syntax
+is usually much easier. See the [Sphinx
+documentation](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#table-directives)
+for all table syntax alternatives.
 
 Both markups result in the following output:
 
@@ -539,7 +577,9 @@ Both markups result in the following output:
 
 ### List tables
 
-See [list tables](https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table) for reference.
+See [list
+tables](https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table) for
+reference.
 
 ````
 ```{list-table}
@@ -576,8 +616,8 @@ For example:
 ```
 ````
 
-If you have a large amount of CSV data, or the data is generated by an automated process, 
-you can include the data from a file. 
+If you have a large amount of CSV data, or the data is generated by an automated
+process, you can include the data from a file. 
 
 For example:
 
@@ -605,7 +645,7 @@ Both markups result in the following output:
 Customize the column widths, character encoding, and so on, as described in the 
 [`csv-table` reference](https://mystmd.org/guide/directives#directive-csv-table).
 
-The Starter Pack can also render interactive tables. See: {ref}`interactive-tables`.
+The Sphinx Stack can also render interactive tables. See: {ref}`interactive-tables`.
 
 ## Notes
 
@@ -685,7 +725,9 @@ Adhere to the following conventions:
 
 - For local pictures, start the path with `/` (for example, `/images/image.png`).
 - Use `PNG` format for screenshots and `SVG` format for graphics.
-- See [Five golden rules for compliant alt text](https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text) for information about how to word the alt text.
+- See [Five golden rules for compliant alt
+  text](https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text)
+  for information about how to word the alt text.
 
 ## Reuse
 
@@ -693,50 +735,63 @@ A big advantage of MyST in comparison to plain Markdown is that it allows to reu
 
 ### Substitution
 
-To reuse sentences or paragraphs that have little markup and special formatting, use [substitutions](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions).
+To reuse sentences or paragraphs that have little markup and special formatting, use
+[substitutions](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions).
 
 Substitutions can be defined in the following locations:
 
-- Globally, in a file named {file}`reuse/substitutions.yaml` that is loaded into the [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2) variable in {file}`conf.py`:
+**Globally**, in a file named {file}`reuse/substitutions.yaml` that is loaded into the
+[`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2)
+variable in `conf.py`. Or if you have a limited amount of substitutions, enter them
+directly into the `myst_substitutions` variable in `conf.py`:
 
-  ```{code-block} python
-     :caption: "{spellexception}`conf.py`"
+```{code-block} python
+:caption: "{spellexception}`conf.py`"
 
-  import os
-  import yaml
+import os
+import yaml
 
-  ...
-
-  if os.path.exists('./reuse/substitutions.yaml'):
+if os.path.exists('./reuse/substitutions.yaml'):
     with open('./reuse/substitutions.yaml', 'r') as fd:
         myst_substitutions = yaml.safe_load(fd.read())
-  ```
+else:
+    myst_substitutions = {
+        "version_number": "0.1.0",
+        "formatted_text": "*Multi-line* text\n that uses basic **markup**.",
+        "site_link": "[Website link](https://example.com)"
+  }
+```
 
-  ```{code-block} yaml
-     :caption: "{spellexception}`reuse/substitutions.yaml`"
+```{code-block} yaml
+:caption: "{spellexception}`reuse/substitutions.yaml`"
 
-  # Key/value substitutions to use within the Sphinx doc.
-  {version_number: "0.1.0",
-   formatted_text: "*Multi-line* text\n that uses basic **markup**.",
-   site_link: "[Website link](https://example.com)"}
-- Locally, putting the definitions at the top of a single file in the following format:
+# Key/value substitutions to use within the Sphinx doc.
+{version_number: "0.1.0",
+  formatted_text: "*Multi-line* text\n that uses basic **markup**.",
+  site_link: "[Website link](https://example.com)"}
 
-  ````
-  ---
-  myst:
-    substitutions:
-      version_number: "0.1.0"
-      formatted_text: "*Multi-line* text
-                       that uses basic **markup**."
-      advanced_reuse_key: "This is a substitution that includes a code block:
-                         ```
-                         code block
-                         ```"
+```
 
-  ---
-  ````
+**Locally**, putting the definitions at the top of a single file in the following
+format:
 
-You can combine both options by defining a default substitution in `reuse/substitutions.py` and overriding it at the top of a file.
+
+````
+---
+myst:
+  substitutions:
+    version_number: "0.1.0"
+    formatted_text: "*Multi-line* text
+                      that uses basic **markup**."
+    advanced_reuse_key: "This is a substitution that includes a code block:
+                        ```
+                        code block
+                        ```"
+---
+````
+
+You can combine both options by defining a default substitution in
+`reuse/substitutions.py` and overriding it at the top of a file.
 
 The definitions from the above examples are rendered as follows:
 
@@ -757,17 +812,25 @@ The definitions from the above examples are rendered as follows:
 
 Adhere to the following convention:
 
-- Substitutions do not work on GitHub. Therefore, use substitution names that indicate the included content (for example, `note_not_supported` instead of `reuse_note`).
+- Substitutions do not work on GitHub. Therefore, use substitution names that indicate
+  the included content (for example, `note_not_supported` instead of `reuse_note`).
 
 ### File inclusion
 
-To reuse longer sections or text with more advanced markup, you can put the content in a separate file and include the file or parts of the file in several locations.
+To reuse longer sections or text with more advanced markup, you can put the content in a
+separate file and include the file or parts of the file in several locations.
 
-To select parts of the text in a file, use `:start-after:` and `:end-before:` if possible. You can combine those with `:start-line:` and `:end-line:` if required (if the same text occurs more than once). Using only `:start-line:` and `:end-line:` is error-prone though.
+To select parts of the text in a file, use `:start-after:` and `:end-before:` if
+possible. You can combine those with `:start-line:` and `:end-line:` if required (if the
+same text occurs more than once). Using only `:start-line:` and `:end-line:` is
+error-prone though.
 
-You cannot put any targets into the content that is being reused (because references to this target would be ambiguous then). You can, however, put a target right before including the file.
+You cannot put any targets into the content that is being reused (because references to
+this target would be ambiguous then). You can, however, put a target right before
+including the file.
 
-By combining file inclusion and substitutions, you can even replace parts of the included text.
+By combining file inclusion and substitutions, you can even replace parts of the
+included text.
 
 `````{list-table}
      :header-rows: 1
@@ -796,13 +859,18 @@ By combining file inclusion and substitutions, you can even replace parts of the
 
 Adhere to the following convention:
 
-- File inclusion does not work on GitHub. Therefore, always add a comment linking to the included file.
-- Files that only contain text that is reused somewhere else should be placed in the {file}`reuse` folder and end with the extension ``.txt`` to distinguish them from normal content files.
-- To make sure inclusions don't break, consider adding HTML comments (`<!-- some comment -->`) to the source file as markers for starting and ending.
+- File inclusion does not work on GitHub. Therefore, always add a comment linking to the
+  included file.
+- Files that only contain text that is reused somewhere else should be placed in the
+  `reuse` directory and end with the extension ``.txt`` to distinguish them from
+  normal content files.
+- To make sure inclusions don't break, consider adding HTML comments (`<!-- some comment
+  -->`) to the source file as markers for starting and ending.
 
 ## Tabs
 
-The recommended way of creating tabs is to use the tabs that the [Sphinx design](https://sphinx-design.readthedocs.io/en/latest/) extension provides.
+The recommended way of creating tabs is to use the tabs that the [Sphinx
+design](https://sphinx-design.readthedocs.io/en/latest/) extension provides.
 
 ``````{list-table}
    :header-rows: 1
@@ -845,7 +913,10 @@ The recommended way of creating tabs is to use the tabs that the [Sphinx design]
     ````
 ``````
 
-Alternatively, you can use the [Sphinx tabs](https://sphinx-tabs.readthedocs.io/en/latest/) extension, which is also enabled by default. This was previously recommended due to limitations in Sphinx Design that are now fixed.
+Alternatively, you can use the [Sphinx
+tabs](https://sphinx-tabs.readthedocs.io/en/latest/) extension, which is also enabled by
+default. This was previously recommended due to limitations in Sphinx Design that are
+now fixed.
 
 ``````{list-table}
    :header-rows: 1
@@ -886,7 +957,8 @@ Alternatively, you can use the [Sphinx tabs](https://sphinx-tabs.readthedocs.io/
 
 ## Collapsible sections
 
-There is no support for details sections in MyST, but you can insert HTML to create them.
+There is no support for details sections in MyST, but you can insert HTML to create
+them.
 
 ````{list-table}
    :header-rows: 1
@@ -911,7 +983,8 @@ There is no support for details sections in MyST, but you can insert HTML to cre
 
 ## Glossary
 
-You can define glossary terms in any file. Ideally, all terms should be collected in one glossary file though, and they can then be referenced from any file.
+You can define glossary terms in any file. Ideally, all terms should be collected in one
+glossary file though, and they can then be referenced from any file.
 
 `````{list-table}
    :header-rows: 1

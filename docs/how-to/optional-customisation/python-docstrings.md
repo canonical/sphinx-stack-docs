@@ -8,24 +8,33 @@ myst:
 
 # Import docstrings with Sphinx `autodoc`
 
-Module and function details are useful reference material to have in documentation, but the process of manually pulling all the necessary details over can become tedious. The [Sphinx `autodoc` extension](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html) provides the capability to automatically pull in docstrings and module information for Python code.
+Module and function details are useful reference material to have in documentation, but
+the process of manually pulling all the necessary details over can become tedious. The
+[Sphinx `autodoc`
+extension](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html) provides
+the capability to automatically pull in docstrings and module information for Python
+code.
 
 ## Prerequisites
 
-To use the Sphinx `autodoc` extension with the Starter Pack, you need:
+To use the Sphinx `autodoc` extension with the Sphinx Stack, you need:
 
 * Python module files located within the same repository as your documentation
 
 OR
 
-* The code repository added as a [Git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) into the documentation repository
+* The code repository added as a [Git
+  submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) into the documentation
+  repository
 
 ## Setup
 
-In the {file}`conf.py` file in your docs directory, update the `sys.path` so that Sphinx can find your module files. At the top of the file, add a `sys.path.insert` that adds your `<code>` directory:
+In the `conf.py` file in your docs directory, update the `sys.path` so that Sphinx can
+find your module files. At the top of the file, add a `sys.path.insert` that adds your
+`<code>` directory:
 
 ```{code-block} python
-:caption: {file}`conf.py`
+:caption: `conf.py`
 
 import sys
 from pathlib import Path
@@ -36,10 +45,11 @@ absolute_code_path_str = str(absolute_code_path)
 sys.path.insert(0, absolute_code_path_str) # insert at index 0 so it occurs early in the list
 ```
 
-Then, further down in the {file}`conf.py`, add `sphinx.ext.autodoc` to the list of extensions:
+Then, further down in the `conf.py` file, add `sphinx.ext.autodoc` to the list of
+extensions:
 
 ```{code-block} python
-:caption: {file}`conf.py`
+:caption: `conf.py`
 
 extensions = [
     ...
@@ -49,7 +59,9 @@ extensions = [
 
 ## Usage
 
-See [Sphinx's `autodoc` instructions](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#usage) for details.
+See [Sphinx's `autodoc`
+instructions](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#usage)
+for details.
 
 ## Known issues and limitations
 
@@ -57,13 +69,20 @@ There are a few issues and limitations that should be taken into consideration.
 
 ### Language
 
-The extension's usage is limited to Python code. There are extensions for some other languages but they have not been tested with the Starter Pack, such as [sphinxcontrib-rust](https://sphinxcontrib-rust.readthedocs.io/en/stable/) for Rust.
+The extension's usage is limited to Python code. There are extensions for some other
+languages but they have not been tested with the Sphinx Stack, such as
+[sphinxcontrib-rust](https://sphinxcontrib-rust.readthedocs.io/en/stable/) for Rust.
 
 ### Docstring format
 
-The `autodoc` extension pulls the docstrings straight into the the reStructuredText (reST) document, which requires the docstrings to be in reST format. For docstrings in the Numpy or Google style, the [napoleon](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#module-sphinx.ext.napoleon) extension can convert the docstrings into reST prior to processing by `autodoc`.
+The `autodoc` extension pulls the docstrings straight into the the reStructuredText
+(reST) document, which requires the docstrings to be in reST format. For docstrings in
+the Numpy or Google style, the
+[napoleon](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#module-sphinx.ext.napoleon)
+extension can convert the docstrings into reST prior to processing by `autodoc`.
 
-For documentation that is written in MyST Markdown, wrap the `eval-rst` directive around the `autodoc` calls:
+For documentation that is written in MyST Markdown, wrap the `eval-rst` directive around
+the `autodoc` calls:
 
 ````{code-block} md
 
@@ -83,7 +102,7 @@ For documentation that is written in MyST Markdown, wrap the `eval-rst` directiv
 :header-rows: 1
 
 *  - Product
-   - {file}`conf.py`
+   - `conf.py`
    - Raw Doc
    - Rendered Doc
 

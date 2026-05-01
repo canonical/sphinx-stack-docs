@@ -1,5 +1,5 @@
 .. meta::
-    :description: Learn about the function, structure, and design of the build process in Canonical's Starter Pack.
+    :description: Learn about the function, structure, and design of the build process in the Sphinx Stack.
 
 :relatedlinks: [GNU&#32;Make](https://www.gnu.org/software/make/)
 
@@ -9,7 +9,7 @@
 Build
 ======
 
-Canonical's Starter Pack uses Make as its build system. Make was chosen because it's
+The Sphinx Stack uses Make as its build system. Make was chosen because it's
 well-tested and available on all platforms. The majority of the build configuration is
 defined in ``docs/Makefile``.
 
@@ -22,7 +22,7 @@ different locations without changing the docs ``Makefile``.
 
 Being primarily a Python project, all dependencies are stored in a virtual environment,
 ``docs/.venv`` by default. The environment is ephemeral and subject to frequent change.
-Installing the Starter Pack initializes it, while cleaning and updating tears it
+Installing the Sphinx Stack initializes it, while cleaning and updating tears it
 down and rebuilds it.
 
 
@@ -31,7 +31,7 @@ down and rebuilds it.
 Parent projects and the build
 -----------------------------
 
-The Starter Pack is arranged as a standalone project. When it's used in a larger
+The Sphinx Stack is arranged as a standalone project. When it's used in a larger
 project, the docs are a subsystem among other components.
 
 If the parent project uses a build system, Make or otherwise, the doc build exists in
@@ -60,17 +60,17 @@ difficulty:
   or manually calling the docs Makefile with ``make -C docs <action>``.
 - Storing multiple virtual environments bloats the host system. It's reasonable for
   project maintainers to prefer a shared build environment.
-- The Starter Pack's update process can make changes to many files in the ``docs``
+- The update process in the Sphinx Stack can make changes to many files in the ``docs``
   directory. Updating is potentially much simpler if the parent project modifies only
   a minimum of files in the directory.
 - With quality assurance and continuous integration, it's simpler if the project can use
   the same interface to run local and remote checks. More specifically, the parent build
-  system and CI need a way to call the Starter Pack's ``links``, ``spelling``, and
-  ``vale`` checks.
+  system and CI need a way to call the ``links``, ``spelling``, and ``vale`` checks in
+  the Sphinx Stack.
 
 One possible resolution is for the parent build to manually recreate the docs build,
 tightly coupling the parent build to the existing docs configuration. But this poses
-another challenge, because the docs ``Makefile`` might change during a Starter Pack
+another challenge, because the docs ``Makefile`` might change during a Sphinx Stack
 update, requiring a rewrite of the parent build recipes.
 
 The solution to these complications is to create a bridge between the two builds, from

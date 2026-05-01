@@ -1,5 +1,5 @@
 .. meta::
-    :description: How to bridge the build of Canonical's Starter Pack and a parent project's build.
+    :description: How to bridge the build of the Sphinx Stack and a parent project's build.
 
 :relatedlinks: [pip&#32;and&#32;dependency&#32;groups](https://pip.pypa.io/en/stable/user_guide/#dependency-groups), [uv&#32;and&#32;dependency&#32;groups](https://docs.astral.sh/uv/concepts/projects/dependencies/#dependency-groups), [Poetry&#32;and&#32;dependency&#32;groups](https://python-poetry.org/docs/managing-dependencies#dependency-groups)
 
@@ -12,7 +12,7 @@ Bridge project and documentation builds
 .. If more parent projects and build systems are tested, make the introduction general 
    and add tabs to each of the steps
 
-The Starter Pack can be used as a standalone docs repository, or embedded inside a
+The Sphinx Stack can be used as a standalone docs repository, or embedded inside a
 parent project. This guide demonstrates how to bridge the docs build with a Python
 project's main build. Once bridged, project contributors can install, build, and check
 the docs from the root of the project with the main build system.
@@ -34,7 +34,7 @@ capable of adding targets that call other systems. When shimmed, the docs target
 
 The bridge also **merges the virtual environments**, removing the need for a separate
 docs environment. This change is optional but recommended. To combine environments, your
-project must provide **Python 3.11** or higher to the Starter Pack. Any Python
+project must provide **Python 3.11** or higher to the Sphinx Stack. Any Python
 dependency manager will do, and this guide illustrates with three:
 
 - pip 25.1 and higher
@@ -135,9 +135,9 @@ environment fed by three dependency groups in ``pyproject.toml``:
 
 - ``dev`` for development builds
 - ``docs`` for extra docs packages that your project needs
-- ``docs-starter-pack`` for the core docs packages set by the Starter Pack
+- ``docs-sphinx-stack`` for the core docs packages set by the Sphinx Stack
 
-First, add the dependency groups. The docs group should depend on the Starter Pack
+First, add the dependency groups. The docs group should depend on the Sphinx Stack
 group:
 
 .. code-block:: toml
@@ -149,9 +149,9 @@ group:
     ]
     docs = [
         # Packages for extra docs features
-        {include-group = "docs-starter-pack"},
+        {include-group = "docs-sphinx-stack"},
     ]
-    docs-starter-pack = [
+    docs-sphinx-stack = [
         # Core docs packages
     ]
 
@@ -162,7 +162,7 @@ the ``dev`` dependency group.
 If your project needs extra docs features, like the Mermaid or LaTeX Sphinx extensions,
 add their packages to the ``docs`` group.
 
-Copy the contents of ``docs/requirements.txt`` into the ``docs-starter-pack`` group.
+Copy the contents of ``docs/requirements.txt`` into the ``docs-sphinx-stack`` group.
 
 In the main build, override the docs installation target to install the ``docs``
 dependency group, then make the project's ``setup`` target depend on the docs target. In
@@ -264,6 +264,7 @@ In the example project, the main build calls the targets like this:
     	$(MAKE) -C docs $(@:docs-%=%) --no-print-directory
 
 .. admonition:: Variables and Makefiles
+    :class: note
 
     When calling another Makefile with ``$(MAKE) -C``, also known as a sub-Make call,
     variables with default values in the child Makefile won't be overridden. To override
@@ -277,6 +278,7 @@ In the example project, the main build calls the targets like this:
 
     		$(MAKE) -C docs run SPHINX_AUTOBUILD_OPTS="$(SPHINX_AUTOBUILD_OPTS)"
 
+
 .. _how-to-bridge-project-builds-adjust-rtd-build:
 
 Adjust the Read the Docs build
@@ -289,7 +291,8 @@ same build targets that developers use locally.
 If you use an uncommon system, you might need to install it during the workflow's
 ``create_environment`` job.
 
-If you merged the virtual environments, make sure to set ``DOCS_VENVDIR=${READTHEDOCS_VIRTUALENV_PATH}`` in all commands.
+If you merged the virtual environments, make sure to set
+``DOCS_VENVDIR=${READTHEDOCS_VIRTUALENV_PATH}`` in all commands.
 
 Here's what it looks like in the example project:
 
@@ -318,8 +321,8 @@ Here's what it looks like in the example project:
 Adjust the doc workflows
 ------------------------
 
-If your project uses the Starter Pack's docs workflows *and* Make, adjust the workflows
-to use the bridged targets.
+If your project uses the Sphinx Stack workflows *and* Make, adjust the workflows to use
+the bridged targets.
 
 For the main checks, override the target names and paths through the `workflow inputs
 <https://github.com/canonical/documentation-workflows/blob/main/.github/workflows/documentation-checks.yaml#L5-L54>`_:

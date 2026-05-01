@@ -5,21 +5,38 @@ myst:
 relatedlinks: "[sphinx-rerediraffe](https://github.com/jahn-junior/sphinx-rerediraffe)"
 ---
 
+(how-to-redirect-pages)=
+
 # Redirect pages
 
-If a file in your documentation set is moved, deleted or renamed, it can no longer be found at its original location and users will be shown a 404 Not Found page. This can be frustrating for users.
+If a file in your documentation set is moved, deleted or renamed, it can no longer be
+found at its original location and users will be shown a 404 Not Found page. This can be
+frustrating for users.
 
-To provide a better user experience, it is good practice to set up redirects to point to the new location, new file name, or to an alternative place where the information can be found. With documentation on Read the Docs, you can configure redirects [manually via the admin panel](https://docs.readthedocs.io/en/stable/guides/redirects.html). However, since this must be done separately, configuring redirects in RTD doesn't scale for complex and mature documentation where a lot of redirects must be maintained.
+To provide a better user experience, it is good practice to set up redirects to point to
+the new location, new file name, or to an alternative place where the information can be
+found. With documentation on Read the Docs, you can configure redirects [manually via
+the admin panel](https://docs.readthedocs.io/en/stable/guides/redirects.html). However,
+since this must be done separately, configuring redirects in RTD doesn't scale for
+complex and mature documentation where a lot of redirects must be maintained.
 
-The **best practice** is to define and track redirects in your project source, so that when a file is moved, renamed or deleted, you can create a redirect at the same time. In this way, redirects will always be in place when such changes go live. Redirects can either be **external**, meaning that they point to a URL outside your documentation, or **internal**, where you want to point to a new location within your documentation.
+The **best practice** is to define and track redirects in your project source, so that
+when a file is moved, renamed or deleted, you can create a redirect at the same time. In
+this way, redirects will always be in place when such changes go live. Redirects can
+either be **external**, meaning that they point to a URL outside your documentation, or
+**internal**, where you want to point to a new location within your documentation.
 
-To enable handling redirects in your project repository, the Starter Pack comes with the sphinx-rerediraffe extension. This extension allows you to store redirects in a separate file, `redirects.txt`.
+To enable handling redirects in your project repository, the Sphinx Stack comes with the
+sphinx-rerediraffe extension. This extension allows you to store redirects in a separate
+file, `redirects.txt`.
 
 ## Configure sphinx-rerediraffe
 
-Create a file called `redirects.txt` in the same directory as your `conf.py` file. This file will host all of your redirects.
+Create a file called `redirects.txt` in the same directory as your `conf.py` file. This
+file will host all of your redirects.
 
-Next, in your `conf.py` file, declare the `rediraffe_redirects` variable and assign it the path of the redirects file you just created relative to `conf.py`:
+Next, in your `conf.py` file, declare the `rediraffe_redirects` variable and assign it
+the path of the redirects file you just created relative to `conf.py`:
 
 ```{code-block} python
 :caption: conf\.py
@@ -52,7 +69,10 @@ path/file-name/ new-path/file-name/  # To move a file
 path/old-name/ new-path/new-name/    # To move and rename a file
 ```
 
-Redirects are relative to the root of the `docs/` directory, so for simplicity, it’s best to put the redirects.txt file in the root directory. This is an [example of a working](https://github.com/canonical/ubuntu-server-documentation/blob/main/docs/redirects.txt) `redirect.txt` file.
+Redirects are relative to the root of the `docs/` directory, so for simplicity, it’s
+best to put the redirects.txt file in the root directory. This is an [example of a
+working](https://github.com/canonical/ubuntu-server-documentation/blob/main/docs/redirects.txt)
+`redirect.txt` file.
 
 ## Layer redirects
 

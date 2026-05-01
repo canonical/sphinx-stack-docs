@@ -11,13 +11,13 @@ Canonical's Sphinx Starter Pack 1.5
 
 These release notes cover new features and changes in Canonical's Sphinx Starter Pack
 1.5. The `full commit log
-<https://github.com/canonical/sphinx-docs-starter-pack/releases/tag/1.5>`__ is available
+<https://github.com/canonical/sphinx-stack/releases/tag/1.5>`__ is available
 on GitHub.
 
 Bring these changes into your docs:
 
-- :ref:`Update starter pack 1.3.0 and higher <update-new-starter-pack>`
-- :ref:`Update starter pack 1.2.0 and lower <update-legacy-starter-pack>`
+- :ref:`Update starter pack 1.3.0 and higher <update-new-sphinx-stack>`
+- :ref:`Update starter pack 1.2.0 and lower <update-legacy-sphinx-stack>`
 
 
 What's new in 1.5
@@ -48,8 +48,7 @@ to the latest minor version.
 New upgrade guide
 ~~~~~~~~~~~~~~~~~
 
-For docs based on starter pack 1.3 or higher, we published
-:ref:`update-new-starter-pack`.
+For docs based on starter pack 1.3 or higher, we published :ref:`update-new-sphinx-stack`.
 
 
 Contribution guide
@@ -57,7 +56,7 @@ Contribution guide
 
 We've added a contribution guide for the project in ``CONTRIBUTING.md``. It's available
 in upgraded repositories and `on GitHub
-<https://github.com/canonical/sphinx-docs-starter-pack/blob/main/CONTRIBUTING.md>`__.
+<https://github.com/canonical/sphinx-stack/blob/main/CONTRIBUTING.md>`__.
 
 This guide is for developers of the starter pack. It's not meant for your project. After
 updating, remove it from your project.
