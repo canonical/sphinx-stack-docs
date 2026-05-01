@@ -11,12 +11,13 @@ the release and support policies for the Sphinx Stack.
 Latest release
 --------------
 
-- :ref:`release-1.6`
+- :ref:`release-2.0`
 
 
 Past releases
 -------------
 
+- :ref:`release-1.6`
 - :ref:`release-1.5`
 - :ref:`release-1.4`
 
@@ -44,6 +45,7 @@ modifications. It has numbers for major and minor version, but *not* patch versi
 .. toctree::
     :hidden:
 
+    2.0 <2.0>
     1.6 <1.6>
     1.5 <1.5>
     1.4 <1.4>

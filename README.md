@@ -1,7 +1,7 @@
 # Sphinx Stack documentation
 
 User documentation for the [Sphinx
-Stack](https://github.com/canonical/sphinx-docs-starter-pack) — a set of tools for
+Stack](https://github.com/canonical/sphinx-stack) — a set of tools for
 building and publishing Sphinx documentation.
 
 The template itself can be found at

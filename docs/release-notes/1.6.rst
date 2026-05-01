@@ -16,8 +16,8 @@ on GitHub.
 
 Bring these changes into your docs:
 
-- :ref:`Update starter pack 1.3.0 and higher <update-new-sphinx-stack>`
-- :ref:`Update starter pack 1.2.0 and lower <update-legacy-sphinx-stack>`
+- :ref:`Update Starter Pack 1.3.0 and higher <update-new-sphinx-stack>`
+- :ref:`Update Starter Pack 1.2.0 and lower <update-legacy-sphinx-stack>`
 
 
 What's new in 1.6

@@ -259,6 +259,8 @@ Link markup depends on whether you need an external URL
 or a page in the same documentation set.
 
 
+.. _reference-external-link-syntax:
+
 External links
 ~~~~~~~~~~~~~~
 
@@ -807,6 +809,8 @@ Reuse
 A big advantage of reST in comparison to plain Markdown is that it allows to reuse
 content.
 
+
+.. _reference-substitution-syntax:
 
 Substitution
 ~~~~~~~~~~~~

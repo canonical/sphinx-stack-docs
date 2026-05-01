@@ -1,0 +1,274 @@
+.. meta::
+    :description: The new features, changes, and fixes in Sphinx Stack 2.0.
+
+
+.. _release-2.0:
+
+Canonical's Sphinx Starter Pack 2.0
+====================================
+
+30 April 2026
+
+These release notes cover new features and changes in the project formerly known as
+Canonical's Sphinx Starter Pack. For a more granular list of changes, check out the full
+commit log.
+
+Bring these changes into your docs:
+
+- :ref:`Update Starter Pack 1.3.0 and higher <update-new-sphinx-stack>`
+- :ref:`Update Starter Pack 1.2.0 and lower <update-legacy-sphinx-stack>`
+
+
+What's new
+----------
+
+Rename to Sphinx Stack
+~~~~~~~~~~~~~~~~~~~~~~
+
+This project was named when the documentation team at Canonical started assembling a
+standard documentation toolkit. The word starter felt appropriate, as products needed
+their documentation bootstrapped, and we had yet to release a standard. More than two
+years later, this is no longer the case. This project has been deployed in hundreds of
+Canonical products. It represents a complete standard for Canonical documentation sets,
+not just those starting out. So, we decided that it's time for a new name.
+
+With the release of version 2.0, we're renaming the project **Sphinx Stack**. The
+repository is now located at https://github.com/canonical/sphinx-stack.
+
+
+Separate documentation repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To simplify the process of setting up and maintaining the Sphinx Stack, we separated its
+documentation into a new `Sphinx Stack documentation repository
+<https://github.com/canonical/sphinx-stack-docs>`__.
+
+Now, when you create a new project with the Sphinx Stack, you no longer need to remove
+its documentation. New projects are also no longer initialized with any configuration
+specific to the Sphinx Stack docs. Now, there's less ambiguity as to whether you need to
+incorporate new values into your configuration file.
+
+
+sphinx-llm support
+~~~~~~~~~~~~~~~~~~
+
+This version introduces default support for the `sphinx-llm
+<https://github.com/nvidia/sphinx-llm>`__ extension. It surfaces documents in accordance
+with the emerging `llms.txt standard <https://llmstxt.org>`__.  
+
+You can think of the ``llms.txt`` file as an extra sitemap for LLMs and systems using
+the Model Context Protocol. In your documentation builds, you'll now see an ``llms.txt``
+file, an ``llms-full.txt`` file, and Markdown copies of your pages. The content of these
+files is copied straight from your existing docs -- it doesn't transform or summarize
+the text.
+
+
+Dependency constraints
+~~~~~~~~~~~~~~~~~~~~~~
+
+In the past, we've had upstream packages break documentation builds without warning. To
+reduce this, we constrained the project's dependencies to their current major version.
+
+Before every future major release, we'll test the newest versions and adjust the
+constraints appropriately.
+
+
+Copyright statement
+~~~~~~~~~~~~~~~~~~~
+
+We aligned the copyright statement in the footer with legal standards. To incorporate
+this change in your documentation, add the license information to ``html_context`` in
+your ``conf.py`` file:
+
+.. code-block:: python
+    :caption: docs/conf\.py
+
+    html_context = {
+        "license": {
+            "name": "CC-BY-SA-3.0",
+            "url": "https://github.com/canonical/sphinx-stack/blob/main/LICENSE",
+        },
+    }
+
+For ``license.name``, use the standard shorthand identifier from `SPDX
+<https://spdx.org/licenses>`__.
+
+For ``license.url``, link to the LICENSE statement, typically found on the product's
+home page or in its GitHub repository.
+
+
+Ulwazi testing
+~~~~~~~~~~~~~~
+
+We invite you to :ref:`test Ulwazi <how-to-test-ulwazi-theme>`, our new documentation
+theme in early access.
+
+It represents a leap forward in the user experience, and we'd like your feedback. If you
+run into any bugs or issues, please `report them on GitHub
+<https://github.com/canonical/ulwazi/issues/new>`__.
+
+
+Breaking changes
+----------------
+
+
+Renamed the ``.sphinx/`` directory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``.sphinx/`` directory, which contains config files and utility scripts, has been
+renamed to ``_dev`` to better reflect its purpose.
+
+Once you've updated, remember to remove the ``.sphinx`` directory from your project. If
+your project has custom code that references this directory, you'll also need to update
+these references.
+
+
+Removed the ``reuse/`` directory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To reduce complexity and improve source readability, we've removed the ``reuse/``
+directory.
+
+By default, this directory contained project-wide link URLs and substitutions. Links
+should now be included with the inline syntax or, if used more than three times in a
+file, included at the end of the file. Substitutions will need to use reST or MyST
+syntax and should be placed at the top of the file. The syntax for these changes is
+described in :ref:`External links <reference-external-link-syntax>` and
+:ref:`Substitution <reference-substitution-syntax>`.
+
+
+Deprecated features
+-------------------
+
+The following features are deprecated. We plan to remove them in the 3.0 release.
+
+
+``none`` role
+~~~~~~~~~~~~~
+
+The ``none`` role is deprecated in 2.0.
+
+To prepare for this role's removal, replace any uses of it with comments.
+
+.. code-block:: diff
+
+    - :none:`This text isn't rendered.`
+    + .. This text isn't rendered.
+
+
+sphinx-tabs extension
+~~~~~~~~~~~~~~~~~~~~~
+
+The sphinx-tabs extension is deprecated in 2.0.
+
+If your documentation contains ``tabs`` and ``tab`` directives, replace them with the
+``tab-set`` and ``tab-item`` directives from the sphinx-design extension:
+
+.. code-block:: diff
+
+    - .. tabs::
+    - 
+    -    .. tab:: Item 1
+    - 
+    -       This is the first item.
+    -
+    -    .. tab:: Item 2
+    -
+    -       This is the second item.
+    + .. tab-set::
+    +
+    +     .. tab-item:: Item 1
+    +
+    +         This is the first item.
+    +
+    +     .. tab-item:: Item 2
+    +
+    +         This is the second item.
+
+
+sphinx-contributor-listing extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The sphinx-contributor-listing extension is deprecated in 2.0. To simplify the header
+and footer design, we're ending support for per-page contributor lists in the next major
+release.
+
+
+sphinx-filtered-toctree extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The sphinx-filtered-toctree extension is deprecated in 2.0. This extension was part of a
+legacy feature and is no longer needed.
+
+If your ``conf.py`` file assigns a value to ``toc_filter_exclude``, remove the line:
+
+.. code-block:: diff
+    :caption: docs/conf\.py
+
+    - toc_filter_exclude = ["foo", "bar"]
+
+Then, replace any ``filtered-toctree`` directives with the ``toctree`` directive. If you
+find a page prefixed with one of the strings previously listed with toc_filter_exclude,
+evaluate its usefulness. If it should be rendered, remove the prefix. If not, delete the
+entry and its respective file.
+
+.. code-block:: diff
+
+    - .. filtered-toctree::
+    - 
+    - 	page-a
+    - 	:foo:page-b
+    + .. toctree::
+    +
+    + 	page-a
+
+
+sphinx-last-updated-by extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The sphinx-last-updated-by-git extension is deprecated in 2.0. Its inclusion in the
+docs/requirements.txt file is redundant, as it's already set up by the sphinx-sitemap
+extension.
+
+Ensure that you have the sphinx-sitemap extension installed and configured. For
+guidance, refer to :ref:`sitemaps`.
+
+
+sphinx-ubuntu-images extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The sphinx-ubuntu-images extension is deprecated in 2.0. This extension isn't commonly
+used and won't be included by default in the next major release.
+
+If your documentation uses the ``ubuntu-images`` directive, be sure to add it back to
+your ``requirements.txt`` and ``conf.py`` files after you update.
+
+
+sphinx-reredirects extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The sphinx-reredirects extension was deprecated in 1.6. Redirects, both internal and
+external, should now be handled with the sphinx-rerediraffe extension.
+
+:ref:`how-to-redirect-pages` contains guidance on redirecting pages with the
+sphinx-rerediraffe extension.
+
+
+Contributors
+------------
+
+We'd like to express a big thank you to everyone who contributed to this release:
+
+:literalref:`a-velasco <https://github.com/a-velasco>`,
+:literalref:`asanvaq <https://github.com/asanvaq>`,
+:literalref:`AshleyCliff <https://github.com/AshleyCliff>`,
+:literalref:`izmalk <https://github.com/izmalk>`,
+:literalref:`jahn-junior <https://github.com/jahn-junior>`,
+:literalref:`keirthana <https://github.com/keirthana>`,
+:literalref:`medubelko <https://github.com/medubelko>`,
+:literalref:`mhsun-se <https://github.com/mhsun-se>`,
+:literalref:`nhennigan <https://github.com/nhennigan>`,
+:literalref:`odadacharles <https://github.com/odadacharles>`,
+:literalref:`Saviq <https://github.com/Saviq>`,
+:literalref:`srbouffard <https://github.com/srbouffard>`, and
+:literalref:`yhontyk <https://github.com/yhontyk>`,

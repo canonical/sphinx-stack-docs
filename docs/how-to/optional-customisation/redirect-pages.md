@@ -5,6 +5,8 @@ myst:
 relatedlinks: "[sphinx-rerediraffe](https://github.com/jahn-junior/sphinx-rerediraffe)"
 ---
 
+(how-to-redirect-pages)=
+
 # Redirect pages
 
 If a file in your documentation set is moved, deleted or renamed, it can no longer be

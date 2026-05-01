@@ -4,7 +4,7 @@
 .. _sitemaps:
 
 Sitemaps
-=========
+========
 
 The latest version of the Sphinx Stack generates a sitemap for your documentation 
 using the `sphinx-sitemap <https://sphinx-sitemap.readthedocs.io/en/latest/index.html>`_
