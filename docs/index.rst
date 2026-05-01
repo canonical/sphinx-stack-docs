@@ -1,8 +1,7 @@
 Sphinx Stack documentation
 ==========================
 
-The Sphinx Stack helps you to quickly set up, build, and publish documentation with
-Sphinx.
+The Sphinx Stack helps you set up, build, and publish documentation with Sphinx.
 
 It contains common styling and configuration through the `Canonical Sphinx
 <https://github.com/canonical/canonical-sphinx>`__ extension, supports both |RST| and
