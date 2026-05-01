@@ -221,14 +221,14 @@ following list illustrates the changes in the directory structure after the migr
     │   │   ├── header.css
     │   │   ├── header-nav.js
     │   │   └── tag.png
-│   ├── _templates                  # moved to `docs/_templates`
-│   │   ├── sidebar                 # removed
-│   │   │   └── search.html
-│   │   ├── 404.html                # removed
-│   │   ├── base.html               # removed
-│   │   ├── footer.html
-│   │   ├── header.html
-│   │   └── page.html               # removed
+    ├── _templates                  # moved to `docs/_templates`
+    │   ├── sidebar                 # removed
+    │   │   └── search.html
+    │   ├── 404.html                # removed
+    │   ├── base.html               # removed
+    │   ├── footer.html
+    │   ├── header.html
+    │   └── page.html               # removed
     │   ├── build_requirements.py   # removed
     │   ├── get_vale_conf.py
     │   ├── latex_elements_template.txt     # removed, now part of the extension
