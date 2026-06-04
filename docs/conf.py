@@ -56,7 +56,7 @@ html_context = {
     # Your Matrix channel URL
     "matrix": "https://matrix.to/#/#documentation:ubuntu.com",
     # Your documentation GitHub repository URL
-    "github_url": "https://github.com/canonical/sphinx-stack",
+    "github_url": "https://github.com/canonical/sphinx-stack-docs",
     # Docs branch in the repo; used in links for viewing the source files
     "repo_default_branch": "main",
     # Docs location in the repo; used in links for viewing the source files
