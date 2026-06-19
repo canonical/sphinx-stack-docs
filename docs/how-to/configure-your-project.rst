@@ -144,6 +144,7 @@ To add new extensions needed for your documentation set, add them to the ``exten
 
    If any additional extensions need specific Python packages, ensure they are installed alongside the other requirements by adding them to the ``docs/requirements.txt`` file.
 
+   The Sphinx Stack fully supports only the third-party extensions included in the Starter pack. Support is limited for extensions you add or customize in requirements.txt
 
 Add page-specific configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
