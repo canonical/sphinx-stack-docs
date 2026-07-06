@@ -6,87 +6,76 @@
 Publish on Read the Docs
 ========================
 
-Publishing your documentation on Read the Docs makes it available to a wider audience
-with automatic builds triggered by repository updates. This guide walks you through the
-process of setting up your Sphinx Stack project on Read the Docs.
+Publishing your documentation on Read the Docs makes it available to a wider audience with automatic builds triggered by repository updates. This guide walks you through the process of setting up your Sphinx Stack project on Read the Docs. 
 
-For Canonical-specific information on how to set up your documentation on Read the Docs,
-see the `Read the Docs at Canonical
-<https://library.canonical.com/documentation/read-the-docs-at-canonical>`_ and `How to
-publish documentation on Read the Docs
-<https://library.canonical.com/documentation/publish-on-read-the-docs>`_ guides.
+.. note::
 
-In general, after enabling the Sphinx Stack for your documentation, follow these steps
-to build and publish your documentation on Read the Docs:
+   This guide is intended for the general public. Canonical staff should instead refer to the internal library for company-specific setup instructions.
 
-1. Make sure your documentation :ref:`builds without errors or warnings <build-clean>`.
-#. Log into Read the Docs.
-#. In your account settings, navigate to :guilabel:`Connected services` and check that
-   your GitHub account is listed. If it's not listed, add a connection to GitHub. See
-   `How to connect your Read the Docs account to your Git provider
-   <https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html>`__.
-#. Use the `manual import <https://readthedocs.com/dashboard/import/manual/>`__ to
-   create a project.
-#. Specify the path to the ``.readthedocs.yaml`` file for your build. To do this,
-   navigate to :guilabel:`Admin` > :guilabel:`Settings` and specify the path under "Path
-   for ``.readthedocs.yaml``".
-   
-   For example, if your documentation is stored in the ``docs/`` directory, specify the
-   path as ``docs/.readthedocs.yaml``.
-#. Update the relative paths in the ``.readthedocs.yaml`` file to match the structure of
-   your project. You might need to update the file paths specified in the following
-   fields:
+Prepare your project and account
+---------------------------------
 
-   * ``job.post_checkout``
-   * ``sphinx.configuration``
-   * ``python.install.requirements``
+- Ensure your documentation :ref:`builds without errors or warnings <build-clean>`.
+- Ensure you have the permission to manage webhooks for the documentation repository, or get in touch with someone who does. A webhook is needed if you want Read the Docs to automatically build your documentation whenever a change occurs. 
+- If your documentation is hosted on a supported Git provider (such as GitHub, GitLab, or Bitbucket), create a `Read the Docs account <https://docs.readthedocs.com/platform/stable/tutorial/index.html#creating-a-read-the-docs-account>`_ and `connect the account to your Git provider <https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html>`_. If your documentation is not hosted on a supported Git provider, just create a Read the Docs account.
+- Prepare the configuration file `(.readthedocs.yaml) <https://docs.readthedocs.com/platform/stable/config-file/index.html>`_ for Read the Docs and save this file to the root directory of your documentation repository.
 
-After this initial setup, your documentation should build successfully if your project
-is hosted from a public repository. If you get any errors, check the build log for
-indications on what the problem is.
+Add your project to Read the Docs
+---------------------------------
 
-If your project was imported from a private repository, your initial build will fail
-because Read the Docs won't have access to clone the repository. You need to copy your
-project's public key from Read the Docs and add it as a deploy key to the repository,
-then re-run the build in Read the Docs.
+Log in to the Read the Docs dashboard to add a project. If you are the repository administrator, `add the project automatically <https://docs.readthedocs.com/platform/stable/intro/add-project.html#automatically-add-your-project>`_. Follow the on-screen instructions to add your project. If you are not a repository administrator or your documentation is not hosted on a supported Git provider, `add the project manually <https://docs.readthedocs.com/platform/stable/intro/add-project.html#manually-add-your-project>`_. A build will be triggered after the project is added.
 
+`Check the first build <https://docs.readthedocs.com/platform/stable/tutorial/index.html#checking-the-first-build>`_. After it's completed successfully, you can view the live documentation from the project home page. If there are any build errors, fix them: 
 
-Configure the webhook
----------------------
+- If the configuration file (.readthedocs.yaml) is not in the root directory of your repository and if you used the manual method to add your project, specify the path for the configuration file in the Read the Docs project settings. See `How to use a .readthedocs.yaml file in a sub-folder <https://docs.readthedocs.com/platform/stable/guides/setup/monorepo.html#how-to-use-a-readthedocs-yaml-file-in-a-sub-folder>`_.
+- If your project is hosted in a private repository, your first build will fail because your repository is not configured to allow Read the Docs to clone the repository. To fix the access issue, copy the public SSH key that is configured for your Read the Docs project and paste it into your repository configuration. See `Configuring your repository <https://docs.readthedocs.com/platform/stable/guides/creating-project-private-repository.html#configuring-your-repository>`_.
+- If your project is hosted from a public repository, your documentation should build successfully. If you get any errors, check the build log for indications on what the problem is.
 
-If you have administrator privileges for the GitHub repository that you are adding, the
-integration webhook (which is responsible for automatically building the documentation
-when the repository changes) is created automatically.
+Additional configuration
+------------------------
 
-If you don't have administrator privileges, the webhook must be set up by someone who
-does. The person with administrator privileges must have connected their Read the Docs
-account to GitHub. See `How to connect your Read the Docs account to your Git provider
-<https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html>`__.
+Configurations in this section are all optional. Follow the instructions here to configure your Read the Docs project according to your preferences.
 
-See `How to manually configure a Git repository integration
-<https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html>`__ if
-you want to set up the
-webhook manually.
+Enable automatic builds
+^^^^^^^^^^^^^^^^^^^^^^^
 
+Automatic builds are not supported on Launchpad. The implementation of webhooks is not compatible with Read the Docs. You have to run the build manually. The following statements apply to GitHub repositories.
 
-Make your documentation public
-------------------------------
+The Read the Docs integration webhook can automatically build your documentation when your GitHub repository changes. If you have permission to manage webhooks for the GitHub repository and you use the automatic way to add it to Read the Docs, the integration webhook is created automatically. Otherwise, the webhook must be set up by someone who has the appropriate permission. To manually set up the webhook, see `How to configure a Git repository integration manually <https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html#how-to-manually-configure-a-git-repository-integration>`_.
 
-By default, Read the Docs publishes your documentation for logged-in users only.
+Enable pull request builds
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To make the documentation public, you must configure the privacy level for each version
-of the documentation separately. You can do this by navigating to the
-:guilabel:`Versions` tab and changing the :guilabel:`Privacy Level` for each version.
+To make Read the Docs automatically build and preview your documentation when a pull request is opened or updated, open the project Settings and select **Build pull requests** for this project. 
 
+For more information, see `How to configure pull request builds <https://docs.readthedocs.com/platform/stable/guides/pull-requests.html#how-to-configure-pull-request-builds>`_ and `Pull request previews <https://docs.readthedocs.com/platform/stable/pull-requests.html#pull-request-previews>`_.
 
-Enable PR previews
-------------------
+Make your documentation public (RTD for Business only)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To make Read the Docs automatically build your documentation when a pull request is
-opened or updated on GitHub, enable PR reviews for your project.
+By default, Read the Docs publishes your documentation for logged-in users only. 
 
-To do so, navigate to :guilabel:`Admin` > :guilabel:`Settings` and select
-:guilabel:`Build pull requests for this project`.
+To make your documentation publicly accessible, you must configure the privacy level for each version of the documentation separately. You can do this by navigating to the Versions tab and changing the `Privacy Level <https://docs.readthedocs.com/platform/stable/guides/pull-requests.html#privacy-levels>`_ for each version.
 
-Read the Docs will then automatically build the documentation for each pull request, and
-the link to the output will be available as one of the checks in the pull request.
+Make tagged versions public 
+""""""""""""""""""""""""""""
+
+To ensure all tagged versions of the documentation are automatically set to public, add an `Automation Rule <https://docs.readthedocs.com/platform/stable/guides/automation-rules.html#adding-a-new-automation-rule>`_ under the project Settings with the following configuration:
+
+=================================  ====================  
+Configuration field                   Value
+=================================  ====================  
+Version type                        Tag  
+Version predefined match pattern    Any version  
+Action                              Make version public 
+=================================  ====================
+
+Change URL versioning scheme
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default versioning scheme is `Multiple versions with translations <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#multiple-versions-with-translations>`_. If you don't have translations for your documentation, `change the URL versioning scheme <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#how-to-change-the-url-versioning-scheme-of-your-project>`_ under your project Settings.
+
+Add support to Git LFS
+^^^^^^^^^^^^^^^^^^^^^^^
+
+By default, Read the Docs can't access large files stored with Git LFS. If your repository contains large files inside the docs, you need extra configuration in .readthedocs.yaml. See `Support Git LFS <https://docs.readthedocs.com/platform/stable/build-customization.html#support-git-lfs-large-file-storage>`_.
