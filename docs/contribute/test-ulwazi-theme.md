@@ -2,15 +2,15 @@
 myst:
   html_meta:
     description: How to test the Ulwazi theme in a documentation project based on Sphinx Stack.
-relatedlinks: "[Ulwazi&#32;on&#32;PyPI](https://pypi.org/project/ulwazi), [Vanilla](https://vanillaframework.org), [sphinx-basic-ng](https://github.com/pradyunsg/sphinx-basic-ng)"
+relatedlinks: "[Ulwazi&nbsp;on&nbsp;PyPI](https://pypi.org/project/ulwazi), [Vanilla&nbsp;Framework](https://vanillaframework.org), [sphinx-basic-ng](https://github.com/pradyunsg/sphinx-basic-ng)"
 ---
 
 (how-to-test-ulwazi-theme)=
 
 # Test the Ulwazi theme
 
-Ulwazi is a Sphinx theme built on Vanilla, with the base layout and functionality
-derived from sphinx-basic-ng.
+Ulwazi is a Sphinx theme built to comply with [Vanilla Framework](https://vanillaframework.org),
+with the base layout and functionality derived from [sphinx-basic-ng](https://github.com/pradyunsg/sphinx-basic-ng).
 
 This guide outlines the steps required to use the Ulwazi theme in your Sphinx
 documentation project.
