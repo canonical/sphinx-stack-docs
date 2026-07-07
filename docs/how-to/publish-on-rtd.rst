@@ -17,17 +17,19 @@ Prepare your project and account
 
 - Ensure your documentation :ref:`builds without errors or warnings <build-clean>`.
 - Ensure you have the permission to manage webhooks for the documentation repository, or get in touch with someone who does. A webhook is needed if you want Read the Docs to automatically build your documentation whenever a change occurs. 
-- If your documentation is hosted on a supported Git provider (such as GitHub, GitLab, or Bitbucket), create a `Read the Docs account <https://docs.readthedocs.com/platform/stable/tutorial/index.html#creating-a-read-the-docs-account>`_ and `connect the account to your Git provider <https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html>`_. If your documentation is not hosted on a supported Git provider, just create a Read the Docs account.
-- Prepare the configuration file `(.readthedocs.yaml) <https://docs.readthedocs.com/platform/stable/config-file/index.html>`_ for Read the Docs and save this file to the root directory of your documentation repository.
+- Create a `Read the Docs account <https://docs.readthedocs.com/platform/stable/tutorial/index.html#creating-a-read-the-docs-account>`_. If your documentation is hosted on a supported Git provider (such as GitHub, GitLab, or Bitbucket), `connect the account to your Git provider <https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html>`_.
+- Prepare the configuration file (`.readthedocs.yaml <https://docs.readthedocs.com/platform/stable/config-file/index.html>`_) for Read the Docs and save this file to the root directory of your documentation repository.
 
 Add your project to Read the Docs
 ---------------------------------
 
 Log in to the Read the Docs dashboard to add a project. If you are the repository administrator, `add the project automatically <https://docs.readthedocs.com/platform/stable/intro/add-project.html#automatically-add-your-project>`_. Follow the on-screen instructions to add your project. If you are not a repository administrator or your documentation is not hosted on a supported Git provider, `add the project manually <https://docs.readthedocs.com/platform/stable/intro/add-project.html#manually-add-your-project>`_. A build will be triggered after the project is added.
 
-`Check the first build <https://docs.readthedocs.com/platform/stable/tutorial/index.html#checking-the-first-build>`_. After it's completed successfully, you can view the live documentation from the project home page. If there are any build errors, fix them: 
+`Check the first build <https://docs.readthedocs.com/platform/stable/tutorial/index.html#checking-the-first-build>`_. After it completes successfully, you can view the live documentation from the project home page. 
 
-- If the configuration file (.readthedocs.yaml) is not in the root directory of your repository and if you used the manual method to add your project, specify the path for the configuration file in the Read the Docs project settings. See `How to use a .readthedocs.yaml file in a sub-folder <https://docs.readthedocs.com/platform/stable/guides/setup/monorepo.html#how-to-use-a-readthedocs-yaml-file-in-a-sub-folder>`_.
+If there are any build errors, fix them: 
+
+- If the `.readthedocs.yaml` file is not in the root directory of your repository and if you used the manual method to add your project, specify the path for the configuration file in the Read the Docs project settings. See `How to use a .readthedocs.yaml file in a sub-folder <https://docs.readthedocs.com/platform/stable/guides/setup/monorepo.html#how-to-use-a-readthedocs-yaml-file-in-a-sub-folder>`_.
 - If your project is hosted in a private repository, your first build will fail because your repository is not configured to allow Read the Docs to clone the repository. To fix the access issue, copy the public SSH key that is configured for your Read the Docs project and paste it into your repository configuration. See `Configuring your repository <https://docs.readthedocs.com/platform/stable/guides/creating-project-private-repository.html#configuring-your-repository>`_.
 - If your project is hosted from a public repository, your documentation should build successfully. If you get any errors, check the build log for indications on what the problem is.
 
@@ -39,7 +41,9 @@ Configurations in this section are all optional. Follow the instructions here to
 Enable automatic builds
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Automatic builds are not supported on Launchpad. The implementation of webhooks is not compatible with Read the Docs. You have to run the build manually. The following statements apply to GitHub repositories.
+Automatic builds are not supported on Launchpad because the implementation of webhooks is not compatible with Read the Docs. Builds must be triggered manually on Read The Docs.
+
+The following statements apply to GitHub repositories only.
 
 The Read the Docs integration webhook can automatically build your documentation when your GitHub repository changes. If you have permission to manage webhooks for the GitHub repository and you use the automatic way to add it to Read the Docs, the integration webhook is created automatically. Otherwise, the webhook must be set up by someone who has the appropriate permission. To manually set up the webhook, see `How to configure a Git repository integration manually <https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html#how-to-manually-configure-a-git-repository-integration>`_.
 
@@ -75,7 +79,7 @@ Change URL versioning scheme
 
 The default versioning scheme is `Multiple versions with translations <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#multiple-versions-with-translations>`_. If you don't have translations for your documentation, `change the URL versioning scheme <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#how-to-change-the-url-versioning-scheme-of-your-project>`_ under your project Settings.
 
-Add support to Git LFS
+Add support for Git LFS
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 By default, Read the Docs can't access large files stored with Git LFS. If your repository contains large files inside the docs, you need extra configuration in .readthedocs.yaml. See `Support Git LFS <https://docs.readthedocs.com/platform/stable/build-customization.html#support-git-lfs-large-file-storage>`_.
