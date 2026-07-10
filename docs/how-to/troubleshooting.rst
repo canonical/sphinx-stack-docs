@@ -62,3 +62,41 @@ Issue tracking
 
 `readthedocs/readthedocs.org#12450
 <https://github.com/readthedocs/readthedocs.org/issues/12450>`_
+
+Inactive version is invisible in the web GUI and occupies a slug
+----------------------------------------------------------------
+
+There is no delete button in the web GUI of Read the Docs.
+You can turn the **Active** switch off to make a version inactive, but there is no way to delete it.
+
+Sometimes when you try to create a new version, you get an error that the slug is already in use,
+even though you don't see the version occupying it.
+
+Possible causes
+~~~~~~~~~~~~~~~
+
+When a version is deactivated
+(see `Inactive versions <https://docs.readthedocs.com/platform/stable/versions.html#version-states>`_),
+its documentation content is deleted and builds can no longer be triggered.
+However, the version itself is not deleted. It still exists and retains its slug.
+Such inactive versions may not appear in the **Versions** tab list,
+making them effectively invisible in the web GUI while still occupying the slug.
+
+Resolution
+~~~~~~~~~~
+
+The easiest way to deal with an invisible inactive version is to open its settings
+page directly via URL:
+
+.. code-block:: text
+
+   https://app.readthedocs.com/dashboard/<project-name>/version/<slug>/edit/
+
+For example:
+
+.. code-block:: text
+
+   https://app.readthedocs.com/dashboard/canonical-kafka-charm/version/latest/edit/
+
+From there, you can make the version active again, which will make it visible in the
+web GUI, or change its slug.
