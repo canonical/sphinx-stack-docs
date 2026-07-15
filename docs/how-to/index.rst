@@ -25,8 +25,17 @@ with your documentation needs.
     run-documentation-checks
     publish-on-rtd
     update-sphinx-stack/index.rst
-    troubleshooting
 
+
+Troubleshooting
+----------------
+
+Help diagnose and resolve common issues you might encounter when developing documentation with the Sphinx Stack and deploying it on Read the Docs.
+
+.. toctree::
+    :maxdepth: 1
+
+    troubleshooting/index.rst
 
 Optional features and customisation
 -----------------------------------

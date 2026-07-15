@@ -1,14 +1,20 @@
 .. meta::
-   :description: How to troubleshoot common issues with the Sphinx Stack and Read the Docs.
+   :description: Troubleshooting guidance for issues related to building and publishing documentation using the Sphinx Stack at Read the Docs.
 
-.. _troubleshooting:
+.. _rtd_troubleshooting:
 
-Troubleshooting
-===================
+Read the Docs Failures
+======================
 
-This page provides guidance to resolve issues with the Sphinx Stack and Read the Docs
-that are difficult to identify or that we don't expect to be solved.
+In this guide, you will find information on how to troubleshoot issues related building the documentation set at Read the Docs. It covers the following areas:
 
+:ref:`Stable version won't build from the latest tag <stable-version-wont-build-from-latest-tag>`
+
+
+-------------------------------------------------
+
+
+.. _stable-version-wont-build-from-latest-tag:
 
 Stable version won't build from the latest tag
 ----------------------------------------------
@@ -43,7 +49,7 @@ On the **Builds** tab, locate the most recent ``stable`` build. For that version
 over the status indicator. In the hover box, open the **stable** link. If the resulting
 GitHub page is a 404, then your project has a zombie version.
 
-.. image:: ../how-to/assets/troubleshoot-stable-zombie-version.png
+.. image:: /how-to/assets/troubleshoot-stable-zombie-version.png
 
 
 Resolution
