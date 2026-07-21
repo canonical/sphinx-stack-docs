@@ -120,10 +120,10 @@ to the new ``conf.py`` file.
 Dependencies
 ~~~~~~~~~~~~
 
-If your project requires additional extensions beyond the default list, add the
-extension list to the new project in ``docs/requirements.txt``.
+The Sphinx Stack supports a reasonable set of default extensions. If your project requires additional extensions, add them to the project's ``docs/requirements.txt`` file.
 
-The legacy Sphinx Stack fully supports only the third-party extensions included in the Starter pack. Support is limited for extensions you add or customize in requirements.txt
+It's your responsibility to ensure that extensions you add to this list are compatible with
+the rest of the Sphinx Stack.
 
 Documentation source files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
