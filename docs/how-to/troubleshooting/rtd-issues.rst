@@ -116,7 +116,7 @@ Resolution
 
 Confirm that the git repository URL setting in Read the Docs points to a valid repository. Verify that the public SSH key from your Read the Docs project is installed as a deploy key on your GitHub repo. If these are already in place then try to resync the webhook.
 
-If that does not solve the problem, delete and [reinstate the webhook](https://docs.readthedocs.com/platform/latest/guides/setup/git-repo-manual.html#manual-integration-setup).
+If that does not solve the problem, delete and `reinstate the webhook <https://docs.readthedocs.com/platform/latest/guides/setup/git-repo-manual.html#manual-integration-setup>`_.
 
 `readthedocs.yaml` file issues
 ------------------------------
