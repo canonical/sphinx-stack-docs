@@ -3,16 +3,14 @@
 
 .. _troubleshooting:
 
-Troubleshoot build issues
-=========================
+Troubleshoot documentation issues
+=================================
 
 This page helps you diagnose and resolve common issues you might encounter when developing documentation with the Sphinx Stack and deploying it on Read the Docs. It covers the following areas:
 
-* **Development environment issues:** Setting up a local development environment for Sphinx Stack documentation
-* **Local deployment issues:** How to troubleshoot issues when deploying your documentation 
-* **Build Errors:** Common build errors and how to resolve them
-* **my_st parser errors:** Issues related to my_st parser and how to resolve them
-* **Link check errors:** What to do when the link check builder fails and common causes of link check failures
+* :ref:`Local deployment issues <local_deployment_troubleshooting>`: How to troubleshoot issues when deploying your documentation locally for development and testing
+* :ref:`Build Errors <build_errors_troubleshooting>`: Common build errors and how to resolve them
+* :ref:`Runtime Errors <runtime_errors_troubleshooting>`: How to troubleshoot runtime issues related to Sphinx rendering peculiarities or link configurations
 * :ref:`Read the Docs Failures <rtd_troubleshooting>`: How to troubleshoot issues when building and deploying your documentation on Read the Docs
 
 .. toctree::
@@ -20,4 +18,7 @@ This page helps you diagnose and resolve common issues you might encounter when 
     :hidden:
 
     rtd-issues
+    build-errors
+    runtime-errors
+    local-deployment-issues
 

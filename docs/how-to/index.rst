@@ -30,7 +30,7 @@ with your documentation needs.
 Troubleshooting
 ----------------
 
-Help diagnose and resolve common issues you might encounter when developing documentation with the Sphinx Stack and deploying it on Read the Docs.
+Help diagnose and resolve common issues you might encounter when developing documentation with the Sphinx Stack and deploying on Read the Docs.
 
 .. toctree::
     :maxdepth: 1
