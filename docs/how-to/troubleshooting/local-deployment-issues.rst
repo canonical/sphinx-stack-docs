@@ -21,7 +21,7 @@ When you run ``make html`` or ``make run`` to start a local development server, 
     [sphinx-autobuild] Waiting to detect changes...
                        ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8080): address already in use
 
-This happens when the port number specified for the local development server is already in use by another process. By default, the local development server runs on port 8080, but if another process is using that port, the build will fail. Many times, ``Ctrl-C`` is used to stop the local development server, but the process may not have been terminated properly, leaving the port in use. The underlying socket may still be in use, preventing the local development server from starting on the same port.
+This happens when the port number specified for the local development server is already in use by another process. By default, the local development server runs on port 8080, so if another process is using that port, the build will fail. Many times, ``Ctrl-C`` is used to stop the local development server, but the process may not have been terminated properly, leaving the socket in use and preventing the local development server from starting on the same port.
 
 You may encounter the same issue if you are working on multiple documentation projects and have multiple local development servers running simultaneously. Each server needs to run on a different port, so if you try to start a new server on the same port as an existing one, the build will fail.
 

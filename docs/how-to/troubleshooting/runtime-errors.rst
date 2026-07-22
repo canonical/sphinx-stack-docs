@@ -14,12 +14,12 @@ A link in the documentation set is broken when the URL contains an "&" character
 Possible cause
 ~~~~~~~~~~~~~~
 
-In Markdown files of the type ``.md``, the "&" character is treated as a special character and is not rendered correctly in the generated HTML. This can cause links to break when they contain an "&" character.
+In Markdown (``.md``) files, the "&" character is treated as a special character and is not rendered correctly in the generated HTML. This can cause links to break when they contain an "&" character.
 
 Resolution
 ~~~~~~~~~~
 
-In the documentation source code files of the type ``.rst``, use ``&`` directly in the URL. Sphinx escapes it correctly when generating HTML. For example, use ``https://example.com/?param1=value1&param2=value2`` with a literal ``&`` between parameters.
+In reStructuredText (``.rst``) files, use ``&`` directly in the URL. Sphinx escapes it correctly when generating HTML. For example, use ``https://example.com/?param1=value1&param2=value2`` with a literal ``&`` between parameters.
 
 If you are using Markdown files of the type ``.md``, you can use the raw HTML syntax to include the link in the documentation. For example, you can use:
 
