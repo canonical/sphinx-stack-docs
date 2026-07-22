@@ -1,14 +1,14 @@
 .. meta::
-   :description: How to troubleshoot common issues with the Sphinx Stack and Read the Docs.
+   :description: Troubleshooting guidance for issues related to building and publishing documentation using the Sphinx Stack at Read the Docs.
 
-.. _troubleshooting:
+.. _rtd_troubleshooting:
 
-Troubleshooting
-===================
+Read the Docs failures
+======================
 
-This page provides guidance to resolve issues with the Sphinx Stack and Read the Docs
-that are difficult to identify or that we don't expect to be solved.
+In this guide, you will find information on how to troubleshoot issues related to building the documentation set at Read the Docs.
 
+.. _stable-version-wont-build-from-latest-tag:
 
 Stable version won't build from the latest tag
 ----------------------------------------------
@@ -43,7 +43,7 @@ On the **Builds** tab, locate the most recent ``stable`` build. For that version
 over the status indicator. In the hover box, open the **stable** link. If the resulting
 GitHub page is a 404, then your project has a zombie version.
 
-.. image:: ../how-to/assets/troubleshoot-stable-zombie-version.png
+.. image:: /how-to/assets/troubleshoot-stable-zombie-version.png
 
 
 Resolution
@@ -100,3 +100,38 @@ For example:
 
 From there, you can make the version active again, which will make it visible in the
 web GUI, or change its slug.
+
+Build failures due to sudden authentication errors at Read the Docs
+-------------------------------------------------------------------
+
+At times, documentation projects that were earlier building successfully may suddenly xperience build failures due to authentication issues with GitHub. 
+
+Possible cause
+~~~~~~~~~~~~~~
+
+The GitHub Webhook goes out of sync for some reason and misbehaves, resulting in random authentication failures and build errors.
+
+Resolution
+~~~~~~~~~~
+
+Confirm that the git repository URL setting in Read the Docs points to a valid repository. Verify that the public SSH key from your Read the Docs project is installed as a deploy key on your the GitHub repo. If these are already in place then try to resync the webhook.
+
+If that does not solve the problem, delete and [reinstate the webhook](https://docs.readthedocs.com/platform/latest/guides/setup/git-repo-manual.html#manual-integration-setup).
+
+`readthedocs.yaml` file issues
+------------------------------
+
+The GitHub pull request build fails stating the ``.readthedocs.yaml`` file is not accessible.
+
+Probable cause
+~~~~~~~~~~~~~~
+
+During the GitHub PR build process, the ``.readthedocs.yaml`` file is not accessible to the build system. This can happen if the file is missing or if it is not in the root of the repository (default location).
+
+
+Resolution
+~~~~~~~~~~
+
+Read the Docs requires a ``.readthedocs.yaml`` file in the repository root to trigger a build; if this file is missing, the build will fail. The Canonical Sphinx Stack assumes, by default, that documentation content lives under ``/docs/`` and that ``.readthedocs.yaml`` is in the repository root, but neither location is a hard requirement. 
+
+If your project uses a different structure, ensure that ``.readthedocs.yaml`` exists in the repository root and update its configuration values, and/or the Sphinx ``conf.py`` file, to point to the correct documentation source folder.
