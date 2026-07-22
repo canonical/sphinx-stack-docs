@@ -132,6 +132,6 @@ During the GitHub PR build process, the ``.readthedocs.yaml`` file is not access
 Resolution
 ~~~~~~~~~~
 
-Read the Docs requires a ``.readthedocs.yaml`` file in the repository root to trigger a build; if this file is missing, the build will fail. The Canonical Sphinx Stack assumes, by default, that documentation content lives under ``/docs/`` and that ``.readthedocs.yaml`` is in the repository root, but neither location is a hard requirement. 
+Read the Docs requires a ``.readthedocs.yaml`` file in the repository root to trigger a build. If this file is missing, the build will fail. The Canonical Sphinx Stack assumes, by default, that documentation content lives under ``/docs/`` and that ``.readthedocs.yaml`` is in the repository root. However, neither location is a hard requirement.
 
 If your project uses a different structure, ensure that ``.readthedocs.yaml`` exists in the repository root and update its configuration values, and/or the Sphinx ``conf.py`` file, to point to the correct documentation source folder.
