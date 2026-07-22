@@ -19,7 +19,7 @@ In Markdown files of the type ``.md``, the "&" character is treated as a special
 Resolution
 ~~~~~~~~~~
 
-In the documentation source code files of the type ``.rst``, you can use ``&amp;`` instead of ``&`` in the URL to ensure that the link is rendered correctly in the generated HTML. For example, you can use ``https://example.com/?param1=value1&amp;param2=value2`` instead of ``https://example.com/?param1=value1&param2=value2``.
+In ``.rst`` sources, keep ``&`` in the URL; Sphinx will escape it correctly in the generated HTML. For example: ``https://example.com/?param1=value1&param2=value2``.
 
 If you are using Markdown files of the type ``.md``, you can use the raw HTML syntax to include the link in the documentation. For example, you can use:
 
