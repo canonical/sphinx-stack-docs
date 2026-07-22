@@ -200,11 +200,11 @@ Commit messages should be short and describe the purpose of the change.
     If a commit contains multiple unrelated changes, split it into smaller commits.
     Select the highest-ranked type that fits:
 
-    - ci
+    - :vale-ignore:`ci`
     - build
     - feat
     - fix
-    - perf
+    - :vale-ignore:`perf`
     - refactor
     - style
     - test
