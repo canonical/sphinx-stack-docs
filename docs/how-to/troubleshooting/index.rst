@@ -13,10 +13,11 @@ This page helps you diagnose and resolve common issues you might encounter when 
 * **Build Errors:** Common build errors and how to resolve them
 * **my_st parser errors:** Issues related to my_st parser and how to resolve them
 * **Link check errors:** What to do when the link check builder fails and common causes of link check failures
-* **Read the Docs issues:** How to troubleshoot issues when building and deploying your documentation on Read the Docs 
+* :ref:`Read the Docs Failures <rtd_troubleshooting>`: How to troubleshoot issues when building and deploying your documentation on Read the Docs
 
 .. toctree::
     :maxdepth: 1
+    :hidden:
 
     rtd-issues
 

@@ -6,13 +6,7 @@
 Read the Docs Failures
 ======================
 
-In this guide, you will find information on how to troubleshoot issues related building the documentation set at Read the Docs. It covers the following areas:
-
-:ref:`Stable version won't build from the latest tag <stable-version-wont-build-from-latest-tag>`
-
-
--------------------------------------------------
-
+In this guide, you will find information on how to troubleshoot issues related to building the documentation set at Read the Docs.
 
 .. _stable-version-wont-build-from-latest-tag:
 
