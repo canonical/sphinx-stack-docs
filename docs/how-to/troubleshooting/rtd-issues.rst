@@ -104,7 +104,7 @@ web GUI, or change its slug.
 Build failures due to sudden authentication errors at Read the Docs
 -------------------------------------------------------------------
 
-At times, documentation projects that were earlier building successfully may suddenly experience build failures due to authentication issues with GitHub. 
+At times, documentation projects that were building successfully may suddenly experience build failures due to authentication issues with GitHub. 
 
 Possible cause
 ~~~~~~~~~~~~~~
