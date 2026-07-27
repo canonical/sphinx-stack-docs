@@ -151,7 +151,7 @@ To add an extension to your documentation set, add its Python package to the
     you add any extensions to this list, it's your responsibility to ensure that they're
     compatible with the rest of the Sphinx Stack.
 
-   The Sphinx Stack fully supports only the third-party extensions included in the Starter pack. Support is limited for extensions you add or customize in requirements.txt
+   The Sphinx Stack fully supports the third-party extensions included in the Starter pack. Support is not guaranteed for extensions you add or customize in requirements.txt
 
 Add page-specific configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
