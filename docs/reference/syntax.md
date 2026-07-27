@@ -576,7 +576,7 @@ To override the title, add the ``:title:`` option.
 
 ### Internal references
 
-You can reference pages and targets in this documentation set.
+You can reference pages and target labels in this documentation set.
 For referencing pages from other documentation sets, you can use
 {ref}`Intersphinx <how-to-link-docs-intersphinx>`.
 
@@ -585,12 +585,12 @@ For referencing pages from other documentation sets, you can use
 #### Referencing a section
 
 To reference a section within the documentation (either on the same page or on another
-page), add a target to that section and reference that target.
+page), add a target label to that section and reference that label.
 
-You can add targets at any place in the documentation. However, if there is no heading
+You can add labels at any place in the documentation. However, if there is no heading
 or title for the targeted element, you must specify a link text.
 
-To reference a section within the documentation (either on the same page or on another page), add a target to that section and reference that target.
+To reference a section within the documentation (either on the same page or on another page), add a label to that section and reference that target.
 
 ```{list-table}
 :header-rows: 1
@@ -603,9 +603,9 @@ To reference a section within the documentation (either on the same page or on a
   - `` {ref}`a_section_target_myst` ``
 ```
 
-You can add targets at any place in the documentation. However, if there is no heading or title for the targeted element, you must specify a link text.
+You can add labels at any place in the documentation. However, if there is no heading or title for the targeted element, you must specify a link text.
 
-To define a target, use the following syntax:
+To define a label, use the following syntax:
 
 ```{list-table}
 :header-rows: 1
@@ -613,16 +613,16 @@ To define a target, use the following syntax:
 * - Format
   - Syntax
 * - reST
-  - `` .. _target_ID: ``
+  - `` .. _label_ID: ``
 * - MyST
-  - `(target_ID)=`
+  - `(label_ID)=`
 ```
 
 ```{note}
-In reST, when defining the target, you must prefix it with an underscore. Do not use the starting underscore when referencing the target.
+In reST, when defining the label, you must prefix it with an underscore. Do not use the starting underscore when referencing the label.
 ```
 
-To reference a target and specify a custom link text:
+To reference a label and specify a custom link text:
 
 ```{list-table}
 :header-rows: 1
@@ -630,12 +630,12 @@ To reference a target and specify a custom link text:
 * - Format
   - Syntax
 * - reST
-  - `` :ref:`Provided link text <a_random_target>` ``
+  - `` :ref:`Provided link text <a_random_label>` ``
 * - MyST
-  - `` {ref}`link text <a_random_target_myst>` ``
+  - `` {ref}`link text <a_random_label_myst>` ``
 ```
 
-In MyST, you can also use Markdown syntax if you need markup on the link text: `` [`xyz`](a_random_target_myst) ``
+In MyST, you can also use Markdown syntax if you need markup on the link text: `` [`xyz`](a_random_label_myst) ``
 
 Adhere to the following conventions:
 
@@ -697,7 +697,7 @@ link text. When overriding the link text, use Markdown syntax.
 ``````
 
 Only use the `doc` role when you cannot use the `ref` role, thus only
-if there is no target at the top of the file and you cannot add it.
+if there is no label at the top of the file and you cannot add it.
 When using the `doc` role, your reference will break when a file is
 renamed or moved.
 
@@ -1309,8 +1309,8 @@ possible. You can combine those with `:start-line:` and `:end-line:` if required
 same text occurs more than once). Using only `:start-line:` and `:end-line:` is
 error-prone though.
 
-You cannot put any targets into the content that is being reused (because references to
-this target would be ambiguous then). You can, however, put a target right before
+You cannot put any labels into the content that is being reused (because references to
+this label would be ambiguous then). You can, however, put a label right before
 including the file.
 
 By combining file inclusion and substitutions, you can even replace parts of the
