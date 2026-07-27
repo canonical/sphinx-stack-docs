@@ -126,7 +126,7 @@ The GitHub pull request build fails stating the ``.readthedocs.yaml`` file is no
 Probable cause
 ~~~~~~~~~~~~~~
 
-During the GitHub PR build process, the ``.readthedocs.yaml`` file is not accessible to the build system. This can happen if the file is missing or if it is not in the root of the repository (default location).
+The ``.readthedocs.yaml`` file is not be accessible to the build system. This can happen if the file is missing or if it is not in the location configured in RTD.
 
 
 Resolution
