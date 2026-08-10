@@ -15,12 +15,16 @@ Prepare your project and account
 
 - Ensure your documentation :ref:`builds without errors or warnings <build-clean>`.
 - Ensure you have the permission to manage webhooks for the documentation repository, or get in touch with someone who does. A webhook is needed if you want Read the Docs to automatically build your documentation whenever a change occurs. 
-- In the root of your documentation repository, prepare the `.readthedocs.yaml <https://docs.readthedocs.com/platform/stable/config-file/index.html>`__ file.
-- Create a `Read the Docs account <https://docs.readthedocs.com/platform/stable/tutorial/index.html#creating-a-read-the-docs-account>`__. If your documentation is hosted on a supported Git provider (such as GitHub, GitLab, or Bitbucket), `connect the account to your Git provider <https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html>`__. For Canonical staff, the Read the Docs account is automatically created during the onboarding process and connected to our Google SSO:
- 
-  1. Log in to the `Read the Docs dashboard <https://readthedocs.com/dashboard/>`__ using the :guilabel:`Sign in with Google` option.
-  2. Ask on the `~Documentation <https://chat.canonical.com/canonical/channels/documentation>`__ Mattermost channel to be added to your specific team.
-  3. Accept the invitation that is sent to your email. Make sure you are logged in to Read the Docs with your Google account when you do this.
+- In the root of your documentation repository, create the `.readthedocs.yaml <https://docs.readthedocs.com/platform/stable/config-file/index.html>`__ file.
+- Create a `Read the Docs account <https://docs.readthedocs.com/platform/stable/tutorial/index.html#creating-a-read-the-docs-account>`__. If your documentation is hosted on a supported Git provider (such as GitHub, GitLab, or Bitbucket), `connect the account to your Git provider <https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html>`__. 
+  
+  .. note:: 
+    
+    For Canonical staff, the Read the Docs account is automatically created during the onboarding process and connected to our Google SSO:
+
+    1. Log in to the `Read the Docs dashboard <https://readthedocs.com/dashboard/>`__ using the :guilabel:`Sign in with Google` option.
+    2. Ask on the `~Documentation <https://chat.canonical.com/canonical/channels/documentation>`__ Mattermost channel to be added to your specific team.
+    3. Accept the invitation that is sent to your email. Make sure you are logged in to Read the Docs with your Google account when you do this.
 
 
 Add your project to Read the Docs
@@ -71,7 +75,7 @@ Canonical-only documentation
 
 To limit the documentation access to Canonical users, the project needs to be added to the `All Canonical Users <https://app.readthedocs.com/organizations/canonical/teams/all-canonical-users/>`__ group. All Canonical users who log in to Read the Docs with Google SSO will be automatically added to this user group and granted read-only permissions to the associated projects.
 
-This operation requires the Owner's permission to Read the Docs. Please contact one of the `owners of the Canonical organization <https://app.readthedocs.com/organizations/canonical/members/?teams__slug=all-canonical-users&access=owner>`__ or reach out to the `~Documentation <https://chat.canonical.com/canonical/channels/documentation>`__ channel.
+This operation requires the Owner's permission to Read the Docs. Contact one of the `owners of the Canonical organization <https://app.readthedocs.com/organizations/canonical/members/?teams__slug=all-canonical-users&access=owner>`__ or reach out to the `~Documentation <https://chat.canonical.com/canonical/channels/documentation>`__ channel.
 
 
 Change URL versioning scheme
@@ -91,15 +95,17 @@ Configurations in this section are all optional. Follow the instructions here to
 Enable automatic builds
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Automatic builds are not supported on Launchpad because its webhooks aren't compatible with Read the Docs. Builds must be triggered manually on Read The Docs.
+The Read the Docs integration webhook can automatically build your documentation when your GitHub repository changes. Automatic builds are not supported on Launchpad because its webhooks aren't compatible with Read the Docs. Builds must be triggered manually on Read The Docs.
 
-The Read the Docs integration webhook can automatically build your documentation when your GitHub repository changes. If you have permission to manage webhooks for the GitHub repository and added it to Read the Docs automatically, the integration webhook was created automatically. Otherwise, the webhook must be set up by someone with the appropriate permission. To manually set up the webhook, refer to `How to configure a Git repository integration manually <https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html#how-to-manually-configure-a-git-repository-integration>`__.
+If you have permission to manage webhooks for the GitHub repository and added it to Read the Docs automatically, the integration webhook was created automatically. Otherwise, the webhook must be set up by someone with the appropriate permission.
+
+To check whether the webhook was created, open the project Settings and click :guilabel:`Integrations` to verify whether the GitHub incoming webhook exists. If the webhook is not listed, the person who has the appropriate permission must `manually set it up <https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html#how-to-manually-configure-a-git-repository-integration>`__.
 
 
 Enable pull request builds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To build and preview your documentation whenever a pull request is opened or updated, open the project Settings and select :guilabel:`Build pull requests` for this project.
+To build and preview your documentation whenever a pull request is opened or updated, open the project Settings and click :guilabel:`Pull request builds` to enable it for this project.
 
 
 Make your documentation public (RTD for Business only)
