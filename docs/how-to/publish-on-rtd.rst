@@ -95,17 +95,17 @@ Configurations in this section are all optional. Follow the instructions here to
 Enable automatic builds
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The Read the Docs integration webhook can automatically build your documentation when your GitHub repository changes. Automatic builds are not supported on Launchpad because its webhooks aren't compatible with Read the Docs. Builds must be triggered manually on Read The Docs.
-
-If you have permission to manage webhooks for the GitHub repository and added it to Read the Docs automatically, the integration webhook was created automatically. Otherwise, the webhook must be set up by someone with the appropriate permission.
+The Read the Docs integration webhook can automatically build your documentation when your GitHub repository changes. If you have permission to manage webhooks for the GitHub repository and added it to Read the Docs automatically, the integration webhook was created automatically. Otherwise, the webhook must be set up by someone with the appropriate permission.
 
 To check whether the webhook was created, open the project Settings and click :guilabel:`Integrations` to verify whether the GitHub incoming webhook exists. If the webhook is not listed, the person who has the appropriate permission must `manually set it up <https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html#how-to-manually-configure-a-git-repository-integration>`__.
+
+Automatic builds are not supported on Launchpad because its webhooks aren't compatible with Read the Docs. Builds must be triggered manually on Read The Docs.
 
 
 Enable pull request builds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To build and preview your documentation whenever a pull request is opened or updated, open the project Settings and click :guilabel:`Pull request builds` to enable it for this project.
+To build and preview your documentation whenever a pull request is opened or updated, open the project Settings and click :guilabel:`Pull request builds` to enable it for your project.
 
 
 Make your documentation public (RTD for Business only)
@@ -113,7 +113,7 @@ Make your documentation public (RTD for Business only)
 
 By default, Read the Docs publishes your documentation for logged-in users only. 
 
-To make your documentation publicly accessible, you must configure the privacy level for each version of the documentation separately. Navigate to the Versions tab and change the `Privacy Level <https://docs.readthedocs.com/platform/stable/guides/pull-requests.html#privacy-levels>`__ for each version.
+To make your documentation publicly accessible, you must configure the privacy level for each version of the documentation separately. Navigate to the Versions tab to configure the `Privacy Level <https://docs.readthedocs.com/platform/stable/guides/pull-requests.html#privacy-levels>`__ for each version.
 
 If your documentation publishes tagged versions that should be public by default, add an `Automation Rule <https://docs.readthedocs.com/platform/stable/guides/automation-rules.html#adding-a-new-automation-rule>`__ under the project Settings with the following configuration:
 
