@@ -7,7 +7,7 @@ Contribute
 ==========
 
 The Sphinx Stack is a shared foundation for Sphinx documentation projects. It combines
-Sphinx configuration, themes, extensions, documentation workflows and quality checks
+Sphinx configuration, styling, extensions, and quality checks
 to help projects build and maintain documentation.
 
 Contributing to the Sphinx Stack helps improve the documentation of all its users.
@@ -43,11 +43,11 @@ expect good conduct and excellence from every member.
 Canonical Contributor License Agreement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Code contributions can only be accepted from contributors who have signed the `Canonical
+Contributions can only be accepted from contributors who have signed the `Canonical
 Contributor License Agreement (CLA) <https://ubuntu.com/legal/contributors>`__.
 
-By signing the CLA, you grant Canonical permission to use your contribution while
-retaining ownership of your work.
+By signing the CLA, you grant Canonical permission to use your contribution. You
+retain ownership of any work you contribute.
 
 Review the terms of the agreement before signing it or committing anything. If you agree
 and sign it, your work can be incorporated into the repository.
@@ -75,7 +75,9 @@ Report an issue
 If you find a bug, identify missing functionality or want to propose an improvement,
 search the project's existing GitHub issues first before creating a new one.
 
-Use the right repository for your issue:
+Because the Sphinx Stack is a template repository, its code and documentation are
+maintained in separate repositories. Be sure to open any issues in the correct
+repository:
 
 - `Sphinx Stack issues <https://github.com/canonical/sphinx-stack/issues>`__
 - `Documentation issues <https://github.com/canonical/sphinx-stack-docs/issues>`__
