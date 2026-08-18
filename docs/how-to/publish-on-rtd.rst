@@ -7,7 +7,7 @@
 Publish on Read the Docs
 ========================
 
-Publishing your documentation on Read the Docs makes it available to a wider audience with automatic builds triggered by repository updates. This guide walks you through the process of setting up your Sphinx Stack project on Read the Docs. 
+Canonical documentation, both internal and external, is hosted on Read the Docs. This guide walks you through the process of setting up your Sphinx Stack project on Read the Docs. 
 
 
 Prepare your project and account
@@ -20,7 +20,7 @@ Prepare your project and account
   
   .. note:: 
     
-    For Canonical staff, the Read the Docs account is automatically created during the onboarding process and connected to our Google SSO:
+    For Canonical staff, a Read the Docs account is created during onboarding and connected to our Google SSO:
 
     1. Log in to the `Read the Docs dashboard <https://readthedocs.com/dashboard/>`__ using the :guilabel:`Sign in with Google` option.
     2. Ask on the `~Documentation <https://chat.canonical.com/canonical/channels/documentation>`__ Mattermost channel to be added to your specific team.
@@ -53,13 +53,13 @@ If there are any build errors, fix them:
 Canonical-specific configuration
 ---------------------------------
 
-After the initial build, some Canonical-specific configurations are required, as listed below. For information about other advanced configurations, see :ref:`Additional configuration <additional-configuration>`.
+After the initial build, some Canonical-specific configurations are required, as listed below.
 
 
 Change the host URL to documentation.ubuntu.com
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, your documentation URL is ``https://canonical-<name>.readthedocs-hosted.com``, where ``<name>`` is the slug you specified when adding the project. Change the host URL to be ``https://documentation.ubuntu.com``:
+By default, your documentation URL is ``https://canonical-<name>.readthedocs-hosted.com``, where ``<name>`` is the slug you specified when adding the project. Change the host URL to ``https://documentation.ubuntu.com``:
 
 1. Log in to the `Read the Docs dashboard <https://readthedocs.com/dashboard/>`__.
 2. Locate the "Ubuntu documentation library" project and go to :guilabel:`Settings > Subprojects` to add a subproject.
@@ -81,7 +81,7 @@ This operation requires the Owner's permission to Read the Docs. Contact one of 
 Change URL versioning scheme
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The default versioning scheme is `Multiple versions with translations <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#multiple-versions-with-translations>`__. Unless your documentation has multiple languages, do not use the theme with translation. `Change the URL versioning scheme <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#how-to-change-the-url-versioning-scheme-of-your-project>`__ under your project Settings to either a single version without translations or multiple versions without translations.
+The default versioning scheme is `Multiple versions with translations <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#multiple-versions-with-translations>`__. Unless your documentation has multiple languages, do not use the scheme with translation. `Change the URL versioning scheme <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#how-to-change-the-url-versioning-scheme-of-your-project>`__ under your project Settings to either a single version without translations or multiple versions without translations.
 
 
 
@@ -97,7 +97,7 @@ Enable automatic builds
 
 The Read the Docs integration webhook can automatically build your documentation when your GitHub repository changes. If you have permission to manage webhooks for the GitHub repository and added it to Read the Docs automatically, the integration webhook was created automatically. Otherwise, the webhook must be set up by someone with the appropriate permission.
 
-To check whether the webhook was created, open the project Settings and click :guilabel:`Integrations` to verify whether the GitHub incoming webhook exists. If the webhook is not listed, the person who has the appropriate permission must `manually set it up <https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html#how-to-manually-configure-a-git-repository-integration>`__.
+To check if the webhook was created, open the project Settings and click :guilabel:`Integrations`. If the webhook is not listed, someone with the appropriate permissions must `manually set it up <https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html#how-to-manually-configure-a-git-repository-integration>`__.
 
 Automatic builds are not supported on Launchpad because its webhooks aren't compatible with Read the Docs. Builds must be triggered manually on Read The Docs.
 
