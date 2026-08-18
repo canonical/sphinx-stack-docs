@@ -84,7 +84,6 @@ Change URL versioning scheme
 The default versioning scheme is `Multiple versions with translations <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#multiple-versions-with-translations>`__. Unless your documentation has multiple languages, do not use the scheme with translation. `Change the URL versioning scheme <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#how-to-change-the-url-versioning-scheme-of-your-project>`__ under your project Settings to either a single version without translations or multiple versions without translations.
 
 
-.. _additional-configuration:
 Additional configuration
 ------------------------
 
