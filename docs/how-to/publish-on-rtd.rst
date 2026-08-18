@@ -94,7 +94,7 @@ Configurations in this section are all optional. Follow the instructions here to
 Enable automatic builds
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The Read the Docs integration webhook can automatically build your documentation when your GitHub repository changes. If you have permission to manage webhooks for the GitHub repository and added it to Read the Docs automatically, the integration webhook was created automatically. Otherwise, the webhook must be set up by someone with the appropriate permission.
+The Read the Docs integration webhook can automatically build your documentation when your GitHub repository changes. If you added the GitHub repository to Read the Docs automatically, the integration webhook was already created. Otherwise, the webhook must be set up by someone with the appropriate permission.
 
 To check if the webhook was created, open the project Settings and click :guilabel:`Integrations`. If the webhook is not listed, someone with the appropriate permissions must `manually set it up <https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html#how-to-manually-configure-a-git-repository-integration>`__.
 
