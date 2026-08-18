@@ -14,7 +14,7 @@ Prepare your project and account
 ---------------------------------
 
 - Ensure your documentation :ref:`builds without errors or warnings <build-clean>`.
-- Ensure you have the permission to manage webhooks for the documentation repository, or get in touch with someone who does. A webhook is needed if you want Read the Docs to automatically build your documentation whenever a change occurs. 
+- Ensure you have permission to manage webhooks for the documentation repository, or get in touch with someone who does. A webhook is needed if you want Read the Docs to automatically build your documentation whenever a change occurs. 
 - In the root of your documentation repository, create the `.readthedocs.yaml <https://docs.readthedocs.com/platform/stable/config-file/index.html>`__ file.
 - Create a `Read the Docs account <https://docs.readthedocs.com/platform/stable/tutorial/index.html#creating-a-read-the-docs-account>`__. If your documentation is hosted on a supported Git provider (such as GitHub, GitLab, or Bitbucket), `connect the account to your Git provider <https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html>`__. 
   
@@ -47,7 +47,7 @@ When adding a project, most fields are self-explanatory, and you can leave the d
 If there are any build errors, fix them: 
 
 - If your project is hosted in a private repository, your first build will fail because your repository is not configured to allow Read the Docs to clone the repository. To fix the access issue, follow the steps in `Configuring your repository <https://docs.readthedocs.com/platform/stable/guides/creating-project-private-repository.html#configuring-your-repository>`__.
-- If your project is hosted from a public repository, your documentation should build successfully. If you get any errors, check the build log for indications on what the problem is.
+- If your project is hosted in a public repository, your documentation should build successfully. If you get any errors, check the build log for indications of what the problem is.
 
 
 Canonical-specific configuration
@@ -70,7 +70,7 @@ By default, your documentation URL is ``https://canonical-<name>.readthedocs-hos
 Your documentation URL has changed to ``https://documentation.ubuntu.com/<name>``.
 
 
-Canonical-only documentation
+Limit documentation access
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To limit the documentation access to Canonical users, the project needs to be added to the `All Canonical Users <https://app.readthedocs.com/organizations/canonical/teams/all-canonical-users/>`__ group. All Canonical users who log in to Read the Docs with Google SSO will be automatically added to this user group and granted read-only permissions to the associated projects.
@@ -84,10 +84,9 @@ Change URL versioning scheme
 The default versioning scheme is `Multiple versions with translations <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#multiple-versions-with-translations>`__. Unless your documentation has multiple languages, do not use the scheme with translation. `Change the URL versioning scheme <https://docs.readthedocs.com/platform/stable/versioning-schemes.html#how-to-change-the-url-versioning-scheme-of-your-project>`__ under your project Settings to either a single version without translations or multiple versions without translations.
 
 
-
+.. _additional-configuration:
 Additional configuration
 ------------------------
-.. _additional-configuration:
 
 Configurations in this section are all optional. Follow the instructions here to configure your Read the Docs project according to your preferences.
 
