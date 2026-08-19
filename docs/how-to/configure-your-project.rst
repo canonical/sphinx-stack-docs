@@ -6,142 +6,153 @@
 Configure your project
 ======================
 
-While the Sphinx Stack provides default configuration values for most settings, you'll
-need to set project-specific parameters like the project name to ensure the
-documentation reflects your project accurately.
+Configuration for a Sphinx Stack based documentation is set in the ``docs/conf.py`` configuration file. The default configuration in the Sphinx Stack is prepared in a way that makes sense for most projects. However, you must set some critical project-specific configuration values, like the project's name, to ensure the documentation reflects your project accurately.
 
 .. important::
 
-    After setting up your repository with the Sphinx Stack, you should track the changes
-    made to the Sphinx Stack.
+    The Sphinx Stack is updated periodically. After you set up your documentation repository with the Sphinx Stack, you need to track the changes made to the Sphinx Stack and manually maintain your repository.
 
-    Changes to the look and feel, as well as common functionality, will be automatically
-    available through updates to the `Canonical Sphinx
-    <https://github.com/canonical/canonical-sphinx>`__ extension.
-
-    Changes to files that are part of the Sphinx Stack, for example changes made during
-    steps in :ref:`run-documentation-checks`, might require you to manually update your
-    repository with the required files. See the Sphinx Stack `changelog
-    <https://github.com/canonical/sphinx-stack/blob/main/CHANGELOG.md>`__ for the
-    most relevant (and of course all breaking) changes.
-
-Configuration for a Sphinx Stack based documentation is set in the ``docs/conf.py``
-Sphinx configuration file.
-
-The default configuration in the Sphinx Stack is prepared in a way that makes sense for
-most projects. However, you must set some critical parameters that are unique for your
-project, like the project's name.
-
-In addition, you can find some optional parameters or add your own configuration
-parameters to the file.
+    Use the Sphinx Stack `release notes <https://documentation.ubuntu.com/sphinx-stack/latest/release-notes>`__ or `changelog <https://github.com/canonical/sphinx-stack/blob/main/CHANGELOG.md>`__ to track changes to the Sphinx Stack. Subscribe to the repository releases to get notified whenever there is a new release. For the recommended way of manually updating your Sphinx Stack, see :ref:`update-sphinx-stacks`.
 
 
-Required customisation
+Required configuration
 ----------------------
 
-You must check and update some of the parameters specific to your project. Mandatory
-parameters are commented with the ``TODO`` keyword.
-
-The following are some highlights of the available configuration parameters.
+The ``conf.py`` file marks mandatory configuration values with ``TODO``. Reviewing these configuration values is enough if you do not require custom or advanced features.
 
 
-Update the project information
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Project information
+~~~~~~~~~~~~~~~~~~~~
 
-Edit the ``docs/conf.py`` file and update the configuration in the ``Project
-information`` section. See the comments in the file for more information about each
-setting.
+The ``conf.py`` file's ``Project Information`` section contains settings for your project's official name, preview of your documentation, and global variables that are passed into the Sphinx context across your entire site.
+
+Adjust these configuration values to align with your project requirements, and ensure you comment out any settings that are not relevant to your environment.
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Configuration setting
+     - Description
+   * - ``project``
+     - Specifies the official name of your project.
+   * - ``ogp_site_name``, ``ogp_image``
+     - Defines the preview website name and preview image. When you post a link to your documentation somewhere (for example, on Mattermost or Discourse), it can be shown with a preview. This preview is configured through the Open Graph Protocol (OGP) configuration.
+   * - ``html_favicon``
+     - Defines the small icon shown in the browser tab, bookmarks, and sometimes the browser history for your documentation.
+   * - ``html_context``
+     - Specifies a dictionary of custom values that Sphinx passes into the HTML template rendering context, including:
+     
+       * Product website links (``product_page``)
+       * Community or contact links (``discourse``, ``mattermost``, ``matrix``)
+       * Documentation source and issue integration (``github_url``, ``repo_default_branch``, ``repo_folder``, ``github_issues``)
+       * UI behavior (``sequential_nav``, ``display_contributors``)
+       * Footer and license metadata (``author``, ``license``)
+   * - ``html_theme_options``
+     - Sets options that the HTML theme reads when rendering pages. Use the ``source_edit_link`` option to tell the theme where to send users when they click the edit button on all pages.
 
 
-Open Graph configuration
-^^^^^^^^^^^^^^^^^^^^^^^^
+Sitemap
+~~~~~~~
 
-When you post a link to your documentation somewhere (for example, on Mattermost or
-Discourse), it might be shown with a preview. This preview is configured through the
-Open Graph Protocol (:vale-ignore:`OGP`) configuration.
+Sphinx, via the `sphinx_sitemap <https://sphinx-sitemap.readthedocs.io/en/latest/>`__ extension configured in the ``conf.py`` file, generates a ``sitemap.xml`` file that lists the public pages in your docs site. Search engines use that file to discover pages, understand your URLs, and sometimes pick up metadata like last modification time.
 
-If you don't know yet where your documentation will be hosted, you can leave the URL
-empty. If you do, specify the hosting URL. You can leave the defaults for the website
-name and the preview image or specify your own.
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Configuration setting
+     - Description
+   * - ``html_baseurl``
+     - Specifies the base URL of your documentation website.
+   * - ``sitemap_url_scheme``
+     - Determines how page URLs are formed.
+   * - ``sitemap_show_lastmod``
+     - Specifies whether to include the last modification time in the sitemap.
+   * - ``sitemap_excludes``
+     - Lists the non-public pages to be excluded from the sitemap.
 
 
-Optional customisation
+LLM context
+~~~~~~~~~~~~~
+
+The ``llms_txt_description`` configuration setting is for LLM-oriented documentation metadata. Sphinx uses the sphinx_llm.txt extension to generate ``llms.txt``, which is a machine-readable summary intended to give language models a short, reliable description of what the documentation set is about. Provide a concise description using this configuration setting so that an LLM consuming your documentation site can understand the subject before reading individual pages.
+
+
+Sphinx link checker
+~~~~~~~~~~~~~~~~~~~~~~
+
+The link checker is the part of Sphinx that validates hyperlinks in your documentation when you run ``make linkcheck``. It tries each URL in the docs, reports broken links, and can also check whether anchors/fragments on a page exist. Use configuration settings in the Link checker exceptions section to tell Sphinx which URLs to skip, which anchor checks to relax, and how persistent to be when a request is slow or fails. 
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Configuration setting
+     - Description
+   * - ``linkcheck_ignore``
+     - Lists the URLs to ignore entirely. Use this configuration setting when the whole link is unreliable or intentionally excluded.
+   * - ``linkcheck_anchors_ignore_for_url``
+     - Lists anchor fragments to ignore for matching URLs. Use this configuration setting when the page is valid, but its section anchors are not worth verifying.
+   * - ``linkcheck_timeout``
+     - Specifies how long in seconds to wait for a response before timing out
+   * - ``linkcheck_retries``
+     - Specifies how many times to retry failures
+
+
+Feedback button
+~~~~~~~~~~~~~~~~~~~~~
+
+By default, the Sphinx Stack includes a feedback button at the top of each page. This button redirects users to your GitHub issues page and populates an issue for them with details of the page they were on when they clicked the button.
+
+To use this feedback feature, set the ``github_url`` setting in ``html_context`` to the URL of your GitHub repository, and set the ``github_issues`` setting to be enabled.
+
+To disable the feedback button, set the ``disable_feedback_button`` setting to ``True``.
+
+
+Optional configuration
 ----------------------
 
 The Sphinx Stack contains several features that you can configure or turn off if they
 aren't suitable for your documentation.
 
 
-Modify the template
+HTML templates
 ~~~~~~~~~~~~~~~~~~~
 
-The default Sphinx Stack templates provide an initial configuration for your
-documentation set, including:
+The default Sphinx Stack templates provide an initial configuration for your documentation set and are sufficient for most cases, including:
 
-- Header template - The top section of the page that contains your product's tag image
-  and name, a link to your product's page (if available), and a drop-down menu for "More
-  resources".
+- Header template - The top section of the page that contains your product's tag image and name, a link to your product's page (if available), and a drop-down menu for "More resources".
 - Footer template - The bottom section of the page that contains sequential navigation
   controls, copyright information, licensing details, and other relevant links.
 
-These are configured in ``docs/conf.py`` and are sufficient for most cases. However, if
-you have additional requirements -- such as adding links to announcements or videos that
-are not part of the documentation -- you can override the default templates to customize
-them as needed.
-
-See the :ref:`custom-html-templates` guide for details on how to do so.
+If you want to use your own templates, uncomment the ``templates_path = ["_templates"]`` line in the ``docs/conf.py`` file, and then create the ``docs/_templates`` directory to save your local templates. See :ref:`custom-html-templates` for more information on how to create your own templates.
 
 
-Deactivate the feedback button
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Redirects
+~~~~~~~~~~~
 
-By default, the Sphinx Stack includes a feedback button at the top of each page. This
-button redirects users to your GitHub issues page, and populates an issue for them with
-details of the page they were on when they clicked the button.
+When files in your documentation set are renamed, deleted, or relocated, they become inaccessible at their previous paths. Consequently, users attempting to access those original links will encounter a 404 Not Found error. To provide a better user experience, set up redirects to point to the new file name, new path, or an alternative path where the information can be found.
 
-If your project does not use GitHub issues, set the ``github_issues`` variable in the
-``docs/conf.py`` file to an empty value to disable both the feedback button and the
-issue link in the footer.
-
-If you want to deactivate the feedback button, but keep the link in the footer, set
-``disable_feedback_button`` in the ``docs/conf.py`` file to ``True``.
+In the ``conf.py`` file, use the ``rediraffe_redirects`` configuration setting to specify the name of the file that hosts all of your redirects. This file is a ``.txt`` file created in the same directory as the ``conf.py`` file. Use the ``rediraffe_dir_only`` configuration setting to tell the `sphinx_rerediraffe <https://github.com/sphinx-doc/sphinxext-rediraffe>`_ extension how to format redirect destination URLs when Sphinx builds documentation. When set to ``True``, the trailing ``/index.html`` will be stripped from the redirect targets. See :ref:`how-to-redirect-pages`.
 
 
-Add redirects
+Extensions
 ~~~~~~~~~~~~~
 
-If you rename a source file, its URL will change. To prevent broken links, you should
-add a redirect from the old URL to the new URL in this case.
+The Sphinx Stack includes a set of extensions that are useful for all documentation sets. Some extensions are :doc:`enabled by default </reference/default-extensions>` within the Sphinx Stack, but you can customize the selection in the ``conf.py`` file.
 
-You can add redirects in the ``docs/redirects.txt`` file. The paths for internal
-redirects are relative to the root of the docs project.
+The canonical_sphinx extension is required for the Sphinx Stack and provides the Furo-based theme and custom templates. The following extensions are needed by canonical_sphinx:
 
-.. code-block::
+- notfound.extension
+- sphinx_design
+- sphinx_reredirects
+- sphinx_tabs.tabs
+- sphinxcontrib.jquery
+- sphinxext.opengraph
 
-    "path/to/old/page" "path/to/new/page"
-
-Destination paths can also be external URLs.
-
-.. code-block::
-
-    "path/to/old/page" "https://example.com/new-page"
-
-
-Configure included extensions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The Sphinx Stack includes a set of extensions that are useful for all documentation
-sets. Some extensions are :ref:`enabled by default
-<reference-default-sphinx-extensions>` within the Sphinx Stack, but you can customize
-the selection in the  ``docs/conf.py`` file.
-
-The canonical-sphinx extension is required for the Sphinx Stack and provides the
-Furo-based theme and custom templates.
-
-To add an extension to your documentation set, add its Python package to the
-``docs/requirements.txt`` file and add the module to the ``extensions`` list in the
-``docs/conf.py`` file.
-
+To add new extensions needed for your documentation set, add them to the ``extensions`` setting in the ``conf.py`` file. If any additional extensions need specific Python packages, ensure they are installed alongside the other requirements by adding them to the ``docs/requirements.txt`` file.
+   
 .. admonition:: Extension support
     :class: note
 
@@ -151,77 +162,40 @@ To add an extension to your documentation set, add its Python package to the
     you add any extensions to this list, it's your responsibility to ensure that they're
     compatible with the rest of the Sphinx Stack.
 
+.. _ui-behavior:
 
-Add page-specific configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+UI behavior
+~~~~~~~~~~~
 
-You can override some global configuration for specific pages.
+You can configure whether to display Previous/Next buttons at the bottom of pages by configuring the ``sequential_nav`` setting in ``html_context``. Valid options are:
 
-For example, you can configure whether to display Previous/Next buttons at the bottom of
-pages by setting the ``sequential_nav`` variable in the ``docs/conf.py`` file.
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
 
-.. code:: python
+   * - Value
+     - Description
+   * - ``both``
+     - Both the Previous and Next buttons are shown at the bottom.
+   * - ``none``
+     - No Previous or Next button is shown at the bottom.
+   * - ``prev``
+     - Only the Previous button is shown at the bottom.
+   * - ``next``
+     - Only the Next button is shown at the bottom.
 
-    html_context = {
-        ...
-        "sequential_nav": "both"
-    }
-
-You can then override this default setting for a specific page (for example, to turn off
-the Previous/Next buttons by default, but display them in a multi-page tutorial).
-
-To do so, add `file-wide metadata
-<https://www.sphinx-doc.org/en/master/usage/restructuredtext/field-lists.html>`__ at the
-top of a page. See the following examples for how to enable Previous/Next buttons for
-one page:
-
-|RST|:
-
-.. code-block::
-
-    :sequential_nav: both
-
-    [Page contents]
-
-MyST:
-
-.. code-block::
-
-    ---
-    sequential_nav: both
-    ---
-
-    [Page contents]
-
-Possible values for the ``sequential_nav`` field are ``none``, ``prev``, ``next``, and
-``both``. See the ``docs/conf.py`` file for more information.
-
-Another example for page-specific configuration is the ``hide-toc`` field (provided by
-`Furo <https://pradyunsg.me/furo/quickstart/>`__), which can be used to hide the
-page-internal table of content. See `Hiding Contents sidebar
-<https://pradyunsg.me/furo/customisation/toc/>`__.
+You can then override this global setting for a specific page (for example, to turn off the Previous/Next buttons by default, but display them in a multi-page tutorial). See :ref:`how-to-add-page-specific-configuration`.
 
 
-Add your own configuration
---------------------------
+Custom configuration settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Custom configuration parameters for your project can be used to extend or override the
-common configuration, or to define additional configuration that is not covered by the
-common ``conf.py`` file.
-
+You can add custom configuration settings for your project to extend or override the common configuration that is defined by the ``conf.py`` file.
 The following links can help you with additional configuration:
 
 - `Sphinx configuration <https://www.sphinx-doc.org/en/master/usage/configuration.html>`__
 - `Sphinx extensions <https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`__
 - `Furo documentation <https://pradyunsg.me/furo/quickstart/>`__
 
-If you need additional Python packages for any custom processing you do in your
-documentation, add them to the ``docs/requirements.txt`` file.
+If you need additional Python packages for any custom processing you do in your documentation, add them to the ``docs/requirements.txt`` file.
 
-
-Disable failure on warning
---------------------------
-
-The docs build is, by default, set to fail when a warning (``WARNING`` in the build log)
-is encountered. To disable this setting, remove the ``--failure-on-warning`` option from
-the command specified in the ``html`` target in the ``Makefile``.

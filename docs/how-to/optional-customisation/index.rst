@@ -16,6 +16,7 @@ This includes adding extensions, modifying the build process, and adding custom 
     Customise PDF output <customise-pdf>
     Use Spread to test commands in documentation <add-documentation-testing>
     Use custom HTML templates <custom-html-templates>
+    Add page-specific configuration <add-page-specific-configuration>
     Add Mermaid diagrams <mermaid-diagrams>
     Add Python docstrings <python-docstrings>
     Add OpenAPI specifications <openapi-specifications>
