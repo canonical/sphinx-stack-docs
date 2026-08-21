@@ -16,11 +16,13 @@ are welcome.
 
 Scope of contribution
 ---------------------
+
 Good candidates for contribution include:
 
-- Bug fixes and improvements that benefit multiple projects
-- Improvements to shared configuration, extensions, workflows or tooling
-- Dependency updates for security or compatibility
+- Bug fixes for build errors, broken links or configuration issues
+- Improvements to defaults, extensions, workflows or style rules that benefit all users
+- Dependency updates for security, compatibility or better tooling
+- Documentation improvements such as new guides, corrected references or clearer tutorials
 
 Changes that are specific to a single project, introduce unnecessary complexity, or
 conflict with existing workflows may not be suitable. If unsure, discuss the change in a

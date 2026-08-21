@@ -15,9 +15,6 @@ Contributing requires familiarity with Git, GitHub and basic terminal commands.
 
 Before starting, review the :ref:`contribution requirements <standards-and-expectations>`.
 
-If you want to contribute to the Sphinx Stack development instead, refer to
-:ref:`contribute-development`.
-
 
 Set up your work environment
 ----------------------------
@@ -77,19 +74,19 @@ Significant work should be tied to an existing `GitHub issue
 <https://github.com/canonical/sphinx-stack-docs/issues>`__. Before you start, comment on the
 issue to have it assigned to you.
 
-Minor changes
-~~~~~~~~~~~~~
+Simple tasks
+~~~~~~~~~~~~
 
-For minor changes that are small and self-contained, like fixing spelling, grammar, or
+For simple changes that are small and self-contained, like fixing spelling, grammar, or
 punctuation, check the existing `GitHub issues
 <https://github.com/canonical/sphinx-stack-docs/issues>`__. If none exists, `open one
 <https://github.com/canonical/sphinx-stack-docs/issues/new>`__ and state your interest in
 working on it.
 
-Major changes
+Complex tasks
 ~~~~~~~~~~~~~
 
-For major changes, like a page rewrite or a new page, describe your proposal in the issue
+For complex changes, like a page rewrite or a new page, describe your proposal in the issue
 thread, including the page's `Diátaxis <https://diataxis.fr>`__ category and structure.
 
 
@@ -174,7 +171,7 @@ Register the changes to your branch with a Git commit:
 Use `conventional commit
 <https://www.conventionalcommits.org/en/v1.0.0/>`__ format.
 
-.. code-block:: none
+.. code-block:: text
 
     docs: add initial setup guide
 
