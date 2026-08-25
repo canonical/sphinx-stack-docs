@@ -17,10 +17,12 @@ This includes adding extensions, modifying the build process, and adding custom 
     Use Spread to test commands in documentation <add-documentation-testing>
     Use custom HTML templates <custom-html-templates>
     Add page-specific configuration <add-page-specific-configuration>
+    Manage sitemaps <manage-sitemaps>
     Add Mermaid diagrams <mermaid-diagrams>
     Add Python docstrings <python-docstrings>
     Add OpenAPI specifications <openapi-specifications>
     Add interactive tables <interactive-tables>
     external-referencing-intersphinx
+    
     
 
