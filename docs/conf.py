@@ -73,6 +73,8 @@ html_context = {
     },
 }
 
+html_extra_path = []
+
 # Allow opt-in build of the OpenAPI "Hello" example so docs stay clean by default.
 if os.getenv("OPENAPI", ""):
     tags.add("openapi")
@@ -130,8 +132,8 @@ rediraffe_dir_only = True
 # product docs.
 llms_txt_description = textwrap.dedent(
     """\
-    This is the documentation for the Sphinx Stack, a template repository that helps you
-    set up, build, and publish Sphinx documentation.
+    This is the documentation for the Sphinx Stack, a template repository
+    that helps you set up, build, and publish Sphinx documentation.
     """
 )
 
@@ -197,12 +199,12 @@ exclude_patterns = [
     "_dev",
 ]
 
-# Adds custom CSS files, located remotely or in 'html_static_path'.
+# Adds custom CSS files, located remotely or in 'html_static_path'
 # html_css_files = [
 #     "https://assets.ubuntu.com/v1/d86746ef-cookie_banner.css",
 # ]
 
-# Adds custom JavaScript files, located remotely or in 'html_static_path'.
+# Adds custom JavaScript files, located remotely or in 'html_static_path'
 # html_js_files = [
 #     "https://assets.ubuntu.com/v1/287a5e8f-bundle.js",
 # ]
@@ -231,8 +233,27 @@ rst_prolog = """
     :class: vale-ignore
 """
 
-# Configuration for Intersphinx projects
-#
-# intersphinx_mapping = {
-#     "snap": ("https://snapcraft.io/docs/", None),
-# }
+# Workaround for https://github.com/canonical/canonical-sphinx/issues/34
+if "discourse_prefix" not in html_context and "discourse" in html_context:
+    html_context["discourse_prefix"] = f"{html_context['discourse']}/t/"
+
+# If the user has a reuse/substitutions.yaml file, load from there.
+# Otherwise, use the manual definitions below.
+if os.path.exists("./reuse/substitutions.yaml"):
+    with open("./reuse/substitutions.yaml", "r") as fd:
+        myst_substitutions = yaml.safe_load(fd.read())
+else:
+    myst_substitutions = {
+        "version_number": "0.1.0",
+        "formatted_text": "*Multi-line* text\n that uses basic **markup**.",
+        "site_link": "[Website link](https://example.com)",
+    }
+
+# Add configuration for intersphinx mapping
+# Map only the Sphinx documentation sets that you need to link to from your docs set.
+intersphinx_mapping = {
+    "sphinxcontrib-mermaid": (
+        "https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest",
+        None,
+    )
+}
