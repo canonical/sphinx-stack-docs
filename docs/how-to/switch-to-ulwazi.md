@@ -1,23 +1,25 @@
 ---
 myst:
   html_meta:
-    description: How to test the Ulwazi theme in a documentation project based on Sphinx Stack.
+    description: How to switch to the Ulwazi theme in a documentation project based on Sphinx Stack.
 relatedlinks: "[Ulwazi&#32;on&#32;PyPI](https://pypi.org/project/ulwazi), [Vanilla](https://vanillaframework.org), [sphinx-basic-ng](https://github.com/pradyunsg/sphinx-basic-ng)"
 ---
 
 (how-to-test-ulwazi-theme)=
+(how-to-switch-to-ulwazi)=
 
-# Test the Ulwazi theme
+# Switch to the Ulwazi theme
 
 Ulwazi is a Sphinx theme built on Vanilla, with the base layout and functionality
 derived from sphinx-basic-ng.
 
-This guide outlines the steps required to use the Ulwazi theme in your Sphinx
+This guide outlines the steps required to switch to the Ulwazi theme in your Sphinx
 documentation project.
 
 We recommend creating a new branch of your repository and testing Ulwazi in that branch.
 You can build the Ulwazi-themed documentation locally from the branch or open a PR and
-view the changes in its RTD preview.
+view the changes in its RTD preview. Once you're happy with the results, merge the
+changes to your project's default branch.
 
 ## Update the dependencies
 

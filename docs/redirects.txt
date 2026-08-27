@@ -49,7 +49,6 @@
 "reference/doc-cheat-sheet" "reference/rst-syntax-reference"
 "reference/style-guide" "reference/rst-syntax-reference"
 
-
 "reference/automatic_checks" "how-to/run-documentation-checks"
 "reference/automatic_checks_accessibility" "how-to/run-documentation-checks"
 "reference/automatic_checks_inclusivelanguage" "how-to/run-documentation-checks"
@@ -57,3 +56,6 @@
 "reference/automatic_checks_linting" "how-to/run-documentation-checks"
 "reference/automatic_checks_spelling" "how-to/run-documentation-checks"
 "reference/automatic_checks_styleguide" "how-to/run-documentation-checks"
+
+"contribute" "index"
+"contribute/test-ulwazi-theme" "how-to/switch-to-ulwazi"
