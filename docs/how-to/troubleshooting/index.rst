@@ -1,12 +1,12 @@
 .. meta::
-   :description: How to troubleshoot common issues when developing documentation using the Sphinx Stack for deployment on Read the Docs.
+   :description: How to troubleshoot common issues when developing documentation using the Sphinx Stack
 
 .. _troubleshooting:
 
 Troubleshoot documentation issues
 =================================
 
-This page helps you diagnose and resolve common issues you might encounter when developing documentation with the Sphinx Stack and deploying it on Read the Docs. It covers the following areas:
+This section helps you diagnose and resolve common issues you might encounter when developing documentation with the Sphinx Stack and deploying it on Read the Docs. It covers the following areas:
 
 * :ref:`Local deployment issues <local_deployment_troubleshooting>`: How to troubleshoot issues when deploying your documentation locally for development and testing
 * :ref:`Build Errors <build_errors_troubleshooting>`: Common build errors and how to resolve them

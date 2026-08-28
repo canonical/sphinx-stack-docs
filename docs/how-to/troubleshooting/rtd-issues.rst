@@ -1,12 +1,11 @@
 .. meta::
-   :description: Troubleshooting guidance for issues related to building and publishing documentation using the Sphinx Stack at Read the Docs.
-
+   :description: Troubleshooting guidance for issues related to RTD builds and deployments.
 .. _rtd_troubleshooting:
 
 Read the Docs failures
 ======================
 
-In this guide, you will find information on how to troubleshoot issues related to building the documentation set at Read the Docs.
+In this guide, you will find information on how to troubleshoot issues related to building the documentation set on Read the Docs.
 
 .. _stable-version-wont-build-from-latest-tag:
 
@@ -109,14 +108,14 @@ At times, documentation projects that were building successfully may suddenly ex
 Possible cause
 ~~~~~~~~~~~~~~
 
-The GitHub Webhook goes out of sync for some reason and misbehaves, resulting in random authentication failures and build errors.
+A common cause of sudden authentication failures is that the GitHub Webhook goes out of sync and misbehaves. Misbehaviour is mostly due to infrastructure issues on RTD or GitHub. Those issues are usually resolved with time, rather than any manual action.
 
 Resolution
 ~~~~~~~~~~
 
 Confirm that the git repository URL setting in Read the Docs points to a valid repository. Verify that the public SSH key from your Read the Docs project is installed as a deploy key on your the GitHub repository. If these are already in place then try to resynchronize the webhook.
 
-If that does not solve the problem, delete and [reinstate the webhook](https://docs.readthedocs.com/platform/latest/guides/setup/git-repo-manual.html#manual-integration-setup).
+If the above steps do not solve the problem, delete and [reinstate the webhook](https://docs.readthedocs.com/platform/latest/guides/setup/git-repo-manual.html#manual-integration-setup).
 
 `readthedocs.yaml` file issues
 ------------------------------
@@ -126,12 +125,15 @@ The GitHub pull request build fails stating the ``.readthedocs.yaml`` file is no
 Probable cause
 ~~~~~~~~~~~~~~
 
-The ``.readthedocs.yaml`` file is not be accessible to the build system. This can happen if the file is missing or if it is not in the location configured in RTD.
+Inaccessibility of the  ``.readthedocs.yaml`` file in the build system can be caused if the file is missing or if it is not in the location configured at RTD.
 
 
 Resolution
 ~~~~~~~~~~
 
-Read the Docs requires a ``.readthedocs.yaml`` file in the repository root to trigger a build; if this file is missing, the build will fail. The Canonical Sphinx Stack assumes, by default, that documentation content lives under ``/docs/`` and that ``.readthedocs.yaml`` is in the repository root, but neither location is a hard requirement. 
+Check the location of the ``.readthedocs.yaml`` file in your repository to ensure it is in the root directory.
+Read the Docs requires a ``.readthedocs.yaml`` file in the repository root to trigger a build; if this file is missing, the build will fail. 
 
-If your project uses a different structure, ensure that ``.readthedocs.yaml`` exists in the repository root and update its configuration values, and/or the Sphinx ``conf.py`` file, to point to the correct documentation source folder.
+The Canonical Sphinx Stack assumes, by default, that documentation content lives under ``/docs/`` and that ``.readthedocs.yaml`` is in the repository root, but neither location is a hard requirement. 
+
+If your project uses a different file layout structure than the default, ensure that ``.readthedocs.yaml`` exists as configured (not necessarily in the repository root) and update its configuration values in the Sphinx ``conf.py`` file.

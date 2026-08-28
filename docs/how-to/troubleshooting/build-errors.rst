@@ -1,12 +1,12 @@
 .. meta::
-   :description: Troubleshooting guidance for issues related to building and publishing documentation using the Sphinx Stack with Read the Docs.
+   :description: Troubleshooting guidance for issues related to building and publishing documentation using the Sphinx Stack at Read the Docs.
 
 .. _build_errors_troubleshooting:
 
 Build errors
 ============
 
-In this guide, you will find information on how to troubleshoot local or GitHub PR build errors that may occur when building a documentation set.
+In this guide, you will find information on how to troubleshoot local or GitHub PR build errors that may occur when building the documentation set.
 
 'Module not found' error
 ------------------------
@@ -46,4 +46,3 @@ Review the dependencies listed in the ``requirements.txt`` file and resolve any 
 * Using a constraints file
 
 As an example, the error showed up recently while building several Sphinx Stack based documentation sets independently on different machines on a specific day when a new version of ``myst-parser`` was released. The issue could be resolved by pinning the ``myst-parser`` version in the ``requirements.txt`` file.
-
