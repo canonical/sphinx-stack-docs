@@ -34,7 +34,9 @@ The ``Project Information`` section contains settings for your project's officia
    * - ``project``
      - Specifies the official name of your project.
    * - ``ogp_site_name``, ``ogp_image``
-     - Defines the preview website name and preview image. When you post a link to your documentation somewhere (for example, on Mattermost or Discourse), it can be shown with a preview. This preview is configured through the OGP configuration.
+     - Defines the preview website name and preview image. 
+      
+       When you post a link to your documentation somewhere (for example, on Mattermost or Discourse), it can be shown with a preview. This preview is configured through the OGP configuration.
    * - ``html_favicon``
      - Defines the small icon shown in the browser tab, bookmarks, and sometimes the browser history for your documentation.
    * - ``html_context``
@@ -57,7 +59,7 @@ Sitemap
 Sphinx, via the `sphinx_sitemap <https://sphinx-sitemap.readthedocs.io/en/latest/>`__ extension configured in the ``conf.py`` file, generates a ``sitemap.xml`` file that lists the public pages in your docs site. Search engines use that file to discover pages, understand your URLs, and sometimes pick up metadata like last modification time. 
 
 To understand how the Sphinx Stack generates sitemaps, see :ref:`Sitemaps <sitemaps>`.
-For instructions on validating sitemaps and supporting versioned documentation, see
+For instructions on supporting versioned documentation, see
 :ref:`Manage sitemaps for versioned documentation <manage-sitemaps>`.
 
 .. list-table::
@@ -225,8 +227,7 @@ You can then override this global setting for a specific page (for example, to t
 Custom configuration settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can add custom configuration settings for your project to extend or override the common configuration that is defined by the ``conf.py`` file.
-The following links can help you with additional configuration:
+You can add custom configuration settings for your project to extend or override the common configuration that is defined by the ``conf.py`` file. The following links can help you with additional configuration:
 
 - `Sphinx configuration <https://www.sphinx-doc.org/en/master/usage/configuration.html>`__
 - `Sphinx extensions <https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`__

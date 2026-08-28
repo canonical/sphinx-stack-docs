@@ -133,19 +133,10 @@ This command builds the documentation and serves it at
 :literalref:`http://127.0.0.1:8000/`.
 
 
-Disable failure on warning
----------------------------
-
-The docs build is, by default, set to fail when a warning (``WARNING`` in the build log)
-is encountered. To disable this setting, remove the ``--failure-on-warning`` option from
-the command specified in the ``html`` target in the ``Makefile``.
-
-
 Run a live preview
 -------------------
 
-Instead of building the documentation for each change and then serving it, you can run a
-live preview of the documentation:
+Instead of building the documentation for each change and then serving it, you can run a live preview of the documentation:
 
 .. code-block:: bash
 
