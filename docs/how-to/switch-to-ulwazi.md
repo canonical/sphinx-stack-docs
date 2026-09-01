@@ -14,7 +14,7 @@ Ulwazi is a Sphinx theme built on Vanilla, with the base layout and functionalit
 derived from sphinx-basic-ng.
 
 This guide outlines the steps required to switch to the Ulwazi theme in your Sphinx
-documentation project.
+Stack project.
 
 We recommend creating a new branch of your repository and testing Ulwazi in that branch.
 You can build the Ulwazi-themed documentation locally from the branch or open a PR and
@@ -46,7 +46,7 @@ package with Ulwazi and its dependencies:
 + ulwazi
 ```
 
-Be ready to add any other missing extensions if you see errors about them.
+Be ready to add any other missing packages if you see errors about them.
 
 ## Main configuration
 
@@ -97,10 +97,11 @@ html_theme = "ulwazi"
 
 #### Update the extensions
 
-In the list of extensions, replace Canonical Sphinx with Ulwazi and its dependencies:
+In the `extensions` list, replace Canonical Sphinx with Ulwazi. Canonical Sphinx also
+sets up several extensions automatically, so list those here as well:
 
 ```{code-block} diff
-:caption: extensions in conf\.py
+:caption: `extensions` in conf\.py
 
 -"canonical-sphinx~=0.6",
 +"ulwazi",
