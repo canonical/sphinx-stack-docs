@@ -1,5 +1,5 @@
 .. meta::
-   :description: Troubleshooting guidance for issues related to building and publishing documentation using the Sphinx Stack at Read the Docs.
+   :description: Troubleshooting guidance for issues related to building and publishing documentation using the Sphinx Stack with Read the Docs.
 
 .. _build_errors_troubleshooting:
 
