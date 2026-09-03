@@ -25,6 +25,8 @@ with your documentation needs.
     run-documentation-checks
     publish-on-rtd
     update-sphinx-stack/index.rst
+    switch-to-ulwazi
+    troubleshooting
 
 
 Troubleshooting

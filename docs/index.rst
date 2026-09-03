@@ -60,4 +60,3 @@ suggestions, fixes and constructive feedback.
     :hidden:
 
     Release notes <release-notes/index>
-    Contribute <contribute/index>
