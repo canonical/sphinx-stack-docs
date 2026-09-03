@@ -26,7 +26,7 @@ with your documentation needs.
     publish-on-rtd
     update-sphinx-stack/index.rst
     switch-to-ulwazi
-    troubleshooting
+    troubleshooting/index.rst
 
 
 Optional features and customisation
