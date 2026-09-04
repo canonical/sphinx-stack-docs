@@ -43,7 +43,7 @@ On the **Builds** tab, locate the most recent ``stable`` build. For that version
 over the status indicator. In the hover box, open the **stable** link. If the resulting
 GitHub page is a 404, then your project has a zombie version.
 
-.. image:: ../how-to/assets/troubleshoot-stable-zombie-version.png
+.. image:: ../assets/troubleshoot-stable-zombie-version.png
 
 
 Resolution
