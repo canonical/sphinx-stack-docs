@@ -40,7 +40,7 @@ Resolution
 
 Review the dependencies listed in the ``requirements.txt`` file and resolve any conflicts caused by incompatible or unpinned package versions or newly released versions. To fix this, try:
 
-* Restricting problem packages to recent versions (using package>=version)
+* Restricting problem packages to recent versions (using ``package~=version``)
 * Using a constraints file
 
 As an example, the error showed up recently while building several Sphinx Stack based documentation sets independently on different machines on a specific day when a new version of ``myst-parser`` was released. The issue could be resolved by pinning the ``myst-parser`` version in the ``requirements.txt`` file.
