@@ -6,7 +6,7 @@
 Build errors
 ============
 
-In this guide, you will find information on how to troubleshoot local or GitHub PR build errors that may occur when building the documentation set.
+In this guide, you will find information on how to troubleshoot local or GitHub PR build errors that may occur when building a documentation set.
 
 'Module not found' error
 ------------------------
