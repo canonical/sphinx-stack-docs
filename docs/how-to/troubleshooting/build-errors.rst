@@ -33,7 +33,7 @@ Probable cause
 
 This error typically occurs when the ``requirements.txt`` file has conflicting dependencies or a dependency tree too complex for ``pip`` to resolve efficiently.
 
-Documentation repositories initialized from Canonical's Sphinx Stack project often hit this error due to an **unpinned** or incompatible version of a package like ``myst-parser``.
+Documentation based on the Sphinx Stack often hit this error due to an unpinned or incompatible version of a package.
 
 Resolution
 ~~~~~~~~~~
