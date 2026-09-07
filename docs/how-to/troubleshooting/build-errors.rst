@@ -18,7 +18,6 @@ Probable cause
 
 The error message may indicate that the build system is unable to find a module that is required for building the documentation even though the module is installed in the local development environment. This can be because the wrong version is installed and something is being called that doesn't exist - as with your myst-parser case - or the system path hasn't been extended to find the package - as happens with local extensions (you may need a ``sys.path.insert(0, os.path.abspath('<path>'))`` to include the path to the module).
 
-It has been observed that this failure can also happen due to ``myst-parser`` version mismatch.
 
 Resolution
 ~~~~~~~~~~
