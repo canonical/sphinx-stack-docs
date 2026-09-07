@@ -27,7 +27,6 @@ Use the latest version of ``myst-parser`` in your local development environment 
 'Pip resolution too deep' error
 --------------------------------
 
-Sphinx based documentation builds fail with a ``pip resolution too deep`` error message. This can happen with local builds, on GitHub PR builds or at Read the Docs.
 
 Probable cause
 ~~~~~~~~~~~~~~
