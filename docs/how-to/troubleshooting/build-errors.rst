@@ -11,18 +11,39 @@ In this guide, you will find information on how to troubleshoot local or GitHub 
 'Module not found' error
 ------------------------
 
-The build fails unexpectedly with a ``ModuleNotFoundError: No module named ...`` error message. 
+The build fails with a ``ModuleNotFoundError: No module named '<module>'`` error message when you run it locally (or in a GitHub PR check).
 
 Probable cause
 ~~~~~~~~~~~~~~
 
-The error message may indicate that the build system is unable to find a module that is required for building the documentation even though the module is installed in the local development environment. This can be because the wrong version is installed and something is being called that doesn't exist - as with your myst-parser case - or the system path hasn't been extended to find the package - as happens with local extensions (you may need a ``sys.path.insert(0, os.path.abspath('<path>'))`` to include the path to the module).
+A ``ModuleNotFoundError`` means the Python interpreter running the build cannot locate the named module at all. The most common causes for a local build are:
 
+* **The dependencies were never installed, or the wrong environment is active.** The build is running against a Python interpreter that does not have the documentation dependencies installed, for example because the virtual environment was not activated or ``requirements.txt`` was not installed into it.
+* **The package is missing from** ``requirements.txt``. The module is not installed because it is not declared as a dependency. If it works for you but fails for a colleague or in CI, it is likely installed in your environment but absent from ``requirements.txt``.
+* **A local module or extension is not on** ``sys.path``. Custom extensions or ``conf.py`` helpers that live inside the repository are not importable unless their directory is added to the path in ``conf.py``, for example ``sys.path.insert(0, os.path.abspath('_ext'))``.
 
 Resolution
 ~~~~~~~~~~
 
-Use the latest version of ``myst-parser`` in your local development environment and ensure that the same version is specified in the ``requirements.txt`` file. 
+#. Read the full traceback and note the exact module name reported after ``No module named`` error message.
+#. Confirm you are building inside the correct environment with the dependencies installed::
+
+.. code-block:: bash
+   
+     source .venv/bin/activate    # or your environment's activation command
+     pip install -r requirements.txt
+
+#. If it is a third-party package (for example ``myst-parser``), check whether it is listed in ``requirements.txt``. If it is missing, add it and reinstall. If it is present, confirm it is actually installed in the active environment with ``pip show <package>``. If a newer version is available, consider updating it and adjusting the version constraints in 
+
+#. Rebuild to confirm the fix::
+
+.. code-block:: bash
+
+   sphinx-build -W -b html . _build/html
+
+.. tip::
+
+   If the build works for you but fails for a colleague or in a GitHub PR check, the module is almost always installed in your local environment but missing from ``requirements.txt``. Add it there so every environment installs it.
 
 'Pip resolution too deep' error
 --------------------------------
