@@ -17,8 +17,7 @@ This section helps you diagnose and resolve common issues you might encounter wh
     :maxdepth: 1
     :hidden:
 
-    rtd-issues
     build-errors
-    runtime-errors
     local-deployment-issues
-
+    runtime-errors
+    rtd-issues

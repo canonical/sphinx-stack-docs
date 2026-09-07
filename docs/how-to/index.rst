@@ -34,7 +34,7 @@ Troubleshooting
 Help diagnose and resolve common issues you might encounter when developing documentation with the Sphinx Stack and deploying on Read the Docs.
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     troubleshooting/index.rst
 
