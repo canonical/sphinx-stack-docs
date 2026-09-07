@@ -23,7 +23,7 @@ Possible causes
 ~~~~~~~~~~~~~~~
 
 An unwanted tag might have been pushed to the repository and then removed. Once
-ReadTheDocs creates a version from a tag, it doesn't later verify that the tag still
+Read the Docs creates a version from a tag, it doesn't later verify that the tag still
 exists, so the version will persist and become a zombie.
 
 If the unwanted tag is a higher iterator than any existing tag, the zombie version will
