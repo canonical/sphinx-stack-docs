@@ -38,7 +38,7 @@ Diagnosis
 There's a roundabout procedure to verify whether your project is affected. Start by
 opening your project dashboard on ReadTheDocs.
 
-On the **Builds** tab, locate the most recent ``stable`` build. For that version, hover
+On the :guilabel:`Builds` tab, locate the most recent ``stable`` build. For that version, hover
 over the status indicator. In the hover box, open the **stable** link. If the resulting
 GitHub page is a 404, then your project has a zombie version.
 
