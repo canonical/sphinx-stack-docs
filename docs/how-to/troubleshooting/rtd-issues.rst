@@ -62,24 +62,26 @@ Issue tracking
 `readthedocs/readthedocs.org#12450
 <https://github.com/readthedocs/readthedocs.org/issues/12450>`_
 
-Inactive version is invisible in the web GUI and occupies a slug
-----------------------------------------------------------------
+Creating a new version slug fails
+----------------------------------
 
-There is no delete button in the web GUI of Read the Docs.
-You can turn the **Active** switch off to make a version inactive, but there is no way to delete it.
-
-Sometimes when you try to create a new version, you get an error that the slug is already in use,
-even though you don't see the version occupying it.
+When you try to create a new version, you may see an error stating that the slug is already in use,
+even though you don't visually see the version occupying it in the RTD GUI.
 
 Possible causes
 ~~~~~~~~~~~~~~~
 
+This occurs when a version is deactivated in the RTD GUI, for example by turning
+off its **Active** switch, and someone later tries to create a new version with
+the same slug. Read the Docs has no delete option in its web GUI, so the
+deactivated version continues to occupy that slug indefinitely.
+
 When a version is deactivated
 (see `Inactive versions <https://docs.readthedocs.com/platform/stable/versions.html#version-states>`_),
-its documentation content is deleted and builds can no longer be triggered.
-However, the version itself is not deleted. It still exists and retains its slug.
-Such inactive versions may not appear in the **Versions** tab list,
-making them effectively invisible in the web GUI while still occupying the slug.
+its documentation content is deleted and builds can no longer be triggered from
+the GUI. However, the version itself remains and retains its slug. It may not
+appear in the **Versions** tab, making it effectively invisible in the web GUI
+while still causing the "slug is already in use" error.
 
 Resolution
 ~~~~~~~~~~
