@@ -100,8 +100,8 @@ For example:
 From there, you can make the version active again, which will make it visible in the
 web GUI, or change its slug.
 
-Build failures due to sudden authentication errors at Read the Docs
--------------------------------------------------------------------
+Authentication errors
+---------------------
 
 At times, documentation projects that were building successfully may suddenly experience build failures due to authentication issues with GitHub. 
 
