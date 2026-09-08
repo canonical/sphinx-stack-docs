@@ -108,7 +108,7 @@ At times, documentation projects that were building successfully may suddenly ex
 Possible cause
 ~~~~~~~~~~~~~~
 
-A common cause of sudden authentication failures is that the GitHub Webhook goes out of sync and misbehaves. Misbehaviour is mostly due to infrastructure issues on RTD or GitHub. Those issues are usually resolved with time, rather than any manual action.
+A common cause of sudden authentication failures is that the GitHub Webhook goes out of sync due to infrastructure issues on RTD or GitHub. Those issues are usually resolved with time, rather than manual action.
 
 Resolution
 ~~~~~~~~~~
