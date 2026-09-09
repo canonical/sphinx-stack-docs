@@ -10,7 +10,7 @@ SPHINX_OPTS      ?= -c . -d $(DEV_DIR)/.doctrees -j auto
 SPHINX_BUILD     ?= $(DOCS_VENVDIR)/bin/sphinx-build
 SPHINX_HOST      ?= 127.0.0.1
 SPHINX_PORT      ?= 8000
-SPHINX_AUTOBUILD_OPTS ?= -D=llms_txt_enabled=0
+SPHINX_AUTOBUILD_OPTS ?= -D llms_txt_enabled=0
 DOCS_VENVDIR     ?= .venv
 DOCS_VENV        ?= $(DOCS_VENVDIR)/bin/activate
 DOCS_SOURCEDIR   ?= .
@@ -67,7 +67,7 @@ $(DOCS_VENVDIR):
 	@touch $(DOCS_VENVDIR)
 
 pa11y-install:
-	@command -v $(PA11Y_CMD) >/dev/null || { \
+	@test -x $(firstword $(PA11Y_CMD)) >/dev/null || { \
 			echo "Installing \"pa11y\" from npm..."; echo; \
 			mkdir -p $(DEV_DIR)/node_modules/ ; \
 			npm install --prefix $(DEV_DIR) pa11y; \

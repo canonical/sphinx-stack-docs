@@ -25,7 +25,7 @@ REQUIREMENTS = os.path.join(DOCS_DIR, "requirements.txt")
 SPHINX_UPDATE_DIR = os.path.join(SPHINX_DIR, "update")
 GITHUB_REPO = "canonical/sphinx-stack"
 GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
-GITHUB_API_SPHINX_DIR = f"{GITHUB_API_BASE}/contents/docs/_dev"
+GITHUB_API_DEV_DIR = f"{GITHUB_API_BASE}/contents/docs/_dev"
 GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main"
 
 TIMEOUT = 10  # seconds
@@ -141,7 +141,7 @@ def update_static_files():
     files, paths = get_local_files_and_paths()
     new_file_list = []
 
-    for item in query_api(GITHUB_API_SPHINX_DIR).json():
+    for item in query_api(GITHUB_API_DEV_DIR).json():
         logging.debug(f"Checking {item['name']}")
         # Checks existing files in '_dev' Sphinx Stack static root for changed SHA
         if item["name"] in files and item["type"] == "file":
@@ -163,9 +163,7 @@ def update_static_files():
         # Checks nested files '_dev/**/**.*' for changed SHA (single level of depth)
         elif item["type"] == "dir":
             logging.debug(item["name"] + " is a directory")
-            for nested_item in query_api(
-                f"{GITHUB_API_SPHINX_DIR}/{item['name']}"
-            ).json():
+            for nested_item in query_api(f"{GITHUB_API_DEV_DIR}/{item['name']}").json():
                 logging.debug(f"Checking {nested_item['name']}")
                 if nested_item["name"] in files:
                     index = files.index(nested_item["name"])
