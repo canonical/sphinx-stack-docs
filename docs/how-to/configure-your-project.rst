@@ -6,7 +6,7 @@
 Configure your project
 =======================
 
-Configuration for a Sphinx Stack based documentation is set in the ``docs/conf.py`` configuration file. The default configuration in the Sphinx Stack is prepared in a way that makes sense for most projects. However, you must set some critical project-specific configuration values, like the project's name, to ensure the documentation reflects your project accurately.
+Sphinx Stack documentation projects are configured in the ``docs/conf.py`` file. The default configuration will work for most projects, but you still need to set some project-specific values, such as your product's name and documentation URL.
 
 .. important::
 
@@ -14,7 +14,7 @@ Configuration for a Sphinx Stack based documentation is set in the ``docs/conf.p
 
     Use the Sphinx Stack `release notes <https://documentation.ubuntu.com/sphinx-stack/latest/release-notes>`__ or `changelog <https://github.com/canonical/sphinx-stack/blob/main/CHANGELOG.md>`__ to track changes to the Sphinx Stack. Subscribe to the repository releases to get notified whenever there is a new release. For the recommended way of manually updating your Sphinx Stack, see :ref:`update-sphinx-stacks`.
 
-Mandatory configuration values are marked with ``TODO`` in the `conf.py` file. Review and adjust the following project settings to align with your project requirements, and ensure you comment out any settings that are not relevant to your environment. 
+Mandatory configuration values are marked with ``TODO`` in the ``conf.py`` file. Set these to align with your project and ensure you comment out any settings that aren't relevant to your environment. 
 
 Steps 1 – 5 cover the required configuration. Each step links to the relevant configuration guidance. For all available common settings, see :ref:`conf-py-configuration`.
 

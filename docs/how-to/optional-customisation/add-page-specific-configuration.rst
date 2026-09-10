@@ -4,7 +4,7 @@
 .. _how-to-add-page-specific-configuration:
 
 Add page-specific configuration
-====================================
+===============================
 
 You can override some global configuration for specific pages.
 
