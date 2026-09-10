@@ -19,7 +19,7 @@ Required configuration
 .. _conf-py-project-information:
 
 Project, repository, and site metadata
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``Project Information`` section contains settings for your project's official name, Open Graph Protocol (OGP) metadata, and global variables that are passed into the Sphinx context across your entire site.
 
@@ -50,7 +50,7 @@ The ``Project Information`` section contains settings for your project's officia
 .. _conf-py-sitemap:
 
 Sitemap
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~
 
 .. list-table::
    :widths: 30 70
@@ -85,7 +85,7 @@ sphinx-llm extension
 .. _conf-py-link-checker:
 
 Sphinx link checker
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 Configuration settings in the Link checker exceptions section tell Sphinx which URLs to skip, which anchor checks to relax, and how persistent to be when a request is slow or fails. 
 
@@ -108,7 +108,7 @@ Configuration settings in the Link checker exceptions section tell Sphinx which 
 .. _conf-py-feedback-button:
 
 Feedback button
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 .. list-table::
    :widths: 30 70
@@ -116,10 +116,12 @@ Feedback button
 
    * - Configuration setting
      - Description
-   * - ``github_url``
+   * - ``html_context["github_url"]``
      - Specifies the URL of the GitHub repository where feedback issues are created.
-   * - ``github_issues``
-     - Enables the feedback button when set to ``True``.
+   * - ``disable_feedback_button``
+     - Disables the feedback button when set to ``True``.
+   * - ``feedback_link``
+     - Set this if your team doesn't use GitHub issues for feedback. This setting takes precedence over the link constructed with ``github_url`` if set.
 
 
 .. _conf-py-optional-configuration:
@@ -134,7 +136,7 @@ aren't suitable for your documentation.
 .. _conf-py-html-templates:
 
 HTML templates
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 The Sphinx Stack provides default header and footer templates. The ``templates_path`` setting specifies the directories that Sphinx searches for project-specific templates. 
 
@@ -144,7 +146,7 @@ For information about how to create your own templates, see :ref:`Use custom HTM
 .. _conf-py-redirects:
 
 Redirects
-~~~~~~~~~~~
+~~~~~~~~~
 
 .. list-table::
    :widths: 30 70
@@ -153,7 +155,7 @@ Redirects
    * - Configuration setting
      - Description
    * - ``rediraffe_redirects``
-     - Specifies the path, relative to ``conf.py``, of the file containing redirect mappings.
+     - Specifies redirect mappings either as a dictionary or as the path, relative to ``conf.py``, to a file containing the mappings.
    * - ``rediraffe_dir_only``
      - Controls whether redirect destination URLs omit ``/index.html``. When set to ``True``, destination URLs use directory-style paths.
 
@@ -163,7 +165,7 @@ For instructions on adding redirect mappings, see :ref:`Redirect pages <how-to-r
 .. _conf-py-extensions:
 
 Extensions
-~~~~~~~~~~~~~
+~~~~~~~~~~
 
 .. list-table::
    :widths: 30 70

@@ -51,7 +51,3 @@ Another example for page-specific configuration is the ``hide-toc`` field (provi
 `Furo <https://pradyunsg.me/furo/quickstart/>`__), which can be used to hide the
 page-internal table of content. See `Hiding Contents sidebar
 <https://pradyunsg.me/furo/customisation/toc/>`__.
-
-
-
-

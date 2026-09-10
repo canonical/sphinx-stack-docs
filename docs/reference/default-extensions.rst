@@ -10,14 +10,6 @@ These extensions are enabled in the Sphinx Stack by default.
 
 ``canonical_sphinx``
    Required for the Sphinx Stack. Provides the Furo-based theme and custom templates.
-   It requires the following extensions:
-
-   - ``notfound.extension``
-   - ``sphinx_design``
-   - ``sphinx_reredirects``
-   - ``sphinx_tabs.tabs``
-   - ``sphinxcontrib.jquery``
-   - ``sphinxext.opengraph``
 
 ``notfound.extension``
    Allows creating custom 404 pages.

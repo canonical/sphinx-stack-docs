@@ -16,13 +16,13 @@ Sphinx Stack documentation projects are configured in the ``docs/conf.py`` file.
 
 Mandatory configuration values are marked with ``TODO`` in the ``conf.py`` file. Set these to align with your project and ensure you comment out any settings that aren't relevant to your environment. 
 
-Steps 1 – 5 cover the required configuration. Each step links to the relevant configuration guidance. For all available common settings, see :ref:`conf-py-configuration`.
+Steps 1 – 5 cover the required configuration. For details, see :ref:`Required configuration <conf-py-required-configuration>`.
 
-1. Set :ref:`project identity, branding, and repository metadata <conf-py-project-information>`.
-2. Set the :ref:`documentation site URL <conf-py-sitemap>`.
-3. Configure :ref:`feedback and page navigation behavior <conf-py-ui-behavior>`.
-4. Define :ref:`LLM metadata <conf-py-llm-context>`.
-5. Configure :ref:`how Sphinx should validate links <conf-py-link-checker>`.
+1. Set project identity, branding, and repository metadata.
+2. Set the documentation site URL.
+3. Configure feedback and page navigation behavior.
+4. Define LLM metadata.
+5. Configure how Sphinx should validate links.
 6. Add :ref:`optional configuration <conf-py-optional-configuration>` as needed. The following links can help you with additional configuration:
 
    - `Sphinx configuration <https://www.sphinx-doc.org/en/master/usage/configuration.html>`__
