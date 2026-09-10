@@ -36,7 +36,7 @@ Before you start, make sure that you have ``make``, ``python3``, ``python3-venv`
 
 
 Manage Python environment
----------------------------
+-------------------------
 
 The Python prerequisites from the ``docs/requirements.txt`` file are automatically
 installed when you build the documentation.
@@ -134,7 +134,7 @@ This command builds the documentation and serves it at
 
 
 Run a live preview
--------------------
+------------------
 
 Instead of building the documentation for each change and then serving it, you can run a live preview of the documentation:
 

@@ -120,7 +120,7 @@ Feedback button
      - Specifies the URL of the GitHub repository where feedback issues are created.
    * - ``disable_feedback_button``
      - Disables the feedback button when set to ``True``.
-   * - ``feedback_link``
+   * - ``html_context["feedback_link"]``
      - Set this if your team doesn't use GitHub issues for feedback. This setting takes precedence over the link constructed with ``github_url`` if set.
 
 
