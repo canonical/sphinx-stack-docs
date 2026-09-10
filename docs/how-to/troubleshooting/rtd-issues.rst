@@ -39,7 +39,7 @@ There's a roundabout procedure to verify whether your project is affected. Start
 opening your project dashboard on ReadTheDocs.
 
 On the :guilabel:`Builds` tab, locate the most recent ``stable`` build. For that version, hover
-over the status indicator. In the hover box, open the **stable** link. If the resulting
+over the status indicator. In the hover box, open the :guilabel:`stable` link. If the resulting
 GitHub page is a 404, then your project has a zombie version.
 
 .. image:: /how-to/assets/troubleshoot-stable-zombie-version.png
@@ -48,7 +48,7 @@ GitHub page is a 404, then your project has a zombie version.
 Resolution
 ~~~~~~~~~~
 
-On your project dashboard, open the **Versions** tab and click **Add version**.
+On your project dashboard, open the :guilabel:`Versions` tab and click :guilabel:`Add version`.
 
 Find the zombie version, deactivate it, then update it.
 
