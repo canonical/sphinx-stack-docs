@@ -4,7 +4,7 @@
 .. _configure-your-project:
 
 Configure your project
-=======================
+======================
 
 Sphinx Stack documentation projects are configured in the ``docs/conf.py`` file. The default configuration will work for most projects, but you still need to set some project-specific values, such as your product's name and documentation URL.
 
