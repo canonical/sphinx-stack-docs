@@ -168,8 +168,9 @@ Register the changes to your branch with a Git commit:
     git add -A
     git commit
 
-Use `conventional commit
-<https://www.conventionalcommits.org/en/v1.0.0/>`__ format.
+Use the `Conventional Commits
+<https://www.conventionalcommits.org/en/v1.0.0/>`__ format. Most documentation changes
+should use the `docs` commit type.
 
 .. code-block:: text
 
@@ -183,22 +184,6 @@ especially when you come back to review it later.
 
 Use separate commits for unrelated changes or different components.
 
-.. admonition:: Complex commits
-    :class: tip
-
-    If you're unsure which type to use, the commit may be doing too much, so split it into
-    smaller commits instead. Select the highest-ranked type that fits:
-
-    - :vale-ignore:`ci`
-    - build
-    - feat
-    - fix
-    - :vale-ignore:`perf`
-    - refactor
-    - style
-    - test
-    - docs
-    - chore
 
 Sign your commits
 ~~~~~~~~~~~~~~~~~
