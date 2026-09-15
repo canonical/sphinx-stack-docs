@@ -18,9 +18,6 @@ It requires familiarity with Git, GitHub, and the Sphinx documentation generator
 
 Before starting, review the :ref:`contribution requirements <standards-and-expectations>`.
 
-If you want to contribute to the documentation instead, refer to
-:ref:`contribute-documentation`.
-
 
 Set up your work environment
 ----------------------------
@@ -83,19 +80,19 @@ If no issue exists for your task, `create one
 <https://github.com/canonical/sphinx-stack/issues/new>`__ before you begin.
 
 
-Minor changes
-~~~~~~~~~~~~~
+Simple tasks
+~~~~~~~~~~~~
 
-For small, self-contained changes, such as bug fixes or tweaks to the
+For simple, self-contained tasks, such as bug fixes or tweaks to the
 default configuration, check existing `GitHub issues
 <https://github.com/canonical/sphinx-stack/issues>`__. If no suitable issue exists,
 `open one <https://github.com/canonical/sphinx-stack/issues/new>`__ and discuss
 the change you'd like to make with a maintainer.
 
-Major changes
+Complex tasks
 ~~~~~~~~~~~~~
 
-For major changes, such as introducing new features, changing workflows or adding stricter
+For complex tasks, such as introducing new features, changing workflows or adding stricter
 checks, describe your proposal in the issue thread.
 
 Include the implementation plan, expected impact on projects using the Sphinx Stack, and
@@ -181,7 +178,7 @@ Register your changes with a Git commit:
 Use the `Conventional Commits
 <https://www.conventionalcommits.org/en/v1.0.0/>`__ format.
 
-.. code-block:: none
+.. code-block:: text
 
     feat: add text sanitizer
 
