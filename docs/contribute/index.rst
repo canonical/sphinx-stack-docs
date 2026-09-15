@@ -69,7 +69,6 @@ Ways to contribute
 
 - :ref:`contribute-development`
 - :ref:`contribute-documentation`
-- :ref:`how-to-test-ulwazi-theme`
 
 Report an issue
 ---------------
@@ -98,4 +97,3 @@ Contributors of all experience levels are welcome.
 
     Development <development>
     Documentation <documentation>
-    Test the Ulwazi theme <test-ulwazi-theme>
