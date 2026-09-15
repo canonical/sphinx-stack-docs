@@ -192,11 +192,11 @@ Use separate commits for unrelated changes or different components.
     If you're unsure which type to use, the commit may be doing too much, so split it into
     smaller commits instead. Select the highest-ranked type that fits:
 
-    - ci
+    - :vale-ignore:`ci`
     - build
     - feat
     - fix
-    - perf
+    - :vale-ignore:`perf`
     - refactor
     - style
     - test
