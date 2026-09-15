@@ -14,7 +14,7 @@ This guide describes how to contribute code changes to the `Sphinx Stack
 Development contributions improve the shared configuration, extensions, themes,
 workflows and tooling that projects use to build documentation with the Sphinx Stack.
 
-It requires familiarity with Git and GitHub.
+It requires familiarity with Git, GitHub, and the Sphinx documentation generator.
 
 Before starting, review the :ref:`contribution requirements <standards-and-expectations>`.
 
@@ -89,8 +89,8 @@ Minor changes
 For small, self-contained changes, such as bug fixes or tweaks to the
 default configuration, check existing `GitHub issues
 <https://github.com/canonical/sphinx-stack/issues>`__. If no suitable issue exists,
-`open one <https://github.com/canonical/sphinx-stack/issues/new>`__ and describe
-the change you would like to make.
+`open one <https://github.com/canonical/sphinx-stack/issues/new>`__ and discuss
+the change you'd like to make with a maintainer.
 
 Major changes
 ~~~~~~~~~~~~~
@@ -123,7 +123,7 @@ Develop
 ~~~~~~~
 
 Keep the Sphinx Stack minimal by default. Changes should improve the experience of
-multiple projects rather than solve problems specific to one documentation project.
+all downstream projects, rather than solve problems specific to one documentation project.
 
 Optional features are best implemented by the projects that use the Sphinx Stack rather
 than added to the shared foundation.
@@ -162,14 +162,11 @@ Document any changes that affect users.
 For small changes, update the existing documentation that describes the affected
 functionality. This may include how-to guides, reference pages or other related content.
 
-For major changes, new features or new workflows, add documentation that explains how
-to use and configure the functionality. Place new content in the appropriate
-`Diátaxis <https://diataxis.fr>`__ category.
+For a new feature or a nontrivial change to an existing one, add documentation
+explaining its usage and specifications. For guidance on contributing documentation,
+refer to :ref:`contribute-documentation`.
 
-For guidance on contributing documentation, refer to
-:ref:`contribute-documentation`.
-
-Record feature changes and fixes in the relevant release notes.
+All changes and fixes should be recorded in the `changelog <https://github.com/canonical/sphinx-stack/blob/main/CHANGELOG.md>`__.
 
 Commit a change
 ~~~~~~~~~~~~~~~
@@ -198,7 +195,7 @@ Commit messages should be short and describe the purpose of the change.
     :class: tip
 
     If a commit contains multiple unrelated changes, split it into smaller commits.
-    Select the highest-ranked type that fits:
+    For each commit, select the highest-ranked type that fits:
 
     - :vale-ignore:`ci`
     - build
@@ -247,7 +244,7 @@ fork:
 
 Open a pull request (PR) on GitHub. Give the PR a short, descriptive title using the
 `Conventional Commits <https://www.conventionalcommits.org/en/v1.0.0/>`__ format. For
-single-commit branches, GitHub may generate this automatically from the commit message.
+single-commit branches, GitHub generates this automatically from the commit message.
 
 Include the following details in your PR:
 
