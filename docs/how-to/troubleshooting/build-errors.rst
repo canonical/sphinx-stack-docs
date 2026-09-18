@@ -64,3 +64,30 @@ To fix the issue, try:
 * Restricting problem packages to recent versions (using ``package~=version``)
 * Using a constraints file
 
+Sporadic "No such file or directory" errors
+-------------------------------------------
+
+If your Read the Docs builds are sporadically failing due to a file missing error,
+first check the build output to make sure the issue isn't related to dependencies.
+
+Once you have verified this is not the case, double check your ``conf.py`` configuration.
+
+Probable cause
+~~~~~~~~~~~~~~~
+
+The ``sphinx-llm`` extension by default creates a parallel process that touches build files while the main process
+(or other extensions, like ``sphinx-tags``) could still be using them. This can cause the missing
+file error.
+
+Resolution
+~~~~~~~~~~
+
+.. warning::
+   Note that this workaround can cause your build times to grow, as the parallel nature of the normal config cuts build times considerably.
+
+To fix this, tell ``sphinx-llm`` in your ``conf.py`` to not build in parallel:
+
+.. code-block:: python
+
+   # Run sphinx-llm markdown generation sequentially to prevent race conditions
+   llms_txt_build_parallel = False
