@@ -7,96 +7,60 @@
 GitHub workflows
 ================
 
-The primary documentation workflow checks spelling, links, and inclusive language in a
-documentation project; these are the same checks as described in
-:ref:`run-documentation-checks`.
+The Sphinx Stack provides several GitHub Actions workflows to run checks on
+documentation projects.
 
-The ``documentation-checks.yaml`` workflow covers these three checks and can be added to
-a new or existing workflow's jobs with:
+Spelling, link, and inclusive language checks
+---------------------------------------------
 
-.. code:: yaml
+The ``documentation-checks.yaml`` workflow runs several checks that correspond
+to targets in the Sphinx Stack ``Makefile``:
 
-  jobs:
-    [...]
-    documentation-checks:
-      uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
-      with:
-        working-directory: 'docs'
+* Spelling check (``spelling``)
+* Link check (``linkcheck``)
+* Inclusive language check (``woke``)
 
+Refer to the how-to guides for details about how to :ref:`modify this workflow
+<modify-documentation-check-workflow>` or :ref:`run documentation checks locally
+<run-documentation-checks>`.
 
-Workflows are also available for each individual check so that projects may run a subset
-of those defined in ``documentation-checks.yaml``:
+Default configuration
+~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: yaml
-  
-  jobs:
-    spell-check:
-      uses: canonical/documentation-workflows/.github/workflows/spelling-check.yaml@main
-      with:
-        working-directory: "docs"
-    inclusive-language-check:
-      uses: canonical/documentation-workflows/.github/workflows/inclusive-language-check.yaml@main
-      with:
-        working-directory: "docs"    
-    link-check:
-      uses: canonical/documentation-workflows/.github/workflows/link-check.yaml@main
-      with:
-        working-directory: "docs"
-
-
-Input
------
-
-The table below lists the inputs for the ``documentation-checks.yaml`` workflow. If your
-project consumes the Sphinx Stack in a non-traditional way, declare any of the following
-inputs to customize the workflow as needed:
+The documentation workflow is configured as follows:
 
 .. list-table::
    :header-rows: 1
 
-   * - Input
+   * - Key
      - Description
      - Default
    * - ``working-directory``
-     - The root of the documentation project. This input is required.
-     - None
+     - The root of the documentation project.
+     - ``docs``
    * - ``python-version``
      - The Python interpreter to use for the workflow's jobs.
-     - The default Python version use. Example: ``'3.10'``
+     - ``3.10``
    * - ``fetch-depth``
      - The number of commits to fetch from your repository.
-     - The full history is fetched.
+     - ``0`` (the full history is fetched)
    * - ``runs-on``
      - The host system for the workflow's runners.
-     - The current Ubuntu LTS. Example: ``'["ubuntu-24.04"]'``
-   * - ``makefile``
-     - The Makefile that checks are invoked from.
-     - ``'Makefile'``
-   * - ``install-target``
-     - The make target for installing required tools.
-     - ``'install'``
-   * - ``spelling-target``
-     - The make target to run for the spelling check.
-     - ``'spelling'``
-   * - ``woke-target``
-     - The make target to run for the inclusive language check.
-     - ``'woke'``
-   * - ``linkcheck-target``
-     - The make target to run for the link check.
-     - ``'linkcheck'``
-
+     - ``ubuntu-24.04``
 
 Check for removed URLs
 ----------------------
 
 .. versionadded:: 1.2.0
 
-The Sphinx Stack includes a GitHub action to identify when pages have been removed. This
-includes moving pages to another path, or removing them completely.
+The Sphinx Stack includes a GitHub Actions workflow to identify when pages have
+been removed. This includes moving pages to another path, or removing them
+completely.
 
-This does not cover higher-level changes to URL paths, such as changes to the project
-name or URL slug pattern on RTD.
+This does not cover higher-level changes to URL paths, such as changes to the
+project name or URL slug pattern on RTD.
 
-This check ensures that redirects are implemented when pages are moved, or appropriate
-information is provided when anything is removed. It only runs on pull request builds.
+This check ensures that redirects are implemented when pages are moved, or
+appropriate information is provided when anything is removed. It only runs on
+pull request builds.
 
