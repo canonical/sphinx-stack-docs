@@ -5,6 +5,7 @@ Canonical('s)?
 Charmcraft
 cjk
 cryptographically
+discoverability
 dvipng
 fonts
 freefont
