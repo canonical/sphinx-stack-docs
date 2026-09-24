@@ -4,7 +4,7 @@ Sphinx Stack documentation
 ==========================
 
 **The Sphinx Stack is a template Sphinx project for Canonical documentation.** It
-provides a Canonical standardized structured content layout, a Canonical-branded theme,
+provides a Canonical-standardized structured content layout, a Canonical-branded theme,
 and a curated set of Sphinx extensions.
 
 **The Sphinx Stack bundles the tools and configuration needed to build and publish Sphinx
