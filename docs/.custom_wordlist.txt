@@ -71,6 +71,8 @@ GitHub
 Sphinx
 URL
 PRs?
+PR
+PRs
 Read the Docs
 Spread
 landscape
