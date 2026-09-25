@@ -46,11 +46,6 @@ Document elements
         :doc:`Mermaid diagrams <how-to/optional-customisation/mermaid-diagrams>`
         :doc:`Interactive tables <how-to/optional-customisation/interactive-tables>`
 
-    ..  slice:: Stable and outbound links
-
-        :doc:`Redirects for moved pages <how-to/optional-customisation/redirect-pages>`
-        :doc:`Intersphinx links to other doc sets <how-to/optional-customisation/external-referencing-intersphinx>`
-
     ..  slice:: Discoverability
 
         :doc:`Manage sitemaps <how-to/optional-customisation/manage-sitemaps>`
@@ -79,7 +74,7 @@ Customization
     
 
 
-Content quality
+Quality
 ~~~~~~~~~~~~~~~
 
 ..  domain::
@@ -88,6 +83,11 @@ Content quality
 
         :doc:`Documentation checks <how-to/run-documentation-checks>`
         :doc:`Testing documented commands with Spread <how-to/optional-customisation/add-documentation-testing>`
+
+    ..  slice:: Stable and outbound links
+
+        :doc:`Redirects for moved pages <how-to/optional-customisation/redirect-pages>`
+        :doc:`Intersphinx links to other doc sets <how-to/optional-customisation/external-referencing-intersphinx>`
 
     ..  slice:: Continuous integration
 
