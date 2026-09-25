@@ -70,8 +70,7 @@ reStructuredText
 GitHub
 Sphinx
 URL
-PR
-PRs
+PRs?
 Read the Docs
 Spread
 landscape

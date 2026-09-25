@@ -3,22 +3,13 @@
 Sphinx Stack documentation
 ==========================
 
-**The Sphinx Stack is a template Sphinx project for Canonical documentation.** It
-provides a Canonical-standardized structured content layout, a Canonical-branded theme,
-and a curated set of Sphinx extensions.
+The **Sphinx Stack** is a well-crafted template repository for Sphinx projects, and is the standard documentation setup at Canonical.
 
-**The Sphinx Stack bundles the tools and configuration needed to build and publish Sphinx
-documentation.** It includes the ``canonical-sphinx`` extension for consistent styling,
-supports both reStructuredText and Markdown source files, and provides GitHub Actions
-workflows for automated spelling, link, and inclusive language checks.
+The repository contains a setup for Sphinx and its required extensions, plus basic scaffolding for standard document types. A CLI is provided for building the documents and checking their quality.
 
-**This documentation covers information about how the Sphinx Stack works and how to
-deploy and customize it for any documentation project.** It also covers optional
-extensions for diagrams, API specifications, interactive tables, and PDF output.
+The Sphinx Stack contains everything you need to bootstrap and host new documentation. You can copy it as a standalone documentation repository, or incorporate into a project's codebase.
 
-**The documentation is for Canonical contributors and engineers adding or maintaining
-documentation in a Sphinx Stack project.** It assumes familiarity with command-line
-tools and version control, but does not require prior Sphinx experience.
+The Sphinx Stack is for all employees at Canonical, and is available to writers and developers looking to begin a robust and capable Sphinx project.
 
 
 In this documentation
@@ -42,7 +33,7 @@ Create, configure, build and publish your documentation.
         :doc:`Publishing on Read the Docs <how-to/publish-on-rtd>`
 
 
-Content features
+Document elements
 ~~~~~~~~~~~~~~~~~
 
 Write your pages in either supported markup language, enrich them with diagrams and
@@ -90,7 +81,7 @@ every change, and diagnose failures when they occur.
 
 ..  domain::
 
-    ..  slice:: Check your content
+    ..  slice:: Quality checks
 
         :doc:`Documentation checks <how-to/run-documentation-checks>`
         :doc:`Testing documented commands with Spread <how-to/optional-customisation/add-documentation-testing>`
@@ -146,14 +137,14 @@ How this documentation is organized
 
 This documentation uses the `Diátaxis documentation structure <https://diataxis.fr/>`_.
 
-* :ref:`Set up a new project <set-up-a-new-project>` walks through copying the Sphinx
+* The :ref:`tutorial <set-up-a-new-project>` walks through copying the Sphinx
   Stack template, removing unneeded files, and performing the required initial
   configuration before the first build.
 * :ref:`How-to guides <how-to-guides>` cover specific tasks: building locally, running
   documentation checks, publishing on Read the Docs, updating the stack, and enabling
   optional extensions.
 * :ref:`Reference <reference>` provides the list of default Sphinx extensions, GitHub
-  workflow definitions, and the reST and MyST syntax guide.
+  workflow definitions, and the reST and MyST syntax guides.
 * :ref:`Explanation <explanation>` describes the architecture of the Sphinx Stack,
   covering its core components (Sphinx, Python, extensions), the Make-based build
   system, and sitemap generation.
