@@ -63,6 +63,7 @@ ip
 spread_test_example
 Furo
 PDF
+PDFs
 Open Graph
 MyST
 YouTube
