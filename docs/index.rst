@@ -46,17 +46,6 @@ Document elements
         :doc:`Mermaid diagrams <how-to/optional-customisation/mermaid-diagrams>`
         :doc:`Interactive tables <how-to/optional-customisation/interactive-tables>`
 
-    ..  slice:: API documentation
-
-        :doc:`API docs from Python docstrings <how-to/optional-customisation/python-docstrings>`
-        :doc:`OpenAPI specifications <how-to/optional-customisation/openapi-specifications>`
-
-    ..  slice:: Customizing output
-
-        :doc:`Custom HTML templates <how-to/optional-customisation/custom-html-templates>`
-        :doc:`PDF output <how-to/optional-customisation/customise-pdf>`
-        :doc:`Page-specific configuration <how-to/optional-customisation/add-page-specific-configuration>`
-
     ..  slice:: Stable and outbound links
 
         :doc:`Redirects for moved pages <how-to/optional-customisation/redirect-pages>`
@@ -66,6 +55,28 @@ Document elements
 
         :doc:`Manage sitemaps <how-to/optional-customisation/manage-sitemaps>`
         :doc:`Enable Google Analytics <how-to/optional-customisation/enable-google-analytics>`
+
+
+Customization
+~~~~~~~~~~~~~
+
+..  domain::
+
+    ..  slice:: Templates and page configuration
+
+        :doc:`Custom HTML templates <how-to/optional-customisation/custom-html-templates>`
+        :doc:`Page-specific configuration <how-to/optional-customisation/add-page-specific-configuration>`
+        
+    ..  slice:: API documentation
+
+        :doc:`API docs from Python docstrings <how-to/optional-customisation/python-docstrings>`
+        :doc:`OpenAPI specifications <how-to/optional-customisation/openapi-specifications>`
+
+    ..  slice:: PDFs
+
+        :doc:`PDF output <how-to/optional-customisation/customise-pdf>`
+
+    
 
 
 Content quality
