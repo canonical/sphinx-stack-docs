@@ -18,8 +18,6 @@ In this documentation
 Getting started
 ~~~~~~~~~~~~~~~
 
-Create, configure, build and publish your documentation.
-
 ..  domain::
 
     ..  slice:: First project
@@ -35,9 +33,6 @@ Create, configure, build and publish your documentation.
 
 Document elements
 ~~~~~~~~~~~~~~~~~
-
-Write your pages in either supported markup language, enrich them with diagrams and
-generated reference material, and control how they are rendered and found.
 
 ..  domain::
 
@@ -76,9 +71,6 @@ generated reference material, and control how they are rendered and found.
 Content quality
 ~~~~~~~~~~~~~~~
 
-Check your prose, links, and documented commands, run those checks automatically on
-every change, and diagnose failures when they occur.
-
 ..  domain::
 
     ..  slice:: Quality checks
@@ -94,8 +86,6 @@ every change, and diagnose failures when they occur.
 
 Lifecycle management
 ~~~~~~~~~~~~~~~~~~~~~
-
-Upgrade an existing documentation set onto a current version of the Sphinx Stack.
 
 ..  domain::
 
@@ -114,9 +104,6 @@ Upgrade an existing documentation set onto a current version of the Sphinx Stack
 
 How the stack works
 ~~~~~~~~~~~~~~~~~~~~
-
-Understand what the stack ships with and how it assembles your source files into a
-finished site.
 
 ..  domain::
 
