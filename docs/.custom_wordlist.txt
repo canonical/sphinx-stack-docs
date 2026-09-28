@@ -5,6 +5,7 @@ Canonical('s)?
 Charmcraft
 cjk
 cryptographically
+discoverability
 dvipng
 fonts
 freefont
@@ -62,6 +63,7 @@ ip
 spread_test_example
 Furo
 PDF
+PDFs
 Open Graph
 MyST
 YouTube
@@ -69,6 +71,7 @@ reStructuredText
 GitHub
 Sphinx
 URL
+PRs?
 PR
 PRs
 Read the Docs
