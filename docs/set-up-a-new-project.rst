@@ -17,13 +17,13 @@ Before you start
 
 Decide where your documentation will live. Consider a dedicated documentation repository
 if the documentation covers multiple repositories, has a separate release process, or
-needs different ownership or access controls.
+needs different ownership or access controls. Otherwise, keep the documentation in the
+same repository as the project. Both approaches use the same Sphinx Stack directory
+structure and build commands.
 
-Otherwise, keep the documentation in the same repository as the project. Conventionally,
-the files go in a ``docs`` directory, which is the default layout used by the Sphinx
-Stack. This lets contributors review documentation alongside related project changes.
-
-Both approaches use the same Sphinx Stack directory structure and build commands.
+Conventionally, the files go in a ``docs`` directory, which is the default layout used
+by the Sphinx Stack. This lets contributors review documentation alongside related
+project changes.
 
 
 .. _initial-setup:
