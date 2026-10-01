@@ -20,5 +20,4 @@ Contents
    github-workflows
    conf-py-configuration
    default-extensions
-   rst-syntax
-   myst-syntax
+   syntax
