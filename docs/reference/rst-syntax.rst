@@ -1,7 +1,7 @@
 .. meta::
     :description: Reference for the reStructuredText syntax conventions used by Canonical.
 
-:relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
+:relatedlinks: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html, [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 
 .. _rst-syntax:
 
@@ -17,7 +17,7 @@ See the following sections for syntax help and conventions.
 
     This guide assumes that you are using the `Sphinx Stack
     <https://github.com/canonical/sphinx-stack>`__. Some of the mentioned syntax
-    requires Sphinx extensions (which are enabled in the Sphinx Stack).
+    requires the Sphinx extensions enabled in the Sphinx Stack.
 
 For general style conventions, see the `Canonical Documentation Style Guide
 <https://docs.ubuntu.com/styleguide/en>`__.
@@ -59,13 +59,6 @@ Headings
 
 Underlines must be at least as long as the title or heading.
 
-Adhere to the following conventions:
-
-- Do not use consecutive headings without intervening text.
-- Be consistent with the characters you use for each level.
-  Use the ones specified above.
-- Use sentence style for headings (capitalise only the first word).
-
 
 Inline formatting
 -----------------
@@ -90,27 +83,11 @@ Inline formatting
    * - ``**Bold**``
      - **Bold**
 
-Adhere to the following conventions:
-
-- Use italics sparingly. Common uses for italics are titles and names (for example, when
-  referring to a section title that you cannot link to, or when introducing the name for
-  a concept).
-- Use bold sparingly. Avoid using bold for emphasis and rather rewrite the sentence to
-  get your point across.
-
-
 Code blocks
 -----------
 
-To start a code block, either end the introductory paragraph with two colons (``::``)
-and indent the following code block, or explicitly start a code block with ``..
-code::``. In both cases, the code block must be surrounded by empty lines.
-
-When explicitly starting a code block, you can specify the code language to enforce a
-specific lexer, but in many cases, the default lexer works just fine.
-
-For a list of supported languages and their respective lexers, see the official
-`Pygments documentation <https://pygments.org/languages/>`__.
+To start a code block, explicitly start a code block with ``..
+code-block::``. The code block must be surrounded by empty lines.
 
 .. list-table::
    :header-rows: 1
@@ -119,34 +96,24 @@ For a list of supported languages and their respective lexers, see the official
      - Output
    * - .. code::
 
-          Demonstrate a code block::
-
-            code:
-             - example: true
-     - Demonstrate a code block::
-
-         code:
-         - example: true
-   * - .. code::
-
-          .. code::
+          .. code-block::
 
              # Demonstrate a code block
              code:
              - example: true
-     - .. code::
+     - .. code-block::
 
           # Demonstrate a code block
           code:
           - example: true
    * - .. code::
 
-          .. code:: yaml
+          .. code-block:: yaml
 
              # Demonstrate a code block
              code:
              - example: true
-     - .. code:: yaml
+     - .. code-block:: yaml
 
           # Demonstrate a code block
           code:
@@ -156,10 +123,9 @@ For a list of supported languages and their respective lexers, see the official
 Terminal output
 ~~~~~~~~~~~~~~~
 
-A terminal view can be useful to show the output of a specific command, where it is
-important to see the difference between input and output. In addition, including a
-terminal view can help break up a long text and make it easier to consume, which is
-especially useful when documenting command-line-only products.
+A terminal view emulates the command line experience more accurately than a code block.
+This is particularly useful in tutorials or guides that are terminal-heavy, or where
+it's helpful to show the directory a command is run from.
 
 To include a terminal view, use the following directive:
 
@@ -190,7 +156,7 @@ To include a terminal view, use the following directive:
             output line 3
 
 By default, everything before the first blank line in the directive's content is
-rendered as input, while any content that follows is rendered as output. The terminal
+rendered as input, and any content that follows is rendered as output. The terminal
 directive can only display one input command, but that command can span multiple lines,
 as in the previous example.
 
@@ -249,14 +215,14 @@ in the directive's options for the button to be displayed.
 
 To make the terminal scroll horizontally instead of wrapping long lines, include the ``:scroll:`` option.
 
-For more details, refer to the `sphinx-terminal README <https://github.com/canonical/sphinx-terminal/blob/main/README.md>`_.
+For more details, refer to the `sphinx-terminal README <https://github.com/canonical/sphinx-terminal/blob/main/README.md>`__.
 
 
 Links
 -----
 
-Link markup depends on whether you need an external URL
-or a page in the same documentation set.
+Link markup depends on whether you need an external URL or a page in the same
+documentation set.
 
 
 .. _reference-external-link-syntax:
@@ -264,92 +230,76 @@ or a page in the same documentation set.
 External links
 ~~~~~~~~~~~~~~
 
-For external links, use one of the following methods.
+To link to documents in other Sphinx projects, use :ref:`Intersphinx
+<how-to-link-docs-intersphinx>` with the ``:ref:`` or ``:doc:`` role:
 
-Link inline:
-  Define occasional links directly within the surrounding text.
-  To make the link text show up in code-style (which excludes it from the spelling check), use the ``:literalref:`` role.
+.. list-table::
+  :header-rows: 1
 
-  .. list-table::
-     :header-rows: 1
+  * - Input
+    - Output
 
-     * - Input
-       - Output
+  * - .. code-block:: rst
 
-     * - ```Canonical website <https://canonical.com/>`_``
-       - `Canonical website <https://canonical.com/>`_
+        :external+ubuntu-desktop:doc:`index`
 
-     * - ``:literalref:`ubuntu.com```
-       - :literalref:`ubuntu.com`
-     * - ``:literalref:`xyzcommand <https://example.com>```
-       - :literalref:`xyzcommand <https://example.com>`
+    - :external+ubuntu-desktop:doc:`index`
 
-  You can also use a URL as is (``https://example.com``),
-  but that might cause spellchecker errors.
+  * - .. code-block:: rst
 
-  .. tip::
+        :external+ubuntu-desktop:ref:`install-ubuntu-desktop`
 
-     To prevent a URL from appearing as a link,
-     add an escaped space character (``https:\ //``).
-     The space won't be rendered:
+    - :external+ubuntu-desktop:ref:`install-ubuntu-desktop`
 
-     .. list-table::
-        :header-rows: 1
+To link to other websites, use the hyperlink reference syntax:
 
-        * - Input
-          - Output
+.. list-table::
+  :header-rows: 1
 
-        * - ``https:\ //canonical.com/``
-          - :spellexception:`https://canonical.com/`
+  * - Input
+    - Output
+
+  * - .. code-block:: rst
+
+        `Canonical home <https://canonical.com>`__
+
+    - `Canonical home <https://canonical.com>`__
 
 
-Define the links at the bottom of the page:
-  To keep the text readable, group the link definitions below.
+If necessary, it's possible to write a standalone hyperlink, which won't contain any
+link text:
 
-  .. list-table::
-     :header-rows: 1
+.. list-table::
+  :header-rows: 1
 
-     * - Input
-       - Output
-       - Description
+  * - Input
+    - Output
 
-     * - ```Canonical website`_``
-       - `Canonical website`_
-       - Using the below defined link
+  * - .. code-block:: rst
 
-     * - .. code::
+        https://canonical.com
 
-            .. LINKS
-            .. _Canonical website: https://canonical.com/
-       - *n/a*
-       - Defining links at the bottom
+    - https://canonical.com
 
 
-Define the links in a shared file:
-  To keep the text readable and links maintainable,
-  put all link definitions in a file named :file:`reuse/links.txt`
-  to include it in a custom ``rst_epilog`` directive
-  (see the `rst_epilog documentation
-  <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`__).
-
-  .. code-block:: python
-     :caption: :spellexception:`conf.py`
-
-     custom_rst_epilog = """
-         .. include:: reuse/links.txt
-         """
-
-  .. list-table::
-     :header-rows: 1
-
-     * - Input
-       - Output
-
-     * - ```Canonical website`_``
-       - `Canonical website`_
+The documentation checks will likely flag it as a spelling error.
 
 
-Related links
+Plain text
+^^^^^^^^^^
+
+Outside of directives, reST interprets every URL it finds as a hyperlink. If you need a link to be rendered as plain text, escape the colon in the protocol:
+
+.. list-table::
+  :header-rows: 1
+
+  * - Input
+    - Output
+  * - https\\://canonical.com/
+    - :spellexception:`https://canonical.com/`
+
+
+Sidebar links
 ^^^^^^^^^^^^^
 
 You can add links to related websites or Discourse topics to the sidebar.
@@ -359,20 +309,23 @@ To add a link to a related website, add the following field at the top of the pa
   :relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [RTFM](https://www.google.com)
 
 To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with ``&#32;``, and include the value in quotes if Sphinx complains about the metadata value because it starts with ``[``.
+For example: ``[My&#32;Title](https://...)``.
 
-To add a link to a Discourse topic, configure the Discourse instance in the :file:`conf.py` file.
-Then add the following field at the top of the page (where ``12345`` is the ID of the Discourse topic)::
+To add a link to a Discourse topic, configure the Discourse instance in the
+`conf.py` file. Then add the following field at the top of the page:
 
-  :discourse: 12345
+.. code-block:: rst
+
+  :discourse: <topic-id>
 
 
-Manual-page links
-^^^^^^^^^^^^^^^^^
+Manual pages
+^^^^^^^^^^^^
 
-When mentioning command line utilities, you may wish to link to the
+When mentioning command-line utilities, you may wish to link to the
 corresponding manual page for the command. Ensure that the ``manpages_url``
 setting in your :file:`conf.py` is set appropriately and use the ``:manpage:``
-inline role within your text to create a link.
+role within your text to create a link.
 
 For example, to link to man pages from the 24.04 LTS (Noble Numbat) release,
 include the following in your :file:`conf.py`:
@@ -381,7 +334,7 @@ include the following in your :file:`conf.py`:
 
     manpages_url = "https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html"
 
-Then within your documentation, use the following reST:
+Then within the document, use the following reST:
 
 .. code-block:: rst
 
@@ -390,8 +343,8 @@ Then within your documentation, use the following reST:
     it first.
 
 
-YouTube links
-^^^^^^^^^^^^^
+YouTube
+^^^^^^^
 
 To add a link to a YouTube video, use the following directive:
 
@@ -415,19 +368,18 @@ To override the title, add the ``:title:`` option.
 Internal references
 ~~~~~~~~~~~~~~~~~~~
 
-You can reference pages and targets in this documentation set, and also in other documentation sets using Intersphinx.
+.. _a_section_label:
 
+Sections
+^^^^^^^^
 
-.. _a_section_target:
+To reference a section within the documentation (either on the same page or on another page), add a label to that section and reference that label.
 
-Referencing a section
-^^^^^^^^^^^^^^^^^^^^^
+.. _a_random_label:
 
-To reference a section within the documentation (either on the same page or on another page), add a target to that section and reference that target.
-
-.. _a_random_target:
-
-You can add targets at any place in the documentation. However, if there is no heading or title for the targeted element, you must specify a link text.
+You can add a label anywhere in any document.
+When referencing a label that isn't attached to a heading, you must add link text.
+If you don't, the reference won't work.
 
 .. list-table::
    :header-rows: 1
@@ -435,33 +387,24 @@ You can add targets at any place in the documentation. However, if there is no h
    * - Input
      - Output
      - Description
-   * - ``.. _target_ID:``
+   * - ``.. _label_ID:``
      -
-     - Adds the target ``target_ID``.
+     - Adds the label ``label_ID``.
 
        .. note::
-          When defining the target, you must prefix it with an underscore. Do not use the starting underscore when referencing the target.
-   * - ``:ref:`a_section_target```
-     - :ref:`a_section_target`
-     - References a target that has a title.
-   * - ``:ref:`Provided link text <a_random_target>```
-     - :ref:`Provided link text <a_random_target>`
-     - References a target and specifies a title.
-   * - ``:external+project_key:ref:`an_external_target```
-     - Default link text
-     - You can also reference targets in other Sphinx projects. ``project-key`` must be a key in the ``intersphinx_mapping`` dictionary in ``conf.py``. The link text defaults to the target's title.
-
-Adhere to the following conventions:
-
-- Never use external links to reference a section in the same doc set or a doc set that is linked with Intersphinx. It would likely cause a broken link in the future.
-- Override the link text only when it is necessary. If you can use the referenced title as link text, do so, because the text will then update automatically if the title changes.
-- Never "override" the link text with the same text that would be generated automatically.
+          When defining the label, you must prefix it with an underscore. Do not use the starting underscore when referencing the label.
+   * - ``:ref:`a_section_label```
+     - :ref:`a_section_label`
+     - References a label that has a title.
+   * - ``:ref:`Provided link text <a_random_label>```
+     - :ref:`Provided link text <a_random_label>`
+     - References a label and specifies a title.
 
 
-Referencing a page
-^^^^^^^^^^^^^^^^^^
+Pages
+^^^^^
 
-If a documentation page does not have a target, you can still reference it by using the ``:doc:`` role with the file name and path.
+If a documentation page does not have a label, you can still reference it by using the ``:doc:`` role with the file name and path.
 
 .. list-table::
    :header-rows: 1
@@ -473,23 +416,32 @@ If a documentation page does not have a target, you can still reference it by us
      - :doc:`index`
    * - ``:doc:`Provided link text <index>```
      - :doc:`Provided link text <index>`
-   * - ``:external+project_key:doc:`howto/index```
-     - Default link text (from document title)
-   * - ``:external+project_key:doc:`Provided link text <how-to/index>```
-     - Provided link text
 
-Adhere to the following conventions:
+Only use the ``:doc:`` role when you cannot use the ``:ref:`` role, thus only if there
+is no label at the top of the file and you cannot add it. When using the ``:doc:``
+role, your reference will break when a file is renamed or moved.
 
-- Only use the ``:doc:`` role when you cannot use the ``:ref:`` role, thus only if there
-  is no target at the top of the file and you cannot add it. When using the ``:doc:``
-  role, your reference will break when a file is renamed or moved.
-- Override the link text only when it is necessary. If you can use the document title as
-  link text, do so, because the text will then update automatically if the title
-  changes.
-- Never "override" the link text with the same text that would be generated
-  automatically.
-- When using an external target, ``project_key`` must be a key in the
-  ``intersphinx_mapping`` dictionary in ``conf.py``.
+
+Formatted link text
+~~~~~~~~~~~~~~~~~~~
+
+With the exception of inline code, reST doesn't support special formatting for link
+text, such as *emphasized* and **strong** text.
+
+Use the ``:literalref:`` role to format a reference's link text as inline code:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Input
+     - Output
+
+   * - ``:literalref:`example <https://example.com>```
+     - :literalref:`example <https://example.com>`
+   * - ``:literalref:`label <a_random_label>```
+     - :literalref:`label <a_random_label>`
+
+The link text is automatically excluded from the spelling check.
 
 
 Navigation
@@ -516,8 +468,8 @@ only if there is a clear reason for it.
     Instead of hiding pages that you do not want to include in the documentation from
     the navigation, you can exclude them from being built. This method will also prevent
     them from being found through the search.
-
-    To exclude pages from the build, add them to the ``custom_excludes`` variable in the
+  
+    To exclude pages from the build, add them to the ``exclude_patterns`` variable in the
     ``conf.py`` file.
 
 
@@ -600,12 +552,11 @@ You can also nest lists:
 
           #. Sub-step 2
 
-Adhere to the following conventions:
+In numbered lists, number the first item and use ``#.`` for all subsequent items to
+generate the step numbers automatically.
 
-- In numbered lists, number the first item and use ``#.`` for all subsequent items to
-  generate the step numbers automatically.
-- Use ``-`` for unordered lists. When using nested lists, you can use ``*`` for the
-  nested level.
+Use ``-`` for unordered lists. When using nested lists, you can use ``*`` for the
+nested level.
 
 
 Definition lists
@@ -736,38 +687,19 @@ Both markups result in the following output:
 
 Customize the column widths, character encoding, and so on, as described in the
 `csv-table reference
-<https://docutils.sourceforge.io/docs/ref/rst/directives.html#csv-table>`_.
+<https://docutils.sourceforge.io/docs/ref/rst/directives.html#csv-table>`__.
 
-The Sphinx Stack can also render interactive tables. See: :ref:`interactive-tables`.
+The Sphinx Stack can also render interactive tables, which are described in
+:ref:`interactive-tables`.
 
 
 Notes
 -----
 
-.. list-table::
-    :header-rows: 1
+.. code-block:: rst
 
-    * - Input
-      - Output
-    * - .. code::
-
-            .. note::
-              A note.
-      - .. note::
-            A note.
-    * - .. code::
-
-            .. warning::
-              This might damage your hardware!
-      - .. warning::
-            This might damage your hardware!
-
-Adhere to the following conventions:
-
-- Use notes sparingly.
-- Only use the following note types: ``note``, ``warning``
-- Only use a warning if there is a clear hazard of hardware damage or data loss.
-
+    .. admonition:: <title>
+        :class: <class>
 
 Images
 ------
@@ -792,22 +724,23 @@ Images
 
             Figure caption
 
-Adhere to the following conventions:
+For local pictures, start the path with ``/`` (for example, ``/images/image.png``).
 
-- For local pictures, start the path with ``/`` (for example, ``/images/image.png``).
-- Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
-- If producing multiple output formats, use ``*`` as the file extension to have
-  Sphinx select the best image format for the output
-- See `Five golden rules for compliant alt text
-  <https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text>`__
-  for information about how to word the alt text.
+Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
+
+If producing multiple output formats, use ``*`` as the file extension to have
+Sphinx select the best image format for the output
+
+See `Five golden rules for compliant alt text
+<https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text>`__
+for information about how to word the alt text.
 
 
 Reuse
 -----
 
-A big advantage of reST in comparison to plain Markdown is that it allows to reuse
-content.
+A big advantage of reST in comparison to plain Markdown is that it allows the reuse
+of content.
 
 
 .. _reference-substitution-syntax:
@@ -818,35 +751,9 @@ Substitution
 To reuse sentences and entire paragraphs that have little markup or special formatting,
 define `substitutions
 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions>`__
-for them in two possible ways.
+for them by putting the same directives in any reST file:
 
-**Globally**, in a file named ``reuse/substitutions.txt`` that is included in a
-custom ``rst_epilog`` directive (see the `rst_epilog documentation
-<https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`_):
-
-.. code-block:: python
-    :caption: :spellexception:`conf.py`
-
-    rst_epilog = """
-        .. include:: reuse/substitutions.txt
-        """
-
-
-.. code-block:: rest
-    :caption: :spellexception:`reuse/substitutions.txt`
-
-    .. |version_number| replace:: 0.1.0
-
-    .. |rest_text| replace:: *Multi-line* text
-                              that uses basic **markup**.
-
-    .. |site_link| replace:: Website link
-    .. _site_link: https://example.com
-
-
-**Locally**, putting the same directives in any reST file:
-
-.. code-block:: rest
+.. code-block:: rst
     :caption: :spellexception:`index.rst`
 
     .. |version_number| replace:: 0.1.0
@@ -884,13 +791,6 @@ The definitions from the above examples are rendered as follows:
     * - ``|site_link|_``
       - |site_link|_
 
-
-.. tip::
-
-    Use substitution names that hint at the included content (for example,
-    ``note_not_supported`` instead of ``note_substitution``).
-
-
 File inclusion
 ~~~~~~~~~~~~~~
 
@@ -898,12 +798,12 @@ To reuse longer sections or text with more advanced markup, you can put the cont
 separate file and include the file or parts of the file in several locations.
 
 To select parts of the text in a file, use ``:start-after:`` and ``:end-before:`` if
-possible. You can combine those with ``:start-line:`` and ``:end-line:`` if required (if
-the same text occurs more than once). Using only ``:start-line:`` and ``:end-line:`` is
+possible. You can combine those with ``:start-line:`` and ``:end-line:`` if
+the same text occurs more than once. Using only ``:start-line:`` and ``:end-line:`` is
 error-prone though.
 
-You cannot put any targets into the content that is being reused (because references to
-this target would be ambiguous then). You can, however, put a target right before
+You cannot put any labels into the content that is being reused (because references to
+this label would be ambiguous then). You can, however, put a label right before
 including the file.
 
 By combining file inclusion and substitutions defined directly in a file, you can even
@@ -916,27 +816,26 @@ replace parts of the included text.
      - Output
    * - .. code::
 
-          .. include:: index.rst
-             :start-after: Also see the following information:
-             :end-before: Contents
-     - .. include:: index.rst
-          :start-after: Also see the following information:
-          :end-before: Contents
+          .. include:: /how-to/index.rst
+            :start-after: .. _how-to-guides:
+            :end-before: =============
+     - .. include:: /how-to/index.rst
+         :start-after: .. _how-to-guides:
+         :end-before: =============
 
-Adhere to the following conventions:
+Files that only contain text that is reused somewhere else should be placed in the
+``reuse`` directory and end with the extension ``.txt`` to distinguish them from
+normal content files.
 
-- Files that only contain text that is reused somewhere else should be placed in the
-  ``reuse`` directory and end with the extension ``.txt`` to distinguish them from
-  normal content files.
-- To make sure inclusions don't break, consider adding comments (``.. some comment``) to
-  the source file as markers for starting and ending.
+To make sure inclusions don't break, consider adding comments (``.. some comment``) to
+the source file as markers for starting and ending.
 
 
 Tabs
 ----
 
-The recommended way of creating tabs is to use the tabs that the `Sphinx design
-<https://sphinx-design.readthedocs.io/en/latest/>`__ extension provides.
+The recommended way of creating tabs is with the `Sphinx design
+<https://sphinx-design.readthedocs.io/en/latest/>`__ extension.
 
 .. list-table::
     :header-rows: 1
@@ -973,7 +872,7 @@ Glossary
 --------
 
 You can define glossary terms in any file. Ideally, all terms should be collected in one
-glossary file though, and they can then be referenced from any file.
+glossary so they can then be referenced from any file.
 
 .. list-table::
     :header-rows: 1
