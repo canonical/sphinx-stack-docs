@@ -969,5 +969,14 @@ glossary so they can then be referenced from any file.
     ```
   - {spellexception}`PurposelyWrong`
   - Explicitly exempt a term from the spelling check.
+* - ```
+    ---
+    myst:
+      html_meta:
+        description: Your description of the page.
+    ---
+    ```
+  - Not displayed
+  - Set a custom HTML meta description in the MyST Markdown front matter at the top of the document. Don't put newlines in the description.
 
 `````
