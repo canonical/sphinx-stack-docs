@@ -932,3 +932,9 @@ More useful markup
     * - ``:spellexception:`PurposelyWrong```
       - :spellexception:`PurposelyWrong`
       - Explicitly exempt a term from the spelling check.
+    * - .. code-block:: rst
+
+            .. meta::
+               :description: Your description of the page.
+      - Not displayed
+      - Set a custom HTML meta description with this directive at the top of the document. Don't put newlines in the description.
