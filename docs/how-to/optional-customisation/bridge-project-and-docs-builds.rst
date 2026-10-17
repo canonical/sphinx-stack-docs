@@ -168,9 +168,9 @@ In the main build, override the docs installation target to install the ``docs``
 dependency group, then make the project's ``setup`` target depend on the docs target. In
 the example project, it's written like this:
 
-.. tabs::
+.. tab-set::
 
-  .. tab:: pip
+  .. tab-item:: pip
 
     .. code-block:: make
         :caption: Makefile
@@ -189,7 +189,7 @@ the example project, it's written like this:
             $(MAKE) -C docs vale-install --no-print-directory
             $(MAKE) -C docs pymarkdownlnt-install --no-print-directory
 
-  .. tab:: uv
+  .. tab-item:: uv
 
     .. code-block:: make
         :caption: Makefile
@@ -208,7 +208,7 @@ the example project, it's written like this:
             $(MAKE) -C docs vale-install --no-print-directory
             $(MAKE) -C docs pymarkdownlnt-install --no-print-directory
 
-  .. tab:: Poetry
+  .. tab-item:: Poetry
 
     .. code-block:: make
         :caption: Makefile

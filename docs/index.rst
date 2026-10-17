@@ -3,13 +3,19 @@
 Sphinx Stack documentation
 ==========================
 
-The **Sphinx Stack** is a well-crafted template repository for Sphinx projects, and is the standard documentation setup at Canonical.
+The **Sphinx Stack** is a well-crafted template repository for Sphinx projects, and is
+the standard documentation setup at Canonical.
 
-The repository contains a setup for Sphinx and its required extensions, plus basic scaffolding for standard document types. A CLI is provided for building the documents and checking their quality.
+The repository contains a setup for Sphinx and its required extensions, plus basic
+scaffolding for standard document types. A CLI is provided for building the documents
+and checking their quality.
 
-The Sphinx Stack contains everything you need to bootstrap and host new documentation. You can copy it as a standalone documentation repository, or incorporate into a project's codebase.
+The Sphinx Stack contains everything you need to bootstrap and host new documentation.
+You can copy it as a standalone documentation repository, or incorporate into a
+project's codebase.
 
-The Sphinx Stack is for all employees at Canonical, and is available to writers and developers looking to begin a robust and capable Sphinx project.
+The Sphinx Stack is for all employees at Canonical, and is available to writers and
+developers looking to begin a robust and capable Sphinx project.
 
 
 In this documentation
@@ -75,7 +81,7 @@ Customization
 
 
 Quality
-~~~~~~~~~~~~~~~
+~~~~~~~
 
 ..  domain::
 
@@ -96,7 +102,7 @@ Quality
 
 
 Lifecycle management
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 ..  domain::
 
@@ -114,7 +120,7 @@ Lifecycle management
 
 
 How the stack works
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 ..  domain::
 
@@ -131,7 +137,7 @@ How the stack works
 
 
 How this documentation is organized
--------------------------------------
+-----------------------------------
 
 This documentation uses the `Diátaxis documentation structure <https://diataxis.fr/>`_.
 
@@ -149,7 +155,7 @@ This documentation uses the `Diátaxis documentation structure <https://diataxis
 
 
 Project and community
------------------------
+---------------------
 
 The Sphinx Stack is a Canonical open source project that forms part of the tooling
 supporting documentation across Ubuntu and other Canonical offerings.
@@ -170,7 +176,7 @@ Releases
 
 
 Governance and policies
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 * `Code of conduct <https://ubuntu.com/community/ethos/code-of-conduct>`__
 
