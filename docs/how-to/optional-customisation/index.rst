@@ -23,6 +23,5 @@ This includes adding extensions, modifying the build process, and adding custom 
     Add OpenAPI specifications <openapi-specifications>
     Add interactive tables <interactive-tables>
     external-referencing-intersphinx
-    
-    
+    customize-documentation-check-ci
 
