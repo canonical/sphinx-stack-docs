@@ -102,13 +102,13 @@ as the home page link once we're done.
 + project = "Ubuntu Server documentation"
 ```
 
-The `html_title` variable, which was previously rendered over the search bar, is no
-longer used. If your project declares a custom `html_title`, remove it.
+Then, update the `html_title` variable that gets appended to each page's title.
 
 ```{code-block} diff
 :caption: conf\.py
 
 - html_title = project + " documentation"
++ html_title = project
 ```
 
 The rest of the Ulwazi configuration is done in the configuration file's `html_context`
@@ -198,13 +198,10 @@ Lastly, declare the license information to be displayed in the footer.
       "logo_title": "Canonical",
       "logo_link_URL": "https://canonical.com",
       "logo_img_URL": "https://assets.ubuntu.com/v1/82818827-CoF_white.svg",
++     "author": author,
 +     "license": {
 +         "name": "",
 +         "url": "",
-+     },
-+     "author": author,
-+     "footer": {
-+         "license": True,
 +     },
   }
 ```
@@ -219,3 +216,30 @@ While this is the minimal configuration expected for all Canonical documentation
 projects, Ulwazi can be further catered to your project with optional configuration,
 described in the Ulwazi [Configuration
 reference](https://documentation.ubuntu.com/ulwazi/content/configuration/).
+
+## Enable PDF builds
+
+Unlike the canonical-sphinx theme, Ulwazi doesn't handle PDF builds. PDF builds should
+now be handled with the `sphinx-modern-pdf-style` extension.
+
+In the `docs/requirements.txt` file, add the extension.
+
+```{code-block} diff
+:caption: requirements.txt
+
++ sphinx-modern-pdf-style~=0.1
+```
+
+Then, set up and enable the extension by making the following changes to your project's
+configuration file:
+
+```{code-block} diff
+:caption: conf\.py
+
+  extensions = [
++     "sphinx_modern_pdf_style",
+      # ...
+  ]
+
++ set_modern_pdf_config = True
+```
