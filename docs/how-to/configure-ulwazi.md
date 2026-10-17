@@ -78,7 +78,7 @@ html_theme = "ulwazi"
 ```
 
 At this point, your documentation should build successfully, albeit with some rendering
-quirks that we'll configure out shortly. In the `docs` directory, clean your
+quirks that we'll iron out shortly. In the `docs` directory, clean your
 environment and make sure the documentation builds with:
 
 ```{code-block} bash
@@ -162,7 +162,7 @@ Next, add the following entries to configure the banner:
   }
 ```
 
-The `logo_title` and `logo_link_url` should match your project's parent product page.
+The `logo_title` and `logo_link_URL` should match your project's parent product page.
 For most projects, this will be the Canonical product page, so the previous values won't
 need to be changed. However, for a project like the Charmcraft docs, which are hosted
 under the Juju product page, these would be updated as follows:
