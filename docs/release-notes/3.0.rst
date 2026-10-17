@@ -308,6 +308,8 @@ We'd like to express a big thank you to everyone who contributed to this release
 :literalref:`bjdean-canonical <https://github.com/bjdean-canonical>`,
 :literalref:`dwilding <https://github.com/dwilding>`,
 :literalref:`edibotopic <https://github.com/edibotopic>`,
+:literalref:`elijahgreenstein <https://github.com/elijahgreenstein>`,
+:literalref:`erinecon <https://github.com/erinecon>`,
 :literalref:`geoffreynyaga <https://github.com/geoffreynyaga>`,
 :literalref:`izmalk <https://github.com/izmalk>`,
 :literalref:`jahn-junior <https://github.com/jahn-junior>`,

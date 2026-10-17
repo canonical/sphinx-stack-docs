@@ -13,16 +13,15 @@ import yaml
 # A complete list of built-in Sphinx configuration values:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 #
-# The Sphinx Stack uses the Canonical Sphinx theme to keep all documentation consistent
-# and on brand:
-# https://github.com/canonical/canonical-sphinx
+# The Sphinx Stack uses the Ulwazi theme:
+# https://github.com/canonical/ulwazi
 
 #######################
 # Project information #
 #######################
 
 # Project name
-project = "Sphinx Stack"
+project = "Sphinx Stack documentation"
 
 # Author name; used in the default copyright statement in the page footer
 author = "Canonical Ltd."
@@ -30,9 +29,8 @@ author = "Canonical Ltd."
 # The year in the copyright statement
 copyright = f"{datetime.date.today().year}"
 
-# Sidebar documentation title
-# To disable the title, set it to an empty string.
-html_title = project + " documentation"
+# String appended to the title of individual HTML pages
+html_title = project
 
 # Documentation website URL
 ogp_site_url = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
@@ -43,30 +41,24 @@ ogp_site_name = project
 # Preview image URL
 ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 
-# Dictionary of values to pass into the Sphinx context for all pages:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_context
+# The theme for the HTML output
+html_theme = "ulwazi"
 
+# Dictionary of values to pass into every page's template.
 html_context = {
-    # Product page URL; can be different from product docs URL
-    "product_page": "documentation.ubuntu.com",
-    # Your Discourse instance URL
+    # Community links for the 'Resources' dropdown menu.
     "discourse": "https://discourse.ubuntu.com",
-    # Your Mattermost channel URL
     "mattermost": "https://chat.canonical.com/canonical/channels/documentation",
-    # Your Matrix channel URL
     "matrix": "https://matrix.to/#/#documentation:ubuntu.com",
-    # Your documentation GitHub repository URL
     "github_url": "https://github.com/canonical/sphinx-stack-docs",
-    # Docs branch in the repo; used in links for viewing the source files
-    "repo_default_branch": "main",
-    # Docs location in the repo; used in links for viewing the source files
-    "repo_folder": "/docs/",
-    "display_contributors": False,
-    # Required for feedback button
-    "github_issues": "enabled",
-    # Inherit the author value
+    # Feedback and edit/view links require a valid `github_url`.
+    "feedback": True,
+    # Brand configuration for the leftmost entry in the banner
+    "logo_title": "Canonical",
+    "logo_link_URL": "https://canonical.com",
+    "logo_img_URL": "https://assets.ubuntu.com/v1/82818827-CoF_white.svg",
+    # License information to be rendered in the footer
     "author": author,
-    # The Sphinx Stack uses CC-BY-SA as the license
     "license": {
         "name": "CC-BY-SA-3.0",
         "url": "https://github.com/canonical/sphinx-stack-docs/blob/main/LICENSE",
@@ -105,7 +97,6 @@ sitemap_excludes = [
 ################################
 
 # html_static_path = ["_static"]
-# templates_path = ["_templates"]
 
 
 #############
@@ -136,6 +127,12 @@ llms_txt_description = textwrap.dedent(
     that helps you set up, build, and publish Sphinx documentation.
     """
 )
+
+# Generate an 'llms-full.txt' file containing all of the documentation content
+llms_txt_full_build = True
+
+# Suppress warnings from upstream markdown builder
+llms_txt_suppress_unknown_node_warnings = True
 
 # The base URL for references built by sphinx-markdown-builder.
 if os.environ.get("READTHEDOCS"):
@@ -169,25 +166,20 @@ linkcheck_retries = 3
 # Custom Sphinx extensions; see
 # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 extensions = [
-    "canonical_sphinx",
-    "notfound.extension",
+    "ulwazi",
+    "myst_parser",
     "sphinx_design",
     "sphinx_rerediraffe",
-    "sphinx_reredirects",
-    "sphinx_tabs.tabs",
     "sphinxcontrib.jquery",
     "sphinxext.opengraph",
     "sphinx_config_options",
-    "sphinx_contributor_listing",
-    "sphinx_filtered_toctree",
     "sphinx_llm.txt",
+    "sphinx_modern_pdf_style",
     "sphinx_related_links",
     "sphinx_roles",
     "sphinx_terminal",
-    "sphinx_ubuntu_images",
     "sphinx_youtube_links",
     "sphinxcontrib.cairosvgconverter",
-    "sphinx_last_updated_by_git",
     "sphinx.ext.intersphinx",
     "sphinx_sitemap",
     "sphinx_structured_toc",
@@ -201,14 +193,14 @@ exclude_patterns = [
 ]
 
 # Adds custom CSS files, located remotely or in 'html_static_path'
-# html_css_files = [
-#     "https://assets.ubuntu.com/v1/d86746ef-cookie_banner.css",
-# ]
+html_css_files = [
+    "https://assets.ubuntu.com/v1/d86746ef-cookie_banner.css",
+]
 
 # Adds custom JavaScript files, located remotely or in 'html_static_path'
-# html_js_files = [
-#     "https://assets.ubuntu.com/v1/287a5e8f-bundle.js",
-# ]
+html_js_files = [
+    "https://assets.ubuntu.com/v1/287a5e8f-bundle.js",
+]
 
 # Specifies a reST snippet to be appended to each .rst file
 rst_epilog = """
@@ -220,9 +212,14 @@ rst_epilog = """
 .. _site_link: https://example.com
 """
 
+# Project slug
+slug = "sphinx-stack"
+
+# Apply modern PDF styling and configuration
+set_modern_pdf_config = True
+
 # Specifies a reST snippet to be prepended to each .rst file
 # This defines a :center: role that centers table cell content.
-# This defines a :h2: role that styles content for use with PDF generation.
 rst_prolog = """
 .. role:: center
    :class: align-center
@@ -260,5 +257,5 @@ intersphinx_mapping = {
     "sphinxcontrib-mermaid": (
         "https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest",
         None,
-    )
+    ),
 }
