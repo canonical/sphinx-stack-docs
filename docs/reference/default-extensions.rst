@@ -8,23 +8,15 @@ Default Sphinx extensions
 
 These extensions are enabled in the Sphinx Stack by default.
 
-``canonical_sphinx``
-   Required for the Sphinx Stack. Provides the Furo-based theme and custom templates.
+``ulwazi``
+   Sphinx theme for Canonical documentation, based on the `Vanilla framework
+   <https://vanillaframework.io/>`__.
 
-``notfound.extension``
-   Allows creating custom 404 pages.
+``myst_parser``
+   Adds support for the MyST markdown flavor.
 
 ``sphinx_design``
    Provides UI components like responsive grids, cards, and badges.
-
-``sphinx_reredirects``
-   Handles URL redirects for moved or deleted pages.
-
-   Default Support for this extension will be dropped in an upcoming release of the 
-   Sphinx Stack. Update your documentation to use ``sphinx-rerediraffe`` instead.
-
-``sphinx_tabs.tabs``
-   Provides tabs.
 
 ``sphinxcontrib.jquery``
    Ensures jQuery is loaded to maintain compatibility with older extensions and themes.
@@ -32,7 +24,7 @@ These extensions are enabled in the Sphinx Stack by default.
 ``sphinxext.opengraph``
    Generates OpenGraph metadata to create rich preview cards when links are shared on social media.
 
-``sphinxext-rediraffe``
+``sphinx_rerediraffe``
    Handles URL redirects for moved or deleted pages. Redirects can be defined as a
    dictionary in the ``conf.py`` file or in a separate file.
 
@@ -41,15 +33,6 @@ These extensions are enabled in the Sphinx Stack by default.
 
 ``sphinx_config_options``
    Provides customized directives to easily document system or project configuration options.
-
-``sphinx_contributor_listing``
-   Automatically generates a list of contributors to the project repository.
-
-``sphinx_filtered_toctree``
-   Filters Table of Contents (``toctree``) entries based on specific tags or conditions.
-
-``sphinx_last_updated_by_git``
-   Fetches and displays the accurate 'last updated' date for pages by reading Git commit metadata.
 
 ``sphinx_llm.txt``
    Generates Markdown artifacts that improve readability for LLMs.
@@ -66,12 +49,66 @@ These extensions are enabled in the Sphinx Stack by default.
 ``sphinx_terminal``
    Renders styled terminal sessions and command-line output within the documentation.
 
-``sphinx_ubuntu_images``
-   Generates lists of official Ubuntu disk images for specific release ranges and architectures.
-
 ``sphinx_youtube_links``
    Provides a directive to embed YouTube videos into a page.
 
 ``sphinxcontrib.cairosvgconverter``
    Converts SVG images into PDF.
 
+``canonical_sphinx``
+   Required for the Sphinx Stack. Provides the Furo-based theme and custom templates.
+
+   .. versionremoved:: 3.0
+
+      Replaced by the Ulwazi theme.
+
+``notfound.extension``
+   Allows creating custom 404 pages.
+
+   .. versionremoved:: 3.0
+
+      Now set up automatically by the Ulwazi theme.
+
+``sphinx_contributor_listing``
+   Automatically generates a list of contributors to the project repository.
+
+   .. versionremoved:: 3.0
+
+      No longer aligns with Canonical design practices.
+
+``sphinx_filtered_toctree``
+   Filters Table of Contents (``toctree``) entries based on specific tags or conditions.
+
+   .. versionremoved:: 3.0
+
+      Was a holdover from a previously removed feature.
+
+``sphinx_last_updated_by_git``
+   Fetches and displays the accurate 'last updated' date for pages by reading Git commit
+   metadata.
+
+   .. versionremoved:: 3.0
+
+      Now set up automatically by the sphinx-sitemap extension.
+
+``sphinx_reredirects``
+   Handles URL redirects for moved or deleted pages.
+
+   .. versionremoved:: 3.0
+
+      Replaced by the sphinx-rerediraffe extension.
+
+``sphinx_tabs.tabs``
+   Provides tabs.
+
+   .. versionremoved:: 3.0
+
+      Replaced by the sphinx-design extension.
+
+``sphinx_ubuntu_images``
+   Generates lists of official Ubuntu disk images for specific release ranges and architectures.
+
+   .. versionremoved:: 3.0
+
+      Removed due to its low adoption rate, but can be reinstalled in downstream projects
+      that use its directive.
