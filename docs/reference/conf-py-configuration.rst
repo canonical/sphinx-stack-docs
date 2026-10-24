@@ -125,7 +125,7 @@ Feedback button
    * - ``html_context["feedback"]``
      - Controls the feedback button and the "edit this page" / "view source" icons. Set to ``True`` to show them (requires ``github_url`` to be set); unset or ``False`` hides them.
    * - ``html_context["default_source_extension"]``
-     - Source file extension used to build edit/view links on generated pages (such as the index). Set to ``".md"`` for MyST Markdown documentation (the default is ``".rst"``).
+     - Source file extension used to build edit/view links on generated pages that don't have a source file (such as the general index, ``genindex``). Set to ``".md"`` for MyST Markdown documentation (the default is ``".rst"``).
 
 
 .. _conf-py-optional-configuration:
