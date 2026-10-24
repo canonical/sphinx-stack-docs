@@ -75,7 +75,10 @@ previously set up behind the scenes with the canonical-sphinx extension.
 ```
 
 If your project is based on Sphinx Stack 1.3 or higher, then the MyST parser is already
-listed as a dependency.
+listed as a dependency. Older projects that used `canonical-sphinx[full]` didn't list
+their extensions in `docs/requirements.txt`; after switching to Ulwazi, add every
+extension your content actually uses (for example `myst-parser`, `sphinx-design`,
+`sphinx-copybutton`) to the requirements file as well.
 
 Add the following line to your configuration:
 
