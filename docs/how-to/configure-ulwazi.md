@@ -51,6 +51,14 @@ automatically.
   ]
 ```
 
+If your project declares edit and view links through the `html_theme_options` dictionary
+(for example, with a `source_edit_link` entry), remove that dictionary or the affected
+entries. Ulwazi doesn't support these theme options: the edit and view links are built
+from `html_context["github_url"]` (and the `repo_branch` and `repo_folder` keys, if
+your branch or directory layout differs from the defaults). An unsupported option
+produces the `unsupported theme option` build warning, which makes the build fail on
+Read the Docs and in Sphinx Stack Makefiles, both of which treat warnings as errors.
+
 If you write documentation with MyST markdown, add the MyST parser as well. This was
 previously set up behind the scenes with the canonical-sphinx extension.
 
