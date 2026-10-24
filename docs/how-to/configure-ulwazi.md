@@ -51,6 +51,12 @@ automatically.
   ]
 ```
 
+```{note}
+Keep `"ulwazi"` as the first entry in the `extensions` list. Its position matters:
+some extensions added later in this guide (notably `sphinx_modern_pdf_style`) only
+work when Ulwazi is loaded before them.
+```
+
 If your project declares edit and view links through the `html_theme_options` dictionary
 (for example, with a `source_edit_link` entry), remove that dictionary or the affected
 entries. Ulwazi doesn't support these theme options: the edit and view links are built
