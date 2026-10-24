@@ -40,9 +40,13 @@ The ``Project Information`` section contains settings for your project's officia
      
        * Product website links (``product_page``)
        * Community or contact links (``discourse``, ``mattermost``, ``matrix``)
-       * Documentation source and issue integration (``github_url``, ``repo_default_branch``, ``repo_folder``, ``github_issues``)
-       * UI behavior (``sequential_nav``, ``display_contributors``)
+       * Documentation source and issue integration (``github_url``, ``repo_branch``, ``repo_folder``, ``feedback``)
+       * Brand and analytics (``logo_title``, ``logo_link_URL``, ``logo_img_URL``, ``tag_id``)
        * Footer and license metadata (``author``, ``license``)
+       
+       See the `Ulwazi html_context reference
+       <https://documentation.ubuntu.com/ulwazi/content/configuration/>`__ for the complete list
+       of supported keys, their defaults, and the keys that are no longer supported.
    * - ``html_theme_options``
      - Sets options that the HTML theme reads when rendering pages. 
 
@@ -118,10 +122,10 @@ Feedback button
      - Description
    * - ``html_context["github_url"]``
      - Specifies the URL of the GitHub repository where feedback issues are created.
-   * - ``disable_feedback_button``
-     - Disables the feedback button when set to ``True``.
-   * - ``html_context["feedback_link"]``
-     - Set this if your team doesn't use GitHub issues for feedback. This setting takes precedence over the link constructed with ``github_url`` if set.
+   * - ``html_context["feedback"]``
+     - Controls the feedback button and the "edit this page" / "view source" icons. Set to ``True`` to show them (requires ``github_url`` to be set); unset or ``False`` hides them.
+   * - ``html_context["default_source_extension"]``
+     - Source file extension used to build edit/view links on generated pages (such as the index). Set to ``".md"`` for MyST Markdown documentation (the default is ``".rst"``).
 
 
 .. _conf-py-optional-configuration:
@@ -189,24 +193,12 @@ For extensions included with the Sphinx Stack, see :ref:`Default Sphinx extensio
 
 .. _ui-behavior:
 
-UI behavior
-~~~~~~~~~~~
+Previous and next page navigation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``sequential_nav`` key in ``html_context`` controls which Previous and Next navigation buttons are displayed at the bottom of pages. Valid values are:
-
-.. list-table::
-   :widths: 20 80
-   :header-rows: 1
-
-   * - Value
-     - Description
-   * - ``both``
-     - Both the Previous and Next buttons are shown at the bottom.
-   * - ``none``
-     - No Previous or Next button is shown at the bottom.
-   * - ``prev``
-     - Only the Previous button is shown at the bottom.
-   * - ``next``
-     - Only the Next button is shown at the bottom.
+The ``sequential_nav`` key in ``html_context`` was supported by the previous,
+Furo-based theme to control the Previous and Next buttons at the bottom of pages. It
+is **not supported by the Ulwazi theme**, which doesn't render these buttons. Remove
+the key during the update to Ulwazi; setting it has no effect.
 
 For page-specific navigation settings, see :ref:`how-to-add-page-specific-configuration`.
