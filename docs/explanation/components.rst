@@ -92,9 +92,12 @@ By default, Sphinx uses reStructuredText. Markdown is supported through the `MyS
 Canonical theme
 ^^^^^^^^^^^^^^^
 
-The Canonical theme is packaged as a standalone `canonical-sphinx
-<https://github.com/canonical/canonical-sphinx>`_) extension. It is based on `Furo
-<https://github.com/pradyunsg/furo>`__ and is designed to follow Canonical branding.
+The Canonical theme is packaged as a standalone extension, `Ulwazi
+<https://github.com/canonical/ulwazi>`__. It is based on the `Vanilla framework
+<https://vanillaframework.io/>`__ and is designed to follow Canonical branding.
+Previous Sphinx Stack versions used the `canonical-sphinx
+<https://github.com/canonical/canonical-sphinx>`__ extension based on Furo; see
+:ref:`Configure the Ulwazi theme <how-to-configure-ulwazi>` for the migration steps.
 
 
 Command-line tools
