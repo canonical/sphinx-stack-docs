@@ -102,6 +102,20 @@ The documentation builds, but a lot of information is still missing. Ulwazi offe
 of freedom when it comes to elements in the banner and footer, but to align your docs
 with Canonical standards, you must update your configuration according to this section.
 
+Before moving on, check the banner: if your project had a `_templates` directory with
+`header.html` or `footer.html` overrides from the previous theme, these templates are
+**silently ignored** by Ulwazi. Custom functionality that used to live there -- Google
+Analytics or Google Tag Manager tags, custom header menus, previous/next page navigation,
+or footer additions -- disappears without any build error. Note that Ulwazi performs the
+most common customisations in configuration values instead: analytics runs by default
+(customise it with the `tag_id` key), the tracker-settings link is part of the default
+footer, and external resources can be linked through the `help_links` panel. If you
+still need custom HTML templates, port the relevant markup to override the template
+names Ulwazi actually calls (for example `sections/header.html`). See the [Ulwazi
+configuration
+reference](https://documentation.ubuntu.com/ulwazi/content/configuration/) for details,
+and verify your customisations page by page after the migration.
+
 To ensure that a persistent element tells users they're looking at product docs, append
 "documentation" to the `project` string. This gets rendered on the banner and will serve
 as the home page link once we're done.
