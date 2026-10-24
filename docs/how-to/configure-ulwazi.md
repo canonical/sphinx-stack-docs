@@ -285,9 +285,44 @@ configuration file:
 :caption: conf\.py
 
   extensions = [
+      "ulwazi",  # must stay first
 +     "sphinx_modern_pdf_style",
       # ...
   ]
 
 + set_modern_pdf_config = True
 ```
+
+```{important}
+The `"ulwazi"` entry must come **before** `"sphinx_modern_pdf_style"` in the
+`extensions` list. The reverse order produces the build warning `List "ulwazi" before
+"sphinx_modern_pdf_style" in extensions...`, which fails the build when warnings are
+treated as errors, and the Canonical PDF branding (the logo and footer assets) is not
+applied to the PDF output.
+```
+
+## Check the Read the Docs configuration
+
+Your local build doesn't use the `.readthedocs.yaml` file, but Read the Docs builds do,
+and the Ulwazi switch affects them in two places:
+
+- **`fail_on_warning: true`** turns every warning in this guide into a build failure on
+  Read the Docs -- including the unsupported-theme-option warning and the extension-order
+  warning described above. Always run at least one local build with the same setting
+  (`make html`, which treats warnings as errors) before merging the migration.
+- **`formats: - pdf`** builds the PDF on Read the Docs with the same extension setup, so
+  the PDF section of this guide applies to the Read the Docs output as well. Watch the
+  PDF build logs after the update for a missing Canonical logo and footer assets, which
+  indicate a wrong extension order.
+
+If your Read the Docs configuration installs `docs/requirements.txt` (the default
+`python.install` setup), no further changes are needed in `.readthedocs.yaml` for the
+Ulwazi update itself.
+
+## Report Ulwazi issues
+
+If you run into a bug or a rendering problem during or after the migration, report it to
+the Ulwazi repository: [file a GitHub issue on
+canonical/ulwazi](https://github.com/canonical/ulwazi/issues/new). When filing, mention
+your `ulwazi` and Sphinx versions and, if possible, a link to the affected page. This
+helps the theme team fix the problems that the migration uncovers.
