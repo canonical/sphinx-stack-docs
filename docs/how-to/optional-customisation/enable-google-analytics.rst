@@ -157,4 +157,7 @@ To customise the Google Tag Manager container on Ulwazi, set the ``tag_id`` key 
     }
 
 If you keep the default setup, pages are tagged with Canonical's shared container
-(``GTM-N384JMX2``).
+(``GTM-N384JMX2``). We are adopting this new tag across all our documentation, replacing the older
+one (``GTM-KNX3CJC``). See
+[Change Google tag PR](https://github.com/canonical/ulwazi/pull/153/changes#diff-d319cc33128be4fb7680df1d6c03e74b4c24d5de70ce8f02884611d449dc3c1dR119)
+in the Ulwazi repository.
