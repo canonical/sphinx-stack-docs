@@ -51,6 +51,20 @@ automatically.
   ]
 ```
 
+```{note}
+Keep `"ulwazi"` as the first entry in the `extensions` list. Its position matters:
+some extensions added later in this guide (notably `sphinx_modern_pdf_style`) only
+work when Ulwazi is loaded before them.
+```
+
+If your project declares edit and view links through the `html_theme_options` dictionary
+(for example, with a `source_edit_link` entry), remove that dictionary or the affected
+entries. Ulwazi doesn't support these theme options: the edit and view links are built
+from `html_context["github_url"]` (and the `repo_branch` and `repo_folder` keys, if
+your branch or directory layout differs from the defaults). An unsupported option
+produces the `unsupported theme option` build warning, which makes the build fail on
+Read the Docs and in Sphinx Stack Makefiles, both of which treat warnings as errors.
+
 If you write documentation with MyST markdown, add the MyST parser as well. This was
 previously set up behind the scenes with the canonical-sphinx extension.
 
@@ -67,7 +81,10 @@ previously set up behind the scenes with the canonical-sphinx extension.
 ```
 
 If your project is based on Sphinx Stack 1.3 or higher, then the MyST parser is already
-listed as a dependency.
+listed as a dependency. Older projects that used `canonical-sphinx[full]` didn't list
+their extensions in `docs/requirements.txt`; after switching to Ulwazi, add every
+extension your content actually uses (for example `myst-parser`, `sphinx-design`,
+`sphinx-copybutton`) to the requirements file as well.
 
 Add the following line to your configuration:
 
@@ -91,6 +108,20 @@ The documentation builds, but a lot of information is still missing. Ulwazi offe
 of freedom when it comes to elements in the banner and footer, but to align your docs
 with Canonical standards, you must update your configuration according to this section.
 
+Before moving on, check the banner: if your project had a `_templates` directory with
+`header.html` or `footer.html` overrides from the previous theme, these templates are
+**silently ignored** by Ulwazi. Custom functionality that used to live there -- Google
+Analytics or Google Tag Manager tags, custom header menus, previous/next page navigation,
+or footer additions -- disappears without any build error. Note that Ulwazi performs the
+most common customisations in configuration values instead: analytics runs by default
+(customise it with the `tag_id` key), the tracker-settings link is part of the default
+footer, and external resources can be linked through the `help_links` panel. If you
+still need custom HTML templates, port the relevant markup to override the template
+names Ulwazi actually calls (for example `sections/header.html`). See the [Ulwazi
+configuration
+reference](https://documentation.ubuntu.com/ulwazi/content/configuration/) for details,
+and verify your customisations page by page after the migration.
+
 To ensure that a persistent element tells users they're looking at product docs, append
 "documentation" to the `project` string. This gets rendered on the banner and will serve
 as the home page link once we're done.
@@ -109,6 +140,18 @@ Then, update the `html_title` variable that gets appended to each page's title.
 
 - html_title = project + " documentation"
 + html_title = project
+```
+
+```{note}
+After this change, check the rendered root page and the feedback button. Known Ulwazi
+issues can duplicate visible strings when the `project` already ends with
+"documentation": the root page `<title>` may render the title twice
+([ulwazi#202](https://github.com/canonical/ulwazi/issues/202)), and the feedback issue
+template may produce "MyProject documentation documentation"
+([ulwazi#203](https://github.com/canonical/ulwazi/issues/203)). Track the linked
+issues for fixes; if the duplication bothers you before a fix lands, check whether
+your root page looks acceptable and keep the trailing "documentation" in place, since
+removing it also changes the banner and page suffixes.
 ```
 
 The rest of the Ulwazi configuration is done in the configuration file's `html_context`
@@ -144,6 +187,17 @@ dictionary. Start by replacing your current `html_context` dictionary as follows
 
 Update each value with your project's URL for the platform. If your project does *not*
 have a presence on one of the platforms, leave the entry intact and the string empty.
+
+Some removed keys still work in Ulwazi and may be worth keeping:
+
+- If your product page is different from your documentation root, keep the
+  `"product_page"` entry (without the `https://` prefix, for example
+  `"canonical.com/data/kafka"`). The banner link to your product uses it.
+- If your documentation doesn't live on the `main` branch or isn't stored under
+  `docs/`, keep `"repo_branch"` or `"repo_folder"`. The legacy
+  `repo_default_branch` key is ignored by Ulwazi; rename it to `repo_branch`.
+  On Read the Docs branch builds, Ulwazi derives the correct branch
+  automatically.
 
 Next, add the following entries to configure the banner:
 
@@ -237,9 +291,31 @@ configuration file:
 :caption: conf\.py
 
   extensions = [
+      "ulwazi",  # must stay first
 +     "sphinx_modern_pdf_style",
       # ...
   ]
 
 + set_modern_pdf_config = True
 ```
+
+```{important}
+The `"ulwazi"` entry must come **before** `"sphinx_modern_pdf_style"` in the
+`extensions` list. The reverse order produces the build warning `List "ulwazi" before
+"sphinx_modern_pdf_style" in extensions...`, which fails the build when warnings are
+treated as errors, and the Canonical PDF branding (the logo and footer assets) is not
+applied to the PDF output.
+```
+
+Read the Docs builds this PDF as well (`formats: - pdf`) with `fail_on_warning` in
+effect, so verify the extension order before pushing. No `.readthedocs.yaml` changes
+are needed for this update -- the `docs/requirements.txt` file you already edited is
+what Read the Docs installs.
+
+## Report Ulwazi issues
+
+If you run into a bug or a rendering problem during or after the migration, report it to
+the Ulwazi repository: [file a GitHub issue on
+canonical/ulwazi](https://github.com/canonical/ulwazi/issues/new). When filing, mention
+your `ulwazi` and Sphinx versions and, if possible, a link to the affected page. This
+helps the theme team fix the problems that the migration uncovers.

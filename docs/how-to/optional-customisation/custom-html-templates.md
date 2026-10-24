@@ -8,6 +8,16 @@ myst:
 
 # Use custom HTML templates
 
+```{attention}
+This page describes overriding templates in the **previous (Furo-based)** theme. The
+template names shown here (`page.html`, `header.html`, `footer.html`) are **not used by
+the Ulwazi theme**, so overrides with these names are silently ignored. See the
+[Ulwazi configuration reference](https://documentation.ubuntu.com/ulwazi/content/configuration/)
+for the configuration options that replace most of these customisations, and use the
+template names Ulwazi actually renders (for example `sections/header.html`,
+`sections/footer.html`, `layout.html`) when overriding is unavoidable.
+```
+
 If the default template in the Sphinx Stack doesn't fully meet your needs -- whether you
 want a unique layout, a custom header or footer, or a specialized sidebar for certain
 pages -- you can create and use a custom template for your project.

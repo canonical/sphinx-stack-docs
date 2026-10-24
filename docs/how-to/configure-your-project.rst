@@ -27,4 +27,4 @@ Steps 1 – 5 cover the required configuration. For details, see :ref:`Required 
 
 - `Sphinx configuration <https://www.sphinx-doc.org/en/master/usage/configuration.html>`__
 - `Sphinx extensions <https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`__
-- `Furo documentation <https://pradyunsg.me/furo/quickstart/>`__
+- `Ulwazi configuration reference <https://documentation.ubuntu.com/ulwazi/content/configuration/>`__
