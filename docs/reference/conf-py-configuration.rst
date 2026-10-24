@@ -196,9 +196,10 @@ For extensions included with the Sphinx Stack, see :ref:`Default Sphinx extensio
 Previous and next page navigation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``sequential_nav`` key in ``html_context`` was supported by the previous,
-Furo-based theme to control the Previous and Next buttons at the bottom of pages. It
-is **not supported by the Ulwazi theme**, which doesn't render these buttons. Remove
-the key during the update to Ulwazi; setting it has no effect.
+The ``sequential_nav`` key in ``html_context`` controlled the Previous and Next
+navigation buttons in the previous, Furo-based theme. Ulwazi doesn't support this key
+yet -- re-implementation is tracked in
+`canonical/ulwazi#196 <https://github.com/canonical/ulwazi/issues/196>`__ -- so remove
+the key; it currently has no effect.
 
 For page-specific navigation settings, see :ref:`how-to-add-page-specific-configuration`.
