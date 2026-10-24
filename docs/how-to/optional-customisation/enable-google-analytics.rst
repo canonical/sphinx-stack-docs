@@ -6,6 +6,12 @@
 Enable Google Analytics
 =======================
 
+.. attention::
+
+   Since the move to the Ulwazi theme, custom ``_templates`` overrides are not applied.
+   Use the configuration-based method described in
+   :ref:`Use Google Analytics on Ulwazi <use-google-analytics-on-ulwazi>` instead.
+
 Many documentation sites collect page view and user behavior data with Google Analytics.
 Collecting this data requires the user's consent.
 
@@ -124,3 +130,31 @@ directory:
     make run
 
 You may need to clear your browser cache for changes to take effect.
+
+.. _use-google-analytics-on-ulwazi:
+
+Use Google Analytics on Ulwazi
+------------------------------
+
+Ulwazi replaces the template-based approach: the Google Tag Manager snippet, the
+``Manage your tracker settings`` footer link, and the cookie-banner stylesheet are
+built into the theme, and the JavaScript for the cookie banner is loaded through the
+``html_js_files`` entry in the default ``conf.py``. Projects that override
+``header.html`` or ``footer.html`` from the previous theme must remove those
+overrides, because Ulwazi never calls them and the overrides make the old
+customisations -- including any custom Google Tag Manager container -- silently
+disappear.
+
+To customise the Google Tag Manager container on Ulwazi, set the ``tag_id`` key in
+``html_context``:
+
+.. code-block:: python
+    :caption: conf.py
+
+    html_context = {
+        # Replace the default container with your own:
+        "tag_id": "GTM-YOURCONTAINER",
+    }
+
+If you keep the default setup, pages are tagged with Canonical's shared container
+(``GTM-N384JMX2``).
