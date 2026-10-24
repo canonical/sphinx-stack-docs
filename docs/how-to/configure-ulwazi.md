@@ -136,6 +136,18 @@ Then, update the `html_title` variable that gets appended to each page's title.
 + html_title = project
 ```
 
+```{note}
+After this change, check the rendered root page and the feedback button. Known Ulwazi
+issues can duplicate visible strings when the `project` already ends with
+"documentation": the root page `<title>` may render the title twice
+([ulwazi#202](https://github.com/canonical/ulwazi/issues/202)), and the feedback issue
+template may produce "MyProject documentation documentation"
+([ulwazi#203](https://github.com/canonical/ulwazi/issues/203)). Track the linked
+issues for fixes; if the duplication bothers you before a fix lands, check whether
+your root page looks acceptable and keep the trailing "documentation" in place, since
+removing it also changes the banner and page suffixes.
+```
+
 The rest of the Ulwazi configuration is done in the configuration file's `html_context`
 dictionary. Start by replacing your current `html_context` dictionary as follows:
 
