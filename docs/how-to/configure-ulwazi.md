@@ -307,23 +307,10 @@ treated as errors, and the Canonical PDF branding (the logo and footer assets) i
 applied to the PDF output.
 ```
 
-## Check the Read the Docs configuration
-
-Your local build doesn't use the `.readthedocs.yaml` file, but Read the Docs builds do,
-and the Ulwazi switch affects them in two places:
-
-- **`fail_on_warning: true`** turns every warning in this guide into a build failure on
-  Read the Docs -- including the unsupported-theme-option warning and the extension-order
-  warning described above. Always run at least one local build with the same setting
-  (`make html`, which treats warnings as errors) before merging the migration.
-- **`formats: - pdf`** builds the PDF on Read the Docs with the same extension setup, so
-  the PDF section of this guide applies to the Read the Docs output as well. Watch the
-  PDF build logs after the update for a missing Canonical logo and footer assets, which
-  indicate a wrong extension order.
-
-If your Read the Docs configuration installs `docs/requirements.txt` (the default
-`python.install` setup), no further changes are needed in `.readthedocs.yaml` for the
-Ulwazi update itself.
+Read the Docs builds this PDF as well (`formats: - pdf`) with `fail_on_warning` in
+effect, so verify the extension order before pushing. No `.readthedocs.yaml` changes
+are needed for this update -- the `docs/requirements.txt` file you already edited is
+what Read the Docs installs.
 
 ## Report Ulwazi issues
 
