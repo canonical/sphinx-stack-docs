@@ -182,6 +182,17 @@ dictionary. Start by replacing your current `html_context` dictionary as follows
 Update each value with your project's URL for the platform. If your project does *not*
 have a presence on one of the platforms, leave the entry intact and the string empty.
 
+Some removed keys still work in Ulwazi and may be worth keeping:
+
+- If your product page is different from your documentation root, keep the
+  `"product_page"` entry (without the `https://` prefix, for example
+  `"canonical.com/data/kafka"`). The banner link to your product uses it.
+- If your documentation doesn't live on the `main` branch or isn't stored under
+  `docs/`, keep `"repo_branch"` or `"repo_folder"`. The legacy
+  `repo_default_branch` key is ignored by Ulwazi; rename it to `repo_branch`.
+  On Read the Docs branch builds, Ulwazi derives the correct branch
+  automatically.
+
 Next, add the following entries to configure the banner:
 
 ```{code-block} diff
